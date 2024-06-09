@@ -1,15 +1,19 @@
-/* DIVIDER CSS */
 
+
+body{
+  background-color: #f0f0f0;
+}
+
+/* DIVIDER CSS */
 .b-example-divider {
   height: 3rem;
-  background-color: rgba(0, 0, 0, .1);
+  background-color: #333333;
   border: solid rgba(0, 0, 0, .15);
   border-width: 1px 0;
-  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+  /* box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15); */
 }
 
 /* HEADER CSS */
-
 .form-control-dark {
   color: #fff;
   background-color: var(--bs-dark);
@@ -36,9 +40,13 @@
 }
 
 /* HERO CSS */
-
 @media (min-width: 992px) {
   .rounded-lg-3 { border-radius: .3rem; }
 }
 
+/* SOCIAL HERO */
+
+.custom-bg {
+  background-color: #f0f0f0; /* Replace with your desired color */
+}
 
