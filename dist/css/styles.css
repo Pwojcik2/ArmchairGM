@@ -53,6 +53,23 @@ body{
   text-decoration: none;
 }
 
+/* Initially hide the abbreviated version */
+.teamName.abbreviated {
+  display: none;
+}
+
+/* Media query for screen width 1000px and below */
+@media screen and (max-width: 1500px) {
+  /* Hide the full name */
+  .teamName.full {
+      display: none;
+  }
+  /* Show the abbreviated name */
+  .teamName.abbreviated {
+      display: inline;
+  }
+}
+
 /* SOCIAL HERO */
 
 .custom-bg {
