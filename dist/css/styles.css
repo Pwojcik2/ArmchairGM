@@ -76,3 +76,24 @@ body{
   background-color: #f0f0f0; /* Replace with your desired color */
 }
 
+/* RANGERS PAGE */
+
+.noMargin {
+  margin-bottom: 0;
+}
+
+.pickTraded {
+  opacity: .4;
+}
+
+.redUFA {
+  background-color: red;
+  color: white; 
+  border-radius: 3px;
+}
+
+.blueRFA {
+  background-color: rgb(0, 162, 255);
+  color: white; 
+  border-radius: 3px;
+}
