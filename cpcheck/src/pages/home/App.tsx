@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from "react-router-dom";
 import './App.css'
 
 function App() {
@@ -362,10 +363,10 @@ function App() {
 
                     {/* <!-- RANGERS --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the New York Rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                        <a href="/teams/rangers.html" className="teamName full">New York Rangers</a>
-                        <a href="/teams/rangers.html" className="teamName abbreviated">NYR</a>
+                        <Link to={'/teams/rangers'} className="teamName full">New York Rangers</Link>
+                        <Link to={'/teams/rangers'} className="teamName abbreviated">NYR</Link>
                     </td>
                     <td className="text-center">18/23</td>
                     <td className="text-center">38/50</td>

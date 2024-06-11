@@ -1,10 +1,26 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './pages/home/App.tsx'
+import Rangers from './pages/teams/rangers/Rangers.tsx'
 import './index.css'
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App/>,
+  },
+  {
+    path: "teams/rangers",
+    element: <Rangers/>
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>,
 )
