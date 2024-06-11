@@ -1,46 +1,133 @@
 import { Link } from "react-router-dom";
-// import '../../home/App.css'
+import Navbar from "../../../components/Navbar";
+import '../../home/App.css'
+import * as React from 'react';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+
+var rangersImg = <img className="im_mid" style={{ height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px' }} alt="Logo of the rangers" title="rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>;
+var rangersDraftImg = <img className="im_mid" style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the New York Rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
+var rangersDraftImgTraded = <img className="pickTraded" style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the New York Rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
+var minnesotaDraft = <img className="im_mid" style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the Minnesota Wild" src="https://cdn2.capfriendly.com/images/logos/minnesota_wild.svg"/>
+var vancouverDraft = <img className="im_mid" style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the Vancouver Canucks" src="https://cdn2.capfriendly.com/images/logos/vancouver_canucks.svg"/>
+
+function createInjuries(
+  name: string,
+  injury: string,
+  link: string,
+) {
+  return { name, injury, link,};
+}
+
+function createRecalls(
+  playerName: string,
+  recall: string,
+  link: string,
+) {
+  return {playerName, recall, link};
+}
+
+function createPlayer(
+  name: string,
+  terms: string,
+  pos: string,
+  status: string,
+  acquired: string,
+  age: number,
+  cap: string,
+  year2024: string,
+  year2025: string,
+  year2026: string,
+  year2027: string,
+  year2028: string,
+  year2029: string,
+  year2030: string,
+  link: string,
+) {
+  return {
+    name,
+    terms,
+    pos,
+    status,
+    acquired,
+    age,
+    cap,
+    year2024,
+    year2025,
+    year2026,
+    year2027,
+    year2028,
+    year2029,
+    year2030,
+    link
+  };
+}
+
+const forwardData = [
+  createPlayer('Panarin, Artemi "A"', 'NMC', 'LW', 'NHL', 'Signed', 32, '13.2', '$11,642,857', '$11,642,857', 'RFA', '', '', '','', '#'),
+  createPlayer('Zibanejad, Mika "A"', 'NMC', 'C', 'NHL', 'Trade', 31, '9.7', '$8,500,000', '$8,500,000', '$8,500,000', '$8,500,000', '$8,500,000', '$8,500,000','', '#'),
+  createPlayer('Kreider, Chris "A"', 'M-NTC, NMC', 'LW', 'NHL', 'Draft', 32, '7.4', '$6,500,000', '$6,500,000', '$6,500,000', 'UFA', '', '', '', '#'),
+  createPlayer('Trocheck, Vincent', 'NMC', 'C, RW', 'NHL', 'Signed', 30, '6.4', '$5,625,000', '$5,625,000', '$5,625,000', '$5,625,000', '$5,625,000', 'UFA', '', '#'),
+  createPlayer('Chytil, Filip', '', 'C, LW', 'NHL', 'Draft', 24, '5.0', '$4,437,500', '$4,437,500', '$4,437,500', 'UFA', '', '', '', '#'),
+  createPlayer('Goodrow, Barclay "A"', 'M-NTC', 'C, LW', 'NHL', 'Trade', 31, '4.1', '$3,641,667', '$3,641,667', '$3,641,667', 'UFA', '', '', '', '#'),
+  createPlayer('Lafrenière, Alexis', '', 'LW, RW', 'NHL', 'Draft', 22, '2.6', '$2,325,000', 'RFA', '', '', '', '','', '#'),
+  createPlayer('Edström, Adam', 'ELC', 'C, LW', 'NHL', 'Draft', 23, '1.0', '$846,667', 'RFA', '', '', '', '','', '#'),
+  createPlayer('Cuylle, Will', 'ELC', 'LW', 'NHL', 'Draft', 22, '0.9', '$828,333', 'RFA', '', '', '', '','', '#'),
+  createPlayer('Rempe, Matt', 'ELC', 'C, RW', 'NHL', 'Draft', 21, '0.9', '$820,000', 'RFA', '', '', '', '','', '#'),
+  createPlayer('Cuylle, Will', '', 'RW, LW', 'NHL', 'Signed', 31, '0.9', '$800,000', 'UFA', '', '', '', '','', '#'),
+  createPlayer('Brodzinski, Jonny', '', 'C', 'NHL', 'Signed', 30, '0.9', '$787,500', '$787,500', 'UFA', '', '', '','', '#'),
+  createPlayer('Kakko, Kaapo', '', 'RW', 'NHL', 'Draft', 23, '', 'RFA', '', '', '', '','','', '#'),
+  createPlayer('Roslovic, Jack', '', 'C, RW', 'NHL', 'Trade', 27, '', 'UFA', '', '', '', '','','', '#'),
+  createPlayer('Wennberg, Alexander', '', 'C', 'NHL', 'Trade', 29, '', 'UFA', '', '', '', '','','', '#'),
+  createPlayer('Wheeler, Blake', '', 'RW', 'NHL', 'Signed', 37, '', 'UFA', '', '', '', '','','', '#'),
+  createPlayer('TOTAL', '', '', '', '', 27.9, '53.1', '$46,754,524', '$41,134,524', '$28,704,167', '$14,125,000', '$14,125,000', '$8,500,000', '', '#')
+];
+
+const defensemenData = [
+  createPlayer('Fox, Adam', '', 'RD', 'NHL', 'Trade', 26, '10.8', '$9,500,000', '$9,500,000', '$9,500,000', '$9,500,000', '$9,500,000', 'UFA', '', '#'),
+  createPlayer('Trouba, Jacob "C"', 'M-NTC', 'RD', 'NHL', 'Trade', 30, '9.1', '$8,000,000', '$8,000,000', 'UFA', '', '', '', '', '#'),
+  createPlayer('Miller, K\'Andre', '', 'LD', 'NHL', 'Draft', 24, '4.4', '$3,872,000', 'RFA', '', '', '', '', '', '#'),
+  createPlayer('Jones, Zachary', '', 'LD', 'NHL', 'Draft', 23, '0.9', '$812,500', 'RFA', '', '', '', '', '', '#'),
+  createPlayer('Lindgren, Ryan', '', 'LD', 'NHL', 'Trade', 26, '', 'RFA', '', '', '', '', '','', '#'),
+  createPlayer('Schneider, Braden', '', 'RD', 'NHL', 'Draft', 22, '', 'RFA', '', '', '', '', '','', '#'),
+  createPlayer('Gustafsson, Erik', '', 'LD', 'NHL', 'Signed', 32, '', 'UFA', '', '', '', '', '','', '#'),
+  createPlayer('Ruhwedel, Chad', '', 'RD', 'NHL', 'Trade', 34, '', 'UFA', '', '', '', '', '','', '#'),
+  createPlayer('TOTAL', '', '', '', '', 27.1, '25.2', '$22,184,500', '$17,500,000', '$9,500,000', '$9,500,000', '$9,500,000', '', '', '#')
+];
+
+const goaliesData = [
+  createPlayer('Shesterkin, Igor', 'M-NTC', 'G', 'NHL', 'Draft', 28, '6.4', '$5,666,667', 'UFA', '', '', '', '', '', '#'),
+  createPlayer('Quick, Jonathan', '35+ M-NTC', 'G', 'NHL', 'Signed', 38, '1.4', '$1,275,000', 'UFA', '', '', '', '', '', '#'),
+  createPlayer('TOTAL', '', '', '', '', 33.0, '7.9', '$6,941,667', '', '', '', '', '', '', '#')
+];
+
+const injuryData = [
+  createInjuries('Jimmy Vesey', 'Upper Body(Wk to wk) - May 26', '#'),
+  createInjuries('Filip Chytil', 'Cleared - May 22', '#'),
+  createInjuries('Blake Wheeler', 'Cleared - May 16', '#'),
+  createInjuries('Filip Chytil', 'Cleared - May 9', '#'),
+  createInjuries('Erik Gustafsson', 'Cleared - Apr. 3', '#'),
+];
+
+const recallData = [
+  createRecalls('Louis Domingue', 'Set to Roster - May 25', '#'),
+  createRecalls('Adam Sýkora', 'NHL - May 25', '#'),
+  createRecalls('Brandon Scanlin', 'NHL - May 25', '#'),
+  createRecalls('Matthew Robertson', 'NHL - May 25', '#'),
+  createRecalls('Tyler Pitlick', 'NHL - May 25', '#'),
+];
 
 function Rangers() {
     return (
     <>
     <div>
-        {/* <!-- HEADER --> */}
-        <div className="container">
-            <header className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-              <Link to={'/'} className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                {/* <!-- <svg className="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg> --> */}
-                <span className="fs-4">CapCheck</span>
-              </Link>
-              <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                <input type="search" className="form-control" placeholder="Search..." aria-label="Search"/>
-              </form>
-        
-              <ul className="nav nav-pills">
-                <li className="nav-item"><Link to={' '} className="nav-link active" aria-current="page">Home</Link></li>
-    
-                <Link to={' '} className="nav-link dropdown-toggle"  id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Teams</Link>
-                <ul className="dropdown-menu" aria-labelledby="dropdown01">
-                  <li><Link to={' '} className="dropdown-item" >Action</Link></li>
-                  <li><Link to={' '} className="dropdown-item" >Another action</Link></li>
-                  <li><Link to={' '} className="dropdown-item" >Something else here</Link></li>
-                </ul>
-    
-                <Link to={' '} className="nav-link dropdown-toggle"  id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Players</Link>
-                <ul className="dropdown-menu" aria-labelledby="dropdown01">
-                  <li><Link to={' '} className="dropdown-item" >Action</Link></li>
-                  <li><Link to={' '} className="dropdown-item" >Another action</Link></li>
-                  <li><Link to={' '} className="dropdown-item" >Something else here</Link></li>
-                </ul>
-    
-                <li className="nav-item"><Link to={' '} className="nav-link">FAQs</Link></li>
-                <li className="nav-item"><Link to={' '} className="nav-link">About</Link></li>
-              </ul>
-            </header>
-        </div>
-
-    
-        <div className="p-5 mb-4 bg-light rounded-3">
+      <Navbar/>
+        <div className="p-5 mb-4 mt-5 bg-light rounded-3">
             <div className="container-fluid">
                 {/* <!-- TEAM FINANCES --> */}
                 <div className="text-center">
@@ -78,53 +165,33 @@ function Rangers() {
                         <tbody>
                           <tr className="text-center">
                             <td>2024</td>
-                            <td>
-                                <img className="im_mid" style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the New York Rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                            </td>
-                            <td>
-                                <img className="pickTraded" style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the New York Rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                            </td>
-                            <td>
-                                <img className="pickTraded" style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the New York Rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                            </td>
-                            <td>
-                                <img className="im_mid" style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the New York Rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                            </td>
-                            <td>
-                                <img className="im_mid" style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the New York Rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                            </td>
-                            <td>
-                                <img className="im_mid" style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the New York Rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                            </td>
-                            <td>
-                                <img className="im_mid" style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the New York Rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                            </td>
+                            <td>{rangersDraftImg}</td>
+                            <td>{rangersDraftImgTraded}</td>
+                            <td>{rangersDraftImgTraded}</td>
+                            <td>{rangersDraftImg}</td>
+                            <td>{rangersDraftImg}</td>
+                            <td>{rangersDraftImg}</td>
+                            <td>{rangersDraftImg}</td>
                           </tr>
                           <tr className="text-center">
                             <td>2025</td>
-                            <td><img className="im_mid" style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the New York Rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/></td>
-                            <td><img className="pickTraded" style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the New York Rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/></td>
-                            <td><img className="pickTraded" style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the New York Rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/></td>
-                            <td><img className="pickTraded" style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the New York Rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/></td>
-                            <td>
-                                <img className="im_mid" style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the New York Rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                                <img className="im_mid" style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the Minnesota Wild" src="https://cdn2.capfriendly.com/images/logos/minnesota_wild.svg"/>
-                            </td>
-                            <td><img className="im_mid" style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the New York Rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/></td>
-                            <td><img className="im_mid" style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the New York Rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/></td>
+                            <td>{rangersDraftImg}</td>
+                            <td>{rangersDraftImgTraded}</td>
+                            <td>{rangersDraftImgTraded}</td>
+                            <td>{rangersDraftImgTraded}</td>
+                            <td>{rangersDraftImg} {minnesotaDraft}</td>
+                            <td>{rangersDraftImg}</td>
+                            <td>{rangersDraftImg}</td>
                           </tr>
                           <tr className="text-center">
                             <td>2026</td>
-                            <td><img className="im_mid" style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the New York Rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/></td>
-                            <td><img className="pickTraded" style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the New York Rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/></td>
-                            <td><img className="im_mid" style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the New York Rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/></td>
-                            <td><img className="pickTraded" style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the New York Rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/></td>
-                            <td><img className="im_mid" style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the New York Rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/></td>
-                            <td><img className="im_mid" style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the New York Rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/></td>
-                            <td>
-                                <img className="im_mid" style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the New York Rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                                <img className="im_mid" style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the Vancouver Canucks" src="https://cdn2.capfriendly.com/images/logos/vancouver_canucks.svg"/>
-                            </td>
+                            <td>{rangersDraftImg}</td>
+                            <td>{rangersDraftImgTraded}</td>
+                            <td>{rangersDraftImg}</td>
+                            <td>{rangersDraftImgTraded}</td>
+                            <td>{rangersDraftImg}</td>
+                            <td>{rangersDraftImg}</td>
+                            <td>{rangersDraftImg} {vancouverDraft}</td>
                           </tr>
                         </tbody>
                     </table>
@@ -136,118 +203,46 @@ function Rangers() {
                         <div className="col-lg-6">
                           <div className="h-100 p-5 bg-light border rounded-3">
                             <h2 className="text-center">Recalls & Reassignments</h2>
-                            <table className="table">
-                                <tbody>
-                                  <tr>
-                                    <td>
-                                        <img className="im_mid" style={{ height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px' }} alt="Logo of the rangers" title="rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                                        <Link to={' '} className="playerName">Louis Domingue</Link>
-                                    </td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>Set to Roster - May 25</td>
-                                  </tr>
-                                  <tr>
-                                    <td>
-                                        <img className="im_mid" style={{ height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px' }} alt="Logo of the rangers" title="rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                                        <Link to={' '} className="playerName">Adam Sýkora</Link>
-                                    </td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>NHL <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-up" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5"/>
-                                      </svg> - May 25</td>
-                                  </tr>
-                                  <tr>
-                                    <td>
-                                        <img className="im_mid" style={{ height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px' }} alt="Logo of the rangers" title="rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                                        <Link to={' '} className="playerName">Brandon Scanlin</Link>
-                                    </td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>NHL <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-up" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5"/>
-                                      </svg> - May 25</td>
-                                  </tr>
-                                  <tr>
-                                    <td>
-                                        <img className="im_mid" style={{ height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px' }} alt="Logo of the rangers" title="rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                                        <Link to={' '} className="playerName">Matthew Robertson</Link>
-                                    </td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>NHL <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-up" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5"/>
-                                      </svg> - May 25</td>
-                                  </tr>
-                                  <tr>
-                                    <td>
-                                        <img className="im_mid" style={{ height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px' }} alt="Logo of the rangers" title="rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                                        <Link to={' '} className="playerName">Tyler Pitlick</Link>
-                                    </td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>NHL <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-up" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5"/>
-                                      </svg> - May 25</td>
-                                  </tr>
-                                </tbody>
-                            </table>
+                            <TableContainer className="table">
+                            <Table aria-label="simple table">
+                              <TableBody>
+                                {recallData.map((row) => (
+                                  <TableRow
+                                    key={row.playerName}
+                                    sx={{'&:last-child td, &:last-child th': null }}
+                                  >
+                                    <TableCell component="th" scope="row">
+                                    <Link to={row.link}>{rangersImg}{row.playerName}</Link>
+                                    </TableCell>
+                                    <TableCell align="center">{row.recall}</TableCell>
+                                  </TableRow>
+                                ))}
+                              </TableBody>
+                            </Table>
+                            </TableContainer>
                             <button className="btn btn-outline-secondary btn-block" type="button">See All</button>
                           </div>
                         </div>
                         <div className="col-lg-6">
                           <div className="h-100 p-5 bg-light border rounded-3">
                             <h2 className="text-center">Injuries</h2>
-                            <table className="table">
-                                <tbody>
-                                    <tr>
-                                      <td>
-                                        <img className="im_mid" style={{ height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px' }} alt="Logo of the rangers" title="rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                                        <Link to={' '} className="playerName">Jimmy Vesey</Link>
-                                      </td>
-                                      <td></td>
-                                      <td></td>
-                                      <td>Upper Body <span className="small">(Wk to wk)</span> - May 26</td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <img className="im_mid" style={{ height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px' }} alt="Logo of the rangers" title="rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                                        <Link to={' '} className="playerName">Filip Chytil</Link>
-                                      </td>
-                                      <td></td>
-                                      <td></td>
-                                      <td>Cleared - May 22</td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <img className="im_mid" style={{ height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px' }} alt="Logo of the rangers" title="rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                                        <Link to={' '} className="playerName">Blake Wheeler</Link>
-                                      </td>
-                                      <td></td>
-                                      <td></td>
-                                      <td>Cleared - May 16</td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <img className="im_mid" style={{ height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px' }} alt="Logo of the rangers" title="rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                                        <Link to={' '} className="playerName">Filip Chytil</Link>
-                                      </td>
-                                      <td></td>
-                                      <td></td>
-                                      <td>Cleared - May 9</td>
-                                    </tr>
-                                    <tr>
-                                      <td>
-                                        <img className="im_mid" style={{ height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px' }} alt="Logo of the rangers" title="rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                                        <Link to={' '} className="playerName">Erik Gustafsson</Link>
-                                      </td>
-                                      <td></td>
-                                      <td></td>
-                                      <td>Cleared - Apr. 3</td>
-                                    </tr>
-                                  </tbody>
-                            </table>
+                            <TableContainer className="table">
+                            <Table aria-label="simple table">
+                              <TableBody>
+                                {injuryData.map((row) => (
+                                  <TableRow
+                                    key={row.name}
+                                    sx={{'&:last-child td, &:last-child th': null }}
+                                  >
+                                    <TableCell component="th" scope="row">
+                                     <Link to={row.link}> {rangersImg}{row.name}</Link>
+                                    </TableCell>
+                                    <TableCell align="center">{row.injury}</TableCell>
+                                  </TableRow>
+                                ))}
+                              </TableBody>
+                            </Table>
+                            </TableContainer>
                             <button className="btn btn-outline-secondary btn-block" type="button">See All</button>
                           </div>
                         </div>
@@ -256,541 +251,155 @@ function Rangers() {
 
                 {/* <!-- FORWARDS CONTRACTS --> */}
                 <div>
-                    <table className="table">
-                        <thead>
-                            <tr className="text-center">
-                              <th scope="col">FORWARDS (12 - $46,754,524)</th>
-                              <th scope="col">TERMS</th>
-                              <th scope="col">POS</th>
-                              <th scope="col">STATUS</th>
-                              <th scope="col">ACQUIRED</th>
-                              <th scope="col">AGE</th>
-                              <th scope="col">CAP%	</th>
-                              <th scope="col">2024-25</th>
-                              <th scope="col">2025-26</th>
-                              <th scope="col">2026-27</th>
-                              <th scope="col">2027-28</th>
-                              <th scope="col">2028-29</th>
-                              <th scope="col">2029-30</th>
-                            </tr>
-                          </thead>
-                        <tbody>
-                            {/* <!-- PANARIN --> */}
-                          <tr className="text-center">
-                            <td className="text-left"><Link to={' '} className="playerName">Panarin, Artemi</Link> "A"</td>
-                            <td>NMC</td>
-                            <td>LW</td>
-                            <td>NHL</td>
-                            <td>Signed</td>
-                            <td>32</td>
-                            <td>13.2</td>
-                            <td>$11,642,857</td>
-                            <td>$11,642,857</td>
-                            <td><div className="redUFA fw-bold">RFA</div></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                          {/* <!-- MIKA --> */}
-                          <tr className="text-center">
-                            <td className="text-left"><Link to={' '} className="playerName">Zibanejad, Mika</Link> "A"</td>
-                            <td>NMC</td>
-                            <td>C</td>
-                            <td>NHL</td>
-                            <td>Trade</td>
-                            <td>31</td>
-                            <td>9.7</td>
-                            <td>$8,500,000</td>
-                            <td>$8,500,000</td>
-                            <td>$8,500,000</td>
-                            <td>$8,500,000</td>
-                            <td>$8,500,000</td>
-                            <td>$8,500,000</td>
-                          </tr>
-                          {/* <!-- KRIEDER --> */}
-                          <tr className="text-center">
-                            <td className="text-left"><Link to={' '} className="playerName">Kreider, Chris</Link> "A"</td>
-                            <td className="text-nowrap">M-NTC, NMC</td>
-                            <td>LW</td>
-                            <td>NHL</td>
-                            <td>Draft</td>
-                            <td>32</td>
-                            <td>7.4</td>
-                            <td>$6,500,000</td>
-                            <td>$6,500,000</td>
-                            <td>$6,500,000</td>
-                            <td><div className="redUFA fw-bold">UFA</div></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                          {/* <!-- TROCHEK --> */}
-                          <tr className="text-center">
-                            <td className="text-left"><Link to={' '} className="playerName">Trocheck, Vincent</Link></td>
-                            <td>NMC</td>
-                            <td className="text-nowrap">C, RW</td>
-                            <td>NHL</td>
-                            <td>Signed</td>
-                            <td>30</td>
-                            <td>6.4</td>
-                            <td>$5,625,000</td>
-                            <td>$5,625,000</td>
-                            <td>$5,625,000</td>
-                            <td>$5,625,000</td>
-                            <td>$5,625,000</td>
-                            <td><div className="redUFA fw-bold">UFA</div></td>
-                          </tr>
-                          {/* <!-- CHYTIL --> */}
-                          <tr className="text-center">
-                            <td className="text-left"><Link to={' '} className="playerName">Chytil, Filip</Link></td>
-                            <td></td>
-                            <td>C, LW</td>
-                            <td>NHL</td>
-                            <td>Draft</td>
-                            <td>24</td>
-                            <td>5.0</td>
-                            <td>$4,437,500</td>
-                            <td>$4,437,500</td>
-                            <td>$4,437,500</td>
-                            <td><div className="redUFA fw-bold">UFA</div></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                          {/* <!-- GOODROW --> */}
-                          <tr className="text-center">
-                            <td className="text-left text-nowrap"><Link to={' '} className="playerName">Goodrow, Barclay</Link>"A"</td>
-                            <td>M-NTC</td>
-                            <td className="text-nowrap">C, LW</td>
-                            <td>NHL</td>
-                            <td>Trade</td>
-                            <td>31</td>
-                            <td>4.1</td>
-                            <td>$3,641,667</td>
-                            <td>$3,641,667</td>
-                            <td>$3,641,667</td>
-                            <td><div className="redUFA fw-bold">UFA</div></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                          {/* <!-- LAFRENIERE --> */}
-                          <tr className="text-center">
-                            <td className="text-left text-nowrap"><Link to={' '} className="playerName">Lafrenière, Alexis</Link></td>
-                            <td></td>
-                            <td className="text-nowrap">LW, RW</td>
-                            <td>NHL</td>
-                            <td>Draft</td>
-                            <td>22</td>
-                            <td>2.6</td>
-                            <td>$2,325,000</td>
-                            <td><div className="blueRFA fw-bold">RFA</div></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                          {/* <!-- EDSTROM --> */}
-                          <tr className="text-center">
-                            <td className="text-left text-nowrap"><Link to={' '} className="playerName">Edström, Adam</Link></td>
-                            <td>ELC</td>
-                            <td className="text-nowrap">C, LW</td>
-                            <td>NHL</td>
-                            <td>Draft</td>
-                            <td>23</td>
-                            <td>1.0</td>
-                            <td>$846,667</td>
-                            <td><div className="blueRFA fw-bold">RFA</div></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                          {/* <!-- CUYLLE --> */}
-                          <tr className="text-center">
-                            <td className="text-left text-nowrap"><Link to={' '} className="playerName">Cuylle, Will</Link></td>
-                            <td>ELC</td>
-                            <td className="text-nowrap">LW</td>
-                            <td>NHL</td>
-                            <td>Draft</td>
-                            <td>22</td>
-                            <td>0.9</td>
-                            <td>$828,333</td>
-                            <td><div className="blueRFA fw-bold">RFA</div></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                          {/* <!-- REMPE --> */}
-                          <tr className="text-center">
-                            <td className="text-left text-nowrap"><Link to={' '} className="playerName">Rempe, Matt</Link></td>
-                            <td>ELC</td>
-                            <td className="text-nowrap">C, RW</td>
-                            <td>NHL</td>
-                            <td>Draft</td>
-                            <td>21</td>
-                            <td>0.9</td>
-                            <td>$820,000</td>
-                            <td><div className="blueRFA fw-bold">RFA</div></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                          {/* <!-- VESEY --> */}
-                          <tr className="text-center">
-                            <td className="text-left text-nowrap"><Link to={' '} className="playerName">Cuylle, Will</Link></td>
-                            <td></td>
-                            <td className="text-nowrap">RW, LW</td>
-                            <td>NHL</td>
-                            <td>Signed</td>
-                            <td>31</td>
-                            <td>0.9</td>
-                            <td>$800,000</td>
-                            <td><div className="redUFA fw-bold">UFA</div></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                          {/* <!-- BRODZINSKI --> */}
-                          <tr className="text-center">
-                            <td className="text-left text-nowrap"><Link to={' '} className="playerName">Brodzinski, Jonny</Link></td>
-                            <td></td>
-                            <td className="text-nowrap">C</td>
-                            <td>NHL</td>
-                            <td>Signed</td>
-                            <td>30</td>
-                            <td>0.9</td>
-                            <td>$787,500</td>
-                            <td>$787,500</td>
-                            <td><div className="redUFA fw-bold">UFA</div></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                          {/* <!-- KAKKO --> */}
-                          <tr className="text-center">
-                            <td className="text-left text-nowrap"><Link to={' '} className="playerName">Kakko, Kaapo</Link></td>
-                            <td></td>
-                            <td className="text-nowrap">RW</td>
-                            <td>NHL</td>
-                            <td>Draft</td>
-                            <td>23</td>
-                            <td></td>
-                            <td><div className="blueRFA fw-bold">RFA</div></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                          {/* <!-- ROSLOVIC --> */}
-                          <tr className="text-center">
-                            <td className="text-left text-nowrap"><Link to={' '} className="playerName">Roslovic, Jack</Link></td>
-                            <td></td>
-                            <td className="text-nowrap">C, RW</td>
-                            <td>NHL</td>
-                            <td>Trade</td>
-                            <td>27</td>
-                            <td></td>
-                            <td><div className="redUFA fw-bold">UFA</div></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                          {/* <!-- WENNBERG --> */}
-                          <tr className="text-center">
-                            <td className="text-left text-nowrap"><Link to={' '} className="playerName">Wennberg, Alexander</Link></td>
-                            <td></td>
-                            <td className="text-nowrap">C</td>
-                            <td>NHL</td>
-                            <td>Trade</td>
-                            <td>29</td>
-                            <td></td>
-                            <td><div className="redUFA fw-bold">UFA</div></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                          {/* <!-- WHEELER --> */}
-                          <tr className="text-center">
-                            <td className="text-left text-nowrap"><Link to={' '} className="playerName">Wheeler, Blake</Link></td>
-                            <td></td>
-                            <td className="text-nowrap">RW</td>
-                            <td>NHL</td>
-                            <td>Signed</td>
-                            <td>37</td>
-                            <td></td>
-                            <td><div className="redUFA fw-bold">UFA</div></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                          {/* <!-- TOTAL --> */}
-                          <tr className="text-center">
-                            <td className="text-left text-nowrap">TOTAL</td>
-                            <td></td>
-                            <td className="text-nowrap"></td>
-                            <td></td>
-                            <td></td>
-                            <td>27.9</td>
-                            <td>53.1</td>
-                            <td>$46,754,524</td>
-                            <td>$41,134,524</td>
-                            <td>$28,704,167</td>
-                            <td>$14,125,000</td>
-                            <td>$14,125,000</td>
-                            <td>$8,500,000</td>
-                          </tr>
-                        </tbody>
-                    </table>
+                  <TableContainer className="table">
+                    <Table aria-label="player table">
+                      <TableHead>
+                        <TableRow>
+                          <TableCell scope="col" className="tableTitle">FORWARDS (12 - $46,754,524)</TableCell>
+                          <TableCell scope="col" className="tableTitle text-center">TERMS</TableCell>
+                          <TableCell scope="col" className="tableTitle text-center">POS</TableCell>
+                          <TableCell scope="col" className="tableTitle text-center">STATUS</TableCell>
+                          <TableCell scope="col" className="tableTitle text-center">ACQUIRED</TableCell>
+                          <TableCell scope="col" className="tableTitle text-center">AGE</TableCell>
+                          <TableCell scope="col" className="tableTitle text-center">CAP%</TableCell>
+                          <TableCell scope="col" className="tableTitle text-center">2024-25</TableCell>
+                          <TableCell scope="col" className="tableTitle text-center">2025-26</TableCell>
+                          <TableCell scope="col" className="tableTitle text-center">2026-27</TableCell>
+                          <TableCell scope="col" className="tableTitle text-center">2027-28</TableCell>
+                          <TableCell scope="col" className="tableTitle text-center">2028-29</TableCell>
+                          <TableCell scope="col" className="tableTitle text-center">2029-30</TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {forwardData.map((row) => (
+                          <TableRow key={row.name} className="text-center" sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                            <TableCell className="text-left">
+                            {row.name !== 'TOTAL' ? (
+                              <Link to={row.link} className="playerName">{row.name}</Link>
+                            ) : (
+                              row.name
+                            )}
+                            </TableCell>
+                            <TableCell className="text-center text-nowrap">{row.terms}</TableCell>
+                            <TableCell className="text-center text-nowrap">{row.pos}</TableCell>
+                            <TableCell className="text-center text-nowrap">{row.status}</TableCell>
+                            <TableCell className="text-center text-nowrap">{row.acquired}</TableCell>
+                            <TableCell className="text-center text-nowrap">{row.age}</TableCell>
+                            <TableCell className="text-center text-nowrap">{row.cap}</TableCell>
+                            <TableCell className={row.year2024 === 'UFA' ? 'redUFA text-center' : row.year2024 === 'RFA' ? 'blueRFA text-center' : ''}>{row.year2024}</TableCell>
+                            <TableCell className={row.year2025 === 'UFA' ? 'redUFA text-center' : row.year2025 === 'RFA' ? 'blueRFA text-center' : ''}>{row.year2025}</TableCell>
+                            <TableCell className={row.year2026 === 'UFA' ? 'redUFA text-center' : row.year2026 === 'RFA' ? 'blueRFA text-center' : ''}>{row.year2026}</TableCell>
+                            <TableCell className={row.year2027 === 'UFA' ? 'redUFA text-center' : row.year2027 === 'RFA' ? 'blueRFA text-center' : ''}>{row.year2027}</TableCell>
+                            <TableCell className={row.year2028 === 'UFA' ? 'redUFA text-center' : row.year2028 === 'RFA' ? 'blueRFA text-center' : ''}>{row.year2028}</TableCell>
+                            <TableCell className={row.year2029 === 'UFA' ? 'redUFA text-center' : row.year2029 === 'RFA' ? 'blueRFA text-center' : ''}>{row.year2029}</TableCell>
+                            <TableCell className={row.year2030 === 'UFA' ? 'redUFA text-center' : row.year2030 === 'RFA' ? 'blueRFA text-center' : ''}>{row.year2030}</TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
                 </div>
 
                 {/* <!-- DEFENSE CONTRACTS --> */}
                 <div>
-                    <table className="table">
-                        <thead>
-                            <tr className="text-center">
-                              <th scope="col">DEFENSE (4 - $22,184,500)</th>
-                              <th scope="col">TERMS</th>
-                              <th scope="col">POS</th>
-                              <th scope="col">STATUS</th>
-                              <th scope="col">ACQUIRED</th>
-                              <th scope="col">AGE</th>
-                              <th scope="col">CAP%	</th>
-                              <th scope="col">2024-25</th>
-                              <th scope="col">2025-26</th>
-                              <th scope="col">2026-27</th>
-                              <th scope="col">2027-28</th>
-                              <th scope="col">2028-29</th>
-                              <th scope="col">2029-30</th>
-                            </tr>
-                          </thead>
-                        <tbody>
-                            {/* <!-- FOX --> */}
-                          <tr className="text-center">
-                            <td className="text-left"><Link to={' '} className="playerName">Fox, Adam</Link></td>
-                            <td></td>
-                            <td>RD</td>
-                            <td>NHL</td>
-                            <td>Trade</td>
-                            <td>26</td>
-                            <td>10.8</td>
-                            <td>$9,500,000</td>
-                            <td>$9,500,000</td>
-                            <td>$9,500,000</td>
-                            <td>$9,500,000</td>
-                            <td>$9,500,000</td>
-                            <td><div className="redUFA fw-bold">UFA</div></td>
-                          </tr>
-                          {/* <!-- TROUBA --> */}
-                          <tr className="text-center">
-                            <td className="text-left"><Link to={' '} className="playerName">Trouba, Jacob</Link> "C"</td>
-                            <td>M-NTC</td>    
-                            <td>RD</td>
-                            <td>NHL</td>
-                            <td>Trade</td>
-                            <td>30</td>
-                            <td>9.1</td>
-                            <td>$8,000,000</td>
-                            <td>$8,000,000</td>
-                            <td><div className="redUFA fw-bold">UFA</div></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                          {/* <!-- MILLER --> */}
-                          <tr className="text-center">
-                            <td className="text-left"><Link to={' '} className="playerName">Miller, K'Andre</Link></td>
-                            <td className="text-nowrap"></td>
-                            <td>LD</td>
-                            <td>NHL</td>
-                            <td>Draft</td>
-                            <td>24</td>
-                            <td>4.4</td>
-                            <td>$3,872,000</td>
-                            <td><div className="blueRFA fw-bold">RFA</div></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                          {/* <!-- JONES --> */}
-                          <tr className="text-center">
-                            <td className="text-left"><Link to={' '} className="playerName">Jones, Zachary</Link></td>
-                            <td></td>
-                            <td className="text-nowrap">LD</td>
-                            <td>NHL</td>
-                            <td>Draft</td>
-                            <td>23</td>
-                            <td>0.9</td>
-                            <td>$812,500</td>
-                            <td><div className="blueRFA fw-bold">RFA</div></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                          {/* <!-- LINDGREN --> */}
-                          <tr className="text-center">
-                            <td className="text-left"><Link to={' '} className="playerName">Lindgren, Ryan</Link></td>
-                            <td></td>
-                            <td>LD</td>
-                            <td>NHL</td>
-                            <td>Trade</td>
-                            <td>26</td>
-                            <td></td>
-                            <td><div className="blueRFA fw-bold">RFA</div></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                          {/* <!-- SCHNEIDER --> */}
-                          <tr className="text-center">
-                            <td className="text-left text-nowrap"><Link to={' '} className="playerName">Schneider, Braden</Link></td>
-                            <td></td>
-                            <td className="text-nowrap">RD</td>
-                            <td>NHL</td>
-                            <td>Draft</td>
-                            <td>22</td>
-                            <td></td>
-                            <td><div className="blueRFA fw-bold">RFA</div></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                          {/* <!-- GUSTAFSSON --> */}
-                          <tr className="text-center">
-                            <td className="text-left text-nowrap"><Link to={' '} className="playerName">Gustafsson, Erik</Link></td>
-                            <td></td>
-                            <td className="text-nowrap">LD</td>
-                            <td>NHL</td>
-                            <td>Signed</td>
-                            <td>32</td>
-                            <td></td>
-                            <td><div className="redUFA fw-bold">UFA</div></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                          {/* <!-- RUHWEDEL --> */}
-                          <tr className="text-center">
-                            <td className="text-left text-nowrap"><Link to={' '} className="playerName">Ruhwedel, Chad</Link></td>
-                            <td></td>
-                            <td className="text-nowrap">RD</td>
-                            <td>NHL</td>
-                            <td>Trade</td>
-                            <td>34</td>
-                            <td></td>
-                            <td><div className="redUFA fw-bold">UFA</div></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                          {/* <!-- TOTAL --> */}
-                          <tr className="text-center">
-                            <td className="text-left text-nowrap">TOTAL</td>
-                            <td></td>
-                            <td className="text-nowrap"></td>
-                            <td></td>
-                            <td></td>
-                            <td>27.1</td>
-                            <td>25.2</td>
-                            <td>$22,184,500</td>
-                            <td>$17,500,000</td>
-                            <td>$9,500,000</td>
-                            <td>$9,500,000</td>
-                            <td>$9,500,000</td>
-                            <td></td>
-                          </tr>
-                        </tbody>
-                    </table>
+                  <TableContainer className="table">
+                  <Table aria-label="defensemen table">
+                    <TableHead>
+                      <TableRow className="text-center">
+                        <TableCell scope="col" className="tableTitle">DEFENSE (4 - $22,184,500)</TableCell>
+                        <TableCell scope="col" className="tableTitle text-center">TERMS</TableCell>
+                        <TableCell scope="col" className="tableTitle text-center">POS</TableCell>
+                        <TableCell scope="col" className="tableTitle text-center">STATUS</TableCell>
+                        <TableCell scope="col" className="tableTitle text-center">ACQUIRED</TableCell>
+                        <TableCell scope="col" className="tableTitle text-center">AGE</TableCell>
+                        <TableCell scope="col" className="tableTitle text-center">CAP%</TableCell>
+                        <TableCell scope="col" className="tableTitle text-center">2024-25</TableCell>
+                        <TableCell scope="col" className="tableTitle text-center">2025-26</TableCell>
+                        <TableCell scope="col" className="tableTitle text-center">2026-27</TableCell>
+                        <TableCell scope="col" className="tableTitle text-center">2027-28</TableCell>
+                        <TableCell scope="col" className="tableTitle text-center">2028-29</TableCell>
+                        <TableCell scope="col" className="tableTitle text-center">2029-30</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {defensemenData.map((row) => (
+                        <TableRow key={row.name} className="text-center" sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                          <TableCell className="text-left">
+                            {row.name !== 'TOTAL' ? (
+                              <Link to={row.link} className="playerName">{row.name}</Link>
+                            ) : (
+                              row.name
+                            )}
+                          </TableCell>
+                          <TableCell className="text-center text-nowrap">{row.terms}</TableCell>
+                          <TableCell className="text-center text-nowrap">{row.pos}</TableCell>
+                          <TableCell className="text-center text-nowrap">{row.status}</TableCell>
+                          <TableCell className="text-center text-nowrap">{row.acquired}</TableCell>
+                          <TableCell className="text-center text-nowrap">{row.age}</TableCell>
+                          <TableCell className="text-center text-nowrap">{row.cap}</TableCell>
+                          <TableCell className={row.year2024 === 'UFA' ? 'redUFA text-center' : row.year2024 === 'RFA' ? 'blueRFA text-center' : ''}>{row.year2024}</TableCell>
+                          <TableCell className={row.year2025 === 'UFA' ? 'redUFA text-center' : row.year2025 === 'RFA' ? 'blueRFA text-center' : ''}>{row.year2025}</TableCell>
+                          <TableCell className={row.year2026 === 'UFA' ? 'redUFA text-center' : row.year2026 === 'RFA' ? 'blueRFA text-center' : ''}>{row.year2026}</TableCell>
+                          <TableCell className={row.year2027 === 'UFA' ? 'redUFA text-center' : row.year2027 === 'RFA' ? 'blueRFA text-center' : ''}>{row.year2027}</TableCell>
+                          <TableCell className={row.year2028 === 'UFA' ? 'redUFA text-center' : row.year2028 === 'RFA' ? 'blueRFA text-center' : ''}>{row.year2028}</TableCell>
+                          <TableCell className={row.year2029 === 'UFA' ? 'redUFA text-center' : row.year2029 === 'RFA' ? 'blueRFA text-center' : ''}>{row.year2029}</TableCell>
+                          <TableCell className={row.year2030 === 'UFA' ? 'redUFA text-center' : row.year2030 === 'RFA' ? 'blueRFA text-center' : ''}>{row.year2030}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                  </TableContainer>
                 </div>
 
                 {/* <!-- GOALIES CONTRACTS --> */}
                 <div>
-                    <table className="table">
-                        <thead>
-                            <tr className="text-center">
-                              <th scope="col">GOALIES (2 - $6,941,667)</th>
-                              <th scope="col">TERMS</th>
-                              <th scope="col">POS</th>
-                              <th scope="col">STATUS</th>
-                              <th scope="col">ACQUIRED</th>
-                              <th scope="col">AGE</th>
-                              <th scope="col">CAP%	</th>
-                              <th scope="col">2024-25</th>
-                              <th scope="col">2025-26</th>
-                              <th scope="col">2026-27</th>
-                              <th scope="col">2027-28</th>
-                              <th scope="col">2028-29</th>
-                              <th scope="col">2029-30</th>
-                            </tr>
-                          </thead>
-                        <tbody>
-                            {/* <!-- IGOR --> */}
-                          <tr className="text-center">
-                            <td className="text-left"><Link to={' '} className="playerName">Shesterkin, Igor</Link></td>
-                            <td>M-NTC</td>
-                            <td>G</td>
-                            <td>NHL</td>
-                            <td>Draft</td>
-                            <td>28</td>
-                            <td>6.4</td>
-                            <td>$5,666,667</td>
-                            <td><div className="redUFA fw-bold">UFA</div></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                          {/* <!-- QUICK --> */}
-                          <tr className="text-center">
-                            <td className="text-left"><Link to={' '} className="playerName">Quick, Jonathan</Link></td>
-                            <td>35+ M-NTC</td>    
-                            <td>G</td>
-                            <td>NHL</td>
-                            <td>Signed</td>
-                            <td>38</td>
-                            <td>1.4</td>
-                            <td>$1,275,000</td>
-                            <td><div className="redUFA fw-bold">UFA</div></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                          {/* <!-- TOTAL --> */}
-                          <tr className="text-center">
-                            <td className="text-left text-nowrap">TOTAL</td>
-                            <td></td>
-                            <td className="text-nowrap"></td>
-                            <td></td>
-                            <td></td>
-                            <td>33.0</td>
-                            <td>7.9</td>
-                            <td>$6,941,667	</td>
-                            <td></td>                            
-                            <td></td>                            
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                        </tbody>
-                    </table>
+                  <TableContainer className="table">
+                    <Table aria-label="goalies table">
+                      <TableHead>
+                        <TableRow className="text-center">
+                        <TableCell scope="col" className="tableTitle">GOALIES (2 - $6,941,667)</TableCell>
+                        <TableCell scope="col" className="tableTitle text-center">TERMS</TableCell>
+                        <TableCell scope="col" className="tableTitle text-center">POS</TableCell>
+                        <TableCell scope="col" className="tableTitle text-center">STATUS</TableCell>
+                        <TableCell scope="col" className="tableTitle text-center">ACQUIRED</TableCell>
+                        <TableCell scope="col" className="tableTitle text-center">AGE</TableCell>
+                        <TableCell scope="col" className="tableTitle text-center">CAP%</TableCell>
+                        <TableCell scope="col" className="tableTitle text-center">2024-25</TableCell>
+                        <TableCell scope="col" className="tableTitle text-center">2025-26</TableCell>
+                        <TableCell scope="col" className="tableTitle text-center">2026-27</TableCell>
+                        <TableCell scope="col" className="tableTitle text-center">2027-28</TableCell>
+                        <TableCell scope="col" className="tableTitle text-center">2028-29</TableCell>
+                        <TableCell scope="col" className="tableTitle text-center">2029-30</TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {goaliesData.map((row) => (
+                          <TableRow key={row.name} className="text-center" sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                            <TableCell className="text-left">
+                              {row.name !== 'TOTAL' ? (
+                                <Link to={row.link} className="playerName">{row.name}</Link>
+                              ) : (
+                                row.name
+                              )}
+                            </TableCell>
+                            <TableCell className="text-center text-nowrap">{row.terms}</TableCell>
+                            <TableCell className="text-center text-nowrap">{row.pos}</TableCell>
+                            <TableCell className="text-center text-nowrap">{row.status}</TableCell>
+                            <TableCell className="text-center text-nowrap">{row.acquired}</TableCell>
+                            <TableCell className="text-center text-nowrap">{row.age}</TableCell>
+                            <TableCell className="text-center text-nowrap">{row.cap}</TableCell>
+                            <TableCell className={row.year2024 === 'UFA' ? 'redUFA text-center' : row.year2024 === 'RFA' ? 'blueRFA text-center' : ''}>{row.year2024}</TableCell>
+                            <TableCell className={row.year2025 === 'UFA' ? 'redUFA text-center' : row.year2025 === 'RFA' ? 'blueRFA text-center' : ''}>{row.year2025}</TableCell>
+                            <TableCell className={row.year2026 === 'UFA' ? 'redUFA text-center' : row.year2026 === 'RFA' ? 'blueRFA text-center' : ''}>{row.year2026}</TableCell>
+                            <TableCell className={row.year2027 === 'UFA' ? 'redUFA text-center' : row.year2027 === 'RFA' ? 'blueRFA text-center' : ''}>{row.year2027}</TableCell>
+                            <TableCell className={row.year2028 === 'UFA' ? 'redUFA text-center' : row.year2028 === 'RFA' ? 'blueRFA text-center' : ''}>{row.year2028}</TableCell>
+                            <TableCell className={row.year2029 === 'UFA' ? 'redUFA text-center' : row.year2029 === 'RFA' ? 'blueRFA text-center' : ''}>{row.year2029}</TableCell>
+                            <TableCell className={row.year2030 === 'UFA' ? 'redUFA text-center' : row.year2030 === 'RFA' ? 'blueRFA text-center' : ''}>{row.year2030}</TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
                 </div>
             </div>
         </div>

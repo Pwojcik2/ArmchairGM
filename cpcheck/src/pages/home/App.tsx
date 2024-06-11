@@ -1,17 +1,18 @@
 import { useState } from 'react'
 import { Link } from "react-router-dom";
 import './App.css'
+import Navbar from '../../components/Navbar';
 
 function App() {
 
   return (
     <>
       <div>
+      <Navbar/>
       {/* <!-- HEADER --> */}
-    <div className="container">
+    {/* <div className="container">
         <header className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
           <Link to={' '} className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-            {/* <!-- <svg className="bi me-2" width="40" height="32"><use xlink:="#bootstrap"/></svg> --> */}
             <span className="fs-4">CapCheck</span>
           </Link>
           <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -39,12 +40,12 @@ function App() {
             <li className="nav-item"><Link to={' '} className="nav-link">About</Link></li>
           </ul>
         </header>
-    </div>
+    </div> */}
 
     {/* <!-- <div className="b-example-divider"></div> --> */}
 
     {/* <!-- SOCIAL HERO --> */}
-    <div className="custom-bg">
+    <div className="custom-bg mt-5">
         <div className="px-4 py-4 text-center">
             <h1 className="display-5">Follow CapCheck</h1>
             <div className="col-lg-6 mx-auto">
