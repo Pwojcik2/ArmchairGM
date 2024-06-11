@@ -10,33 +10,33 @@ function App() {
       {/* <!-- HEADER --> */}
     <div className="container">
         <header className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-          <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-            {/* <!-- <svg className="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg> --> */}
+          <Link to={' '} className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            {/* <!-- <svg className="bi me-2" width="40" height="32"><use xlink:="#bootstrap"/></svg> --> */}
             <span className="fs-4">CapCheck</span>
-          </a>
+          </Link>
           <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
             <input type="search" className="form-control" placeholder="Search..." aria-label="Search"></input>
           </form>
     
           <ul className="nav nav-pills">
-            <li className="nav-item"><a href="#" className="nav-link active" aria-current="page">Home</a></li>
+            <li className="nav-item"><Link to={' '} className="nav-link active" aria-current="page">Home</Link></li>
 
-            <a className="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Teams</a>
+            <Link to={' '}  className="nav-link dropdown-toggle"  id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Teams</Link>
             <ul className="dropdown-menu" aria-labelledby="dropdown01">
-              <li><a className="dropdown-item" href="#">Action</a></li>
-              <li><a className="dropdown-item" href="#">Another action</a></li>
-              <li><a className="dropdown-item" href="#">Something else here</a></li>
+              <li><Link to={' '}  className="dropdown-item" >Action</Link></li>
+              <li><Link to={' '}  className="dropdown-item" >Another action</Link></li>
+              <li><Link to={' '}  className="dropdown-item" >Something else here</Link></li>
             </ul>
 
-            <a className="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Players</a>
+            <Link to={' '}  className="nav-link dropdown-toggle"  id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Players</Link>
             <ul className="dropdown-menu" aria-labelledby="dropdown01">
-              <li><a className="dropdown-item" href="#">Action</a></li>
-              <li><a className="dropdown-item" href="#">Another action</a></li>
-              <li><a className="dropdown-item" href="#">Something else here</a></li>
+              <li><Link to={' '}  className="dropdown-item" >Action</Link></li>
+              <li><Link to={' '}  className="dropdown-item" >Another action</Link></li>
+              <li><Link to={' '}  className="dropdown-item" >Something else here</Link></li>
             </ul>
 
-            <li className="nav-item"><a href="#" className="nav-link">FAQs</a></li>
-            <li className="nav-item"><a href="#" className="nav-link">About</a></li>
+            <li className="nav-item"><Link to={' '} className="nav-link">FAQs</Link></li>
+            <li className="nav-item"><Link to={' '} className="nav-link">About</Link></li>
           </ul>
         </header>
     </div>
@@ -44,7 +44,7 @@ function App() {
     {/* <!-- <div className="b-example-divider"></div> --> */}
 
     {/* <!-- SOCIAL HERO --> */}
-    <div className="container custom-bg">
+    <div className="custom-bg">
         <div className="px-4 py-4 text-center">
             <h1 className="display-5">Follow CapCheck</h1>
             <div className="col-lg-6 mx-auto">
@@ -74,8 +74,7 @@ function App() {
     </div>
 
     {/* <!-- SIGNINGS/FREE AGENT HERO --> */}
-    <div className="container">
-      <div className="container my-5">
+    <div className="my-5">
         <div className="row align-items-md-stretch">
             <div className="col-lg-6">
               <div className="h-100 p-5 bg-light border rounded-3">
@@ -95,7 +94,7 @@ function App() {
                         <td scope="row">
                         <img style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Rangers" title="Rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
                         </td>
-                        <td><a href="#" className="playerName">Mathias Laferrière</a></td>
+                        <td><Link to={' '} className="playerName">Mathias Laferrière</Link></td>
                         <td></td>
                         <td></td>
                         <td className="right">$775,000</td>
@@ -104,7 +103,7 @@ function App() {
                         <td scope="row">
                             <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the lightning" title="lightning" src="https://cdn2.capfriendly.com/images/logos/tampa_bay_lightning.svg"/>
                         </td>
-                        <td><a href="#" className="playerName">Declan Carlile</a></td>
+                        <td><Link to={' '} className="playerName">Declan Carlile</Link></td>
                         <td></td>
                         <td></td>
                         <td>$775,000</td>
@@ -113,7 +112,7 @@ function App() {
                         <td scope="row">
                             <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the kings" title="kings" src="https://cdn2.capfriendly.com/images/logos/los_angeles_kings.svg"/>
                         </td>
-                        <td><a href="#" className="playerName">Akil Thomas</a></td>
+                        <td><Link to={' '} className="playerName">Akil Thomas</Link></td>
                         <td></td>
                         <td></td>
                         <td>$775,000</td>
@@ -122,7 +121,7 @@ function App() {
                         <td scope="row">
                             <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the kings" title="kings" src="https://cdn2.capfriendly.com/images/logos/los_angeles_kings.svg"/>
                         </td>
-                        <td><a href="#" className="playerName">Andre Lee</a></td>
+                        <td><Link to={' '} className="playerName">Andre Lee</Link></td>
                         <td></td>
                         <td></td>
                         <td>$775,000</td>
@@ -131,7 +130,7 @@ function App() {
                         <td scope="row">
                             <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the canadiens" title="canadiens" src="https://cdn2.capfriendly.com/images/logos/montreal_canadiens.svg"/>
                         </td>
-                        <td><a href="#" className="playerName">Connor Hughes</a></td>
+                        <td><Link to={' '} className="playerName">Connor Hughes</Link></td>
                         <td></td>
                         <td></td>
                         <td>$775,000</td>
@@ -158,7 +157,7 @@ function App() {
                       <tr>
                         <td scope="row">
                             <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the lightning" title="lightning" src="https://cdn2.capfriendly.com/images/logos/tampa_bay_lightning.svg"/></td>
-                        <td><a href="#" className="playerName">Steven Stamkos</a></td>
+                        <td><Link to={' '} className="playerName">Steven Stamkos</Link></td>
                         <td></td>
                         <td></td>
                         <td>$8,500,000</td>
@@ -166,7 +165,7 @@ function App() {
                       <tr>
                         <td scope="row">
                             <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the panthers" title="panthers" src="https://cdn2.capfriendly.com/images/logos/florida_panthers.svg"/></td>
-                        <td><a href="#" className="playerName">Sam Reinhart</a></td>
+                        <td><Link to={' '} className="playerName">Sam Reinhart</Link></td>
                         <td></td>
                         <td></td>
                         <td>$6,500,000</td>
@@ -174,7 +173,7 @@ function App() {
                       <tr>
                         <td scope="row">
                             <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the mapleleafs" title="mapleleafs" src="https://cdn2.capfriendly.com/images/logos/toronto_maple_leafs.svg"/></td>
-                            <td><a href="#" className="playerName">Matt Murray</a></td>
+                            <td><Link to={' '} className="playerName">Matt Murray</Link></td>
                         <td></td>
                         <td></td>
                         <td>$6,250,000</td>
@@ -182,7 +181,7 @@ function App() {
                       <tr>
                         <td scope="row">
                             <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the hurricanes" title="hurricanes" src="https://cdn2.capfriendly.com/images/logos/carolina_hurricanes.svg"/></td>
-                            <td ><a href="#" className="playerName">Jake Guentzel</a></td>
+                            <td ><Link to={' '} className="playerName">Jake Guentzel</Link></td>
                         <td></td>
                         <td></td>
                         <td>$6,000,000</td>
@@ -190,7 +189,7 @@ function App() {
                       <tr>
                         <td scope="row">
                             <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the canucks" title="canucks" src="https://cdn2.capfriendly.com/images/logos/vancouver_canucks.svg"/></td>
-                            <td ><a href="#" className="playerName">Tyler Myers</a></td>
+                            <td ><Link to={' '} className="playerName">Tyler Myers</Link></td>
                         <td></td>
                         <td></td>
                         <td>$6,000,000</td>
@@ -201,12 +200,10 @@ function App() {
               </div>
             </div>
           </div>
-      </div>
     </div>
 
     {/* <!-- CAP SPACE HERO --> */}
-    <div className="container">
-        <div className="p-5 mb-4 bg-light rounded-3">
+    <div className="p-5 mb-4 bg-light rounded-3">
             <div className="container-fluid">
             <h1 className="display-5 text text-center">2024-25 CAP SPACE</h1>
             <p className="text text-center">&#9650 UPPER LIMIT: 88.0M | &#9660 LOWER LIMIT: 65.0M</p>
@@ -227,10 +224,10 @@ function App() {
                 <tbody>
                     {/* <!-- FLYERS --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Philadelphia Flyers" src="https://cdn2.capfriendly.com/images/logos/philadelphia_flyers.svg"/>
-                        <a href="#" className="teamName full">Philadelphia Flyers</a>
-                        <a href="#" className="teamName abbreviated">PHI</a>
+                        <Link to={' '} className="teamName full">Philadelphia Flyers</Link>
+                        <Link to={' '} className="teamName abbreviated">PHI</Link>
                     </td>
                     <td className="text-center">19/23</td>
                     <td className="text-center">38/50</td>
@@ -244,10 +241,10 @@ function App() {
 
                     {/* <!-- GOLDEN KNIGHTS --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Vegas Golden Knights" src="https://cdn2.capfriendly.com/images/logos/vegas_golden_knights.svg"/>
-                        <a href="#" className="teamName full">Vegas Golden Knights</a>
-                        <a href="#" className="teamName abbreviated">VGK</a>
+                        <Link to={' '} className="teamName full">Vegas Golden Knights</Link>
+                        <Link to={' '} className="teamName abbreviated">VGK</Link>
                     </td>
                     <td className="text-center">20/23</td>
                     <td className="text-center">38/50</td>
@@ -261,10 +258,10 @@ function App() {
 
                     {/* <!-- TAMPA --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Tampa Bay Lightning" src="https://cdn2.capfriendly.com/images/logos/tampa_bay_lightning.svg"/>
-                        <a href="#" className="teamName full">Tampa Bay Lightning</a>
-                        <a href="#" className="teamName abbreviated">TBL</a>
+                        <Link to={' '} className="teamName full">Tampa Bay Lightning</Link>
+                        <Link to={' '} className="teamName abbreviated">TBL</Link>
                     </td>
                     <td className="text-center">18/23</td>
                     <td className="text-center">33/50</td>
@@ -278,10 +275,10 @@ function App() {
 
                     {/* <!-- MINNESOTA --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Minnesota Wild" src="https://cdn2.capfriendly.com/images/logos/minnesota_wild.svg"/>
-                        <a href="#" className="teamName full">Minnesota Wild</a>
-                        <a href="#" className="teamName abbreviated">MIN</a>
+                        <Link to={' '} className="teamName full">Minnesota Wild</Link>
+                        <Link to={' '} className="teamName abbreviated">MIN</Link>
                     </td>
                     <td className="text-center">19/23</td>
                     <td className="text-center">35/50</td>
@@ -295,10 +292,10 @@ function App() {
 
                     {/* <!-- ISLANDERS --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the New York Islanders" src="https://cdn2.capfriendly.com/images/logos/new_york_islanders.svg"/>
-                        <a href="#" className="teamName full">New York Islanders</a>
-                        <a href="#" className="teamName abbreviated">NYI</a>
+                        <Link to={' '} className="teamName full">New York Islanders</Link>
+                        <Link to={' '} className="teamName abbreviated">NYI</Link>
                     </td>
                     <td className="text-center">17/23</td>
                     <td className="text-center">35/50</td>
@@ -312,10 +309,10 @@ function App() {
 
                     {/* <!-- CAPITALS --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Washington Capitals" src="https://cdn2.capfriendly.com/images/logos/washington_capitals.svg"/>
-                        <a href="#" className="teamName full">Washington Capitals</a>
-                        <a href="#" className="teamName abbreviated">WSH</a>
+                        <Link to={' '} className="teamName full">Washington Capitals</Link>
+                        <Link to={' '} className="teamName abbreviated">WSH</Link>
                     </td>
                     <td className="text-center">17/23</td>
                     <td className="text-center">35/50</td>
@@ -329,10 +326,10 @@ function App() {
 
                     {/* <!-- MONTREAL --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Montreal Canadiens" src="https://cdn2.capfriendly.com/images/logos/montreal_canadiens.svg"/>
-                        <a href="#" className="teamName full">Montreal Canadiens</a>
-                        <a href="#" className="teamName abbreviated">MTL</a>
+                        <Link to={' '} className="teamName full">Montreal Canadiens</Link>
+                        <Link to={' '} className="teamName abbreviated">MTL</Link>
                     </td>
                     <td className="text-center">19/23</td>
                     <td className="text-center">41/50</td>
@@ -346,10 +343,10 @@ function App() {
 
                     {/* <!-- OILERS --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Edmonton Oilers" src="https://cdn2.capfriendly.com/images/logos/edmonton_oilers.svg"/>
-                        <a href="#" className="teamName full">Edmonton Oilers</a>
-                        <a href="#" className="teamName abbreviated">EDM</a>
+                        <Link to={' '} className="teamName full">Edmonton Oilers</Link>
+                        <Link to={' '} className="teamName abbreviated">EDM</Link>
                     </td>
                     <td className="text-center">14/23</td>
                     <td className="text-center">29/50</td>
@@ -380,10 +377,10 @@ function App() {
 
                     {/* <!-- SENATORS --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Ottawa Senators" src="https://cdn2.capfriendly.com/images/logos/ottawa_senators_21.svg"/>
-                        <a href="#" className="teamName full">Ottawa Senators</a>
-                        <a href="#" className="teamName abbreviated">OTT</a>
+                        <Link to={' '} className="teamName full">Ottawa Senators</Link>
+                        <Link to={' '} className="teamName abbreviated">OTT</Link>
                     </td>
                     <td className="text-center">16/23</td>
                     <td className="text-center">29/50</td>
@@ -397,10 +394,10 @@ function App() {
 
                     {/* <!-- PENGUINS --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Pittsburgh Penguins" src="https://cdn2.capfriendly.com/images/logos/pittsburgh_penguins.svg"/>
-                        <a href="#" className="teamName full">Pittsburgh Penguins</a>
-                        <a href="#" className="teamName abbreviated">PIT</a>
+                        <Link to={' '} className="teamName full">Pittsburgh Penguins</Link>
+                        <Link to={' '} className="teamName abbreviated">PIT</Link>
                     </td>
                     <td className="text-center">14/23</td>
                     <td className="text-center">36/50</td>
@@ -414,10 +411,10 @@ function App() {
 
                     {/* <!-- JETS --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Winnipeg Jets" src="https://cdn2.capfriendly.com/images/logos/winnipeg_jets.svg"/>
-                        <a href="#" className="teamName full">Winnipeg Jets</a>
-                        <a href="#" className="teamName abbreviated">WPG</a>
+                        <Link to={' '} className="teamName full">Winnipeg Jets</Link>
+                        <Link to={' '} className="teamName abbreviated">WPG</Link>
                     </td>
                     <td className="text-center">17/23</td>
                     <td className="text-center">32/50</td>
@@ -431,10 +428,10 @@ function App() {
 
                     {/* <!-- BLUES --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the St. Louis Blues" src="https://cdn2.capfriendly.com/images/logos/st_louis_blues.svg"/>
-                        <a href="#" className="teamName full">St. Louis Blues</a>
-                        <a href="#" className="teamName abbreviated">STL</a>
+                        <Link to={' '} className="teamName full">St. Louis Blues</Link>
+                        <Link to={' '} className="teamName abbreviated">STL</Link>
                     </td>
                     <td className="text-center">17/23</td>
                     <td className="text-center">40/50</td>
@@ -448,10 +445,10 @@ function App() {
 
                     {/* <!-- AVALANCHE --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Colorado Avalanche" src="https://cdn2.capfriendly.com/images/logos/colorado_avalanche.svg"/>
-                        <a href="#" className="teamName full">Colorado Avalanche</a>
-                        <a href="#" className="teamName abbreviated">COL</a>
+                        <Link to={' '} className="teamName full">Colorado Avalanche</Link>
+                        <Link to={' '} className="teamName abbreviated">COL</Link>
                     </td>
                     <td className="text-center">12/23</td>
                     <td className="text-center">27/50</td>
@@ -465,10 +462,10 @@ function App() {
 
                     {/* <!-- STARS --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Dallas Stars" src="https://cdn2.capfriendly.com/images/logos/dallas_stars.svg"/>
-                        <a href="#" className="teamName full">Dallas Stars</a>
-                        <a href="#" className="teamName abbreviated">DAL</a>
+                        <Link to={' '} className="teamName full">Dallas Stars</Link>
+                        <Link to={' '} className="teamName abbreviated">DAL</Link>
                     </td>
                     <td className="text-center">13/23</td>
                     <td className="text-center">30/50</td>
@@ -482,10 +479,10 @@ function App() {
 
                     {/* <!-- MAPLE LEAFS --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Toronto Maple Leafs" src="https://cdn2.capfriendly.com/images/logos/toronto_maple_leafs.svg"/>
-                        <a href="#" className="teamName full">Toronto Maple Leafs</a>
-                        <a href="#" className="teamName abbreviated">TOR</a>
+                        <Link to={' '} className="teamName full">Toronto Maple Leafs</Link>
+                        <Link to={' '} className="teamName abbreviated">TOR</Link>
                     </td>
                     <td className="text-center">16/23</td>
                     <td className="text-center">33/50</td>
@@ -499,10 +496,10 @@ function App() {
 
                     {/* <!-- DEVILS --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the New Jersey Devils" src="https://cdn2.capfriendly.com/images/logos/new_jersey_devils.svg"/>
-                        <a href="#" className="teamName full">New Jersey Devils</a>
-                        <a href="#" className="teamName abbreviated">NJD</a>
+                        <Link to={' '} className="teamName full">New Jersey Devils</Link>
+                        <Link to={' '} className="teamName abbreviated">NJD</Link>
                     </td>
                     <td className="text-center">15/23</td>
                     <td className="text-center">34/50</td>
@@ -516,10 +513,10 @@ function App() {
 
                     {/* <!-- PANTHERS --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Florida Panthers" src="https://cdn2.capfriendly.com/images/logos/florida_panthers.svg"/>
-                        <a href="#" className="teamName full">Florida Panthers</a>
-                        <a href="#" className="teamName abbreviated">FLA</a>
+                        <Link to={' '} className="teamName full">Florida Panthers</Link>
+                        <Link to={' '} className="teamName abbreviated">FLA</Link>
                     </td>
                     <td className="text-center">14/23</td>
                     <td className="text-center">32/50</td>
@@ -533,10 +530,10 @@ function App() {
 
                     {/* <!-- FLAMES --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Calgary Flames" src="https://cdn2.capfriendly.com/images/logos/calgary_flames.svg"/>
-                        <a href="#" className="teamName full">Calgary Flames</a>
-                        <a href="#" className="teamName abbreviated">CGY</a>
+                        <Link to={' '} className="teamName full">Calgary Flames</Link>
+                        <Link to={' '} className="teamName abbreviated">CGY</Link>
                     </td>
                     <td className="text-center">19/23</td>
                     <td className="text-center">33/50</td>
@@ -550,10 +547,10 @@ function App() {
 
                     {/* <!-- KINGS --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Los Angeles Kings" src="https://cdn2.capfriendly.com/images/logos/los_angeles_kings.svg"/>
-                        <a href="#" className="teamName full">Los Angeles Kings</a>
-                        <a href="#" className="teamName abbreviated">LAK</a>
+                        <Link to={' '} className="teamName full">Los Angeles Kings</Link>
+                        <Link to={' '} className="teamName abbreviated">LAK</Link>
                     </td>
                     <td className="text-center">13/23</td>
                     <td className="text-center">25/50</td>
@@ -567,10 +564,10 @@ function App() {
 
                     {/* <!-- BRUINS --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Boston Bruins" src="https://cdn2.capfriendly.com/images/logos/boston_bruins.svg"/>
-                        <a href="#" className="teamName full">Boston Bruins</a>
-                        <a href="#" className="teamName abbreviated">BOS</a>
+                        <Link to={' '} className="teamName full">Boston Bruins</Link>
+                        <Link to={' '} className="teamName abbreviated">BOS</Link>
                     </td>
                     <td className="text-center">17/23</td>
                     <td className="text-center">30/50</td>
@@ -584,10 +581,10 @@ function App() {
 
                     {/* <!-- KRAKEN --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Seattle Kraken" src="https://cdn2.capfriendly.com/images/logos/seattle_kraken.svg"/>
-                        <a href="#" className="teamName full">Seattle Kraken</a>
-                        <a href="#" className="teamName abbreviated">SEA</a>
+                        <Link to={' '} className="teamName full">Seattle Kraken</Link>
+                        <Link to={' '} className="teamName abbreviated">SEA</Link>
                     </td>
                     <td className="text-center">15/23</td>
                     <td className="text-center">35/50</td>
@@ -601,10 +598,10 @@ function App() {
 
                     {/* <!-- SABRES --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Buffalo Sabres" src="https://cdn2.capfriendly.com/images/logos/buffalo_sabres_21.svg"/>
-                        <a href="#" className="teamName full">Buffalo Sabres</a>
-                        <a href="#" className="teamName abbreviated">BUF</a>
+                        <Link to={' '} className="teamName full">Buffalo Sabres</Link>
+                        <Link to={' '} className="teamName abbreviated">BUF</Link>
                     </td>
                     <td className="text-center">12/23</td>
                     <td className="text-center">27/50</td>
@@ -618,10 +615,10 @@ function App() {
 
                     {/* <!-- BLUE JACKETS --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Columbus Blue Jackets" src="https://cdn2.capfriendly.com/images/logos/columbus_blue_jackets.svg"/>
-                        <a href="#" className="teamName full">Columbus Blue Jackets</a>
-                        <a href="#" className="teamName abbreviated">CBJ</a>
+                        <Link to={' '} className="teamName full">Columbus Blue Jackets</Link>
+                        <Link to={' '} className="teamName abbreviated">CBJ</Link>
                     </td>
                     <td className="text-center">15/23</td>
                     <td className="text-center">32/50</td>
@@ -635,10 +632,10 @@ function App() {
 
                     {/* <!-- CANUCKS --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Vancouver Canucks" src="https://cdn2.capfriendly.com/images/logos/vancouver_canucks.svg"/>
-                        <a href="#" className="teamName full">Vancouver Canucks</a>
-                        <a href="#" className="teamName abbreviated">VAN</a>
+                        <Link to={' '} className="teamName full">Vancouver Canucks</Link>
+                        <Link to={' '} className="teamName abbreviated">VAN</Link>
                     </td>
                     <td className="text-center">15/23</td>
                     <td className="text-center">33/50</td>
@@ -652,10 +649,10 @@ function App() {
 
                     {/* <!-- PREDATORS --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Nashville Predators" src="https://cdn2.capfriendly.com/images/logos/nashville_predators.svg"/>
-                        <a href="#" className="teamName full">Nashville Predators</a>
-                        <a href="#" className="teamName abbreviated">NSH</a>
+                        <Link to={' '} className="teamName full">Nashville Predators</Link>
+                        <Link to={' '} className="teamName abbreviated">NSH</Link>
                     </td>
                     <td className="text-center">15/23</td>
                     <td className="text-center">30/50</td>
@@ -669,10 +666,10 @@ function App() {
 
                     {/* <!-- HURRICANES --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Carolina Hurricanes" src="https://cdn2.capfriendly.com/images/logos/carolina_hurricanes.svg"/>
-                        <a href="#" className="teamName full">Carolina Hurricanes</a>
-                        <a href="#" className="teamName abbreviated">CAR</a>
+                        <Link to={' '} className="teamName full">Carolina Hurricanes</Link>
+                        <Link to={' '} className="teamName abbreviated">CAR</Link>
                     </td>
                     <td className="text-center">18/23</td>
                     <td className="text-center">28/50</td>
@@ -686,10 +683,10 @@ function App() {
 
                     {/* <!-- RED WINGS --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Detroit Red Wings" src="https://cdn2.capfriendly.com/images/logos/detroit_red_wings.svg"/>
-                        <a href="#" className="teamName full">Detroit Red Wings</a>
-                        <a href="#" className="teamName abbreviated">DET</a>
+                        <Link to={' '} className="teamName full">Detroit Red Wings</Link>
+                        <Link to={' '} className="teamName abbreviated">DET</Link>
                     </td>
                     <td className="text-center">13/23</td>
                     <td className="text-center">33/50</td>
@@ -703,10 +700,10 @@ function App() {
 
                     {/* <!-- DUCKS --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Anaheim Ducks" src="https://cdn2.capfriendly.com/images/logos/anaheim_ducks.svg"/>
-                        <a href="#" className="teamName full">Anaheim Ducks</a>
-                        <a href="#" className="teamName abbreviated">ANA</a>
+                        <Link to={' '} className="teamName full">Anaheim Ducks</Link>
+                        <Link to={' '} className="teamName abbreviated">ANA</Link>
                     </td>
                     <td className="text-center">16/23</td>
                     <td className="text-center">36/50</td>
@@ -720,10 +717,10 @@ function App() {
 
                     {/* <!-- BLACKHAWKS --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Chicago Blackhawks" src="https://cdn2.capfriendly.com/images/logos/chicago_blackhawks.svg"/>
-                        <a href="#" className="teamName full">Chicago Blackhawks</a>
-                        <a href="#" className="teamName abbreviated">CHI</a>
+                        <Link to={' '} className="teamName full">Chicago Blackhawks</Link>
+                        <Link to={' '} className="teamName abbreviated">CHI</Link>
                     </td>
                     <td className="text-center">14/23</td>
                     <td className="text-center">31/50</td>
@@ -737,10 +734,10 @@ function App() {
 
                     {/* <!-- SHARKS --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the San Jose Sharks" src="https://cdn2.capfriendly.com/images/logos/san_jose_sharks.svg"/>
-                        <a href="#" className="teamName full">San Jose Sharks</a>
-                        <a href="#" className="teamName abbreviated">SJS</a>
+                        <Link to={' '} className="teamName full">San Jose Sharks</Link>
+                        <Link to={' '} className="teamName abbreviated">SJS</Link>
                     </td>
                     <td className="text-center">13/23</td>
                     <td className="text-center">33/50</td>
@@ -754,10 +751,10 @@ function App() {
 
                     {/* <!-- UTAH --> */}
                   <tr>
-                    <td scope="row">
+                    <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Utah" src="https://cdn2.capfriendly.com/images/logos/nhl_shield.svg"/>
-                        <a href="#" className="teamName full">Utah</a>
-                        <a href="#" className="teamName abbreviated">UTA</a>
+                        <Link to={' '} className="teamName full">Utah</Link>
+                        <Link to={' '} className="teamName abbreviated">UTA</Link>
                     </td>
                     <td className="text-center">11/23</td>
                     <td className="text-center">23/50</td>
@@ -771,13 +768,10 @@ function App() {
                 </tbody>
               </table>
             </div>
-        </div>
     </div>
 
     {/* <!-- POPULAR ACTIVE/INACTIVE HERO --> */}
-    <div className="container">
-        <div className="container my-5">
-          <div className="row align-items-md-stretch">
+    <div className="row align-items-md-stretch mb-5">
               <div className="col-xl-4">
                 <div className="h-100 p-5 bg-light border rounded-3">
                   <h2 className="text-center">Recalls & Reassignments</h2>
@@ -795,7 +789,7 @@ function App() {
                         <tr>
                           <td>
                             <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the capitals" title="capitals" src="https://cdn2.capfriendly.com/images/logos/washington_capitals.svg"/>
-                            <a href="#" className="playerName">Ethan Bear</a></td>
+                            <Link to={' '} className="playerName">Ethan Bear</Link></td>
                           <td></td>
                           <td></td>
                           <td></td>
@@ -808,7 +802,7 @@ function App() {
                         <tr>
                             <td>
                                 <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the bluejackets" title="bluejackets" src="https://cdn2.capfriendly.com/images/logos/columbus_blue_jackets.svg"/>
-                                <a href="#" className="playerName">Denton Mateychuk</a></td>
+                                <Link to={' '} className="playerName">Denton Mateychuk</Link></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -817,7 +811,7 @@ function App() {
                         <tr>
                             <td>
                                 <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the bluejackets" title="bluejackets" src="https://cdn2.capfriendly.com/images/logos/columbus_blue_jackets.svg"/>
-                                <a href="#" className="playerName">Brendan Gaunce</a></td>
+                                <Link to={' '} className="playerName">Brendan Gaunce</Link></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -830,7 +824,7 @@ function App() {
                         <tr>
                             <td>
                                 <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the rangers" title="rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                                <a href="#" className="playerName">Louis Domingue</a></td>
+                                <Link to={' '} className="playerName">Louis Domingue</Link></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -839,7 +833,7 @@ function App() {
                         <tr>
                             <td>
                                 <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the rangers" title="rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                                <a href="#" className="playerName">Adam Sýkora</a></td>
+                                <Link to={' '} className="playerName">Adam Sýkora</Link></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -869,45 +863,45 @@ function App() {
                         </thead>
                       <tbody>
                         <tr>
-                          <td><a href="#" className="playerName">
+                          <td><Link to={' '} className="playerName">
                             <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the oilers" title="oilers" src="https://cdn2.capfriendly.com/images/logos/edmonton_oilers.svg"/>
-                            Connor McDavid</a></td>
+                            Connor McDavid</Link></td>
                           <td></td>
                           <td></td>
                           <td></td>
                           <td></td>
                         </tr>
                         <tr>
-                            <td><a href="#" className="playerName">
+                            <td><Link to={' '} className="playerName">
                                 <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the hurricanes" title="hurricanes" src="https://cdn2.capfriendly.com/images/logos/carolina_hurricanes.svg"/>
-                                Jake Guentzel</a></td>
+                                Jake Guentzel</Link></td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
                           </tr>
                           <tr>
-                            <td><a href="#" className="playerName">
+                            <td><Link to={' '} className="playerName">
                                 <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the hurricanes" title="hurricanes" src="https://cdn2.capfriendly.com/images/logos/carolina_hurricanes.svg"/>
-                                Martin Necas</a></td>
+                                Martin Necas</Link></td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
                           </tr>
                           <tr>
-                            <td><a href="#" className="playerName">
+                            <td><Link to={' '} className="playerName">
                                 <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the canadiens" title="canadiens" src="https://cdn2.capfriendly.com/images/logos/montreal_canadiens.svg"/>
-                                Samuel Montembeault</a></td>
+                                Samuel Montembeault</Link></td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
                           </tr>
                           <tr>
-                            <td><a href="#" className="playerName">
+                            <td><Link to={' '} className="playerName">
                                 <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the panthers" title="panthers" src="https://cdn2.capfriendly.com/images/logos/florida_panthers.svg"/>
-                                Sergei Bobrovsky</a></td>
+                                Sergei Bobrovsky</Link></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -935,7 +929,7 @@ function App() {
                         <tr>
                           <td>
                             <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the " title="" src="https://cdn2.capfriendly.com/images/logos/nhl_shield.svg"/>
-                            <a href="#" className="playerName">Wayne Gretzky</a></td>
+                            <Link to={' '} className="playerName">Wayne Gretzky</Link></td>
                           <td></td>
                           <td></td>
                           <td></td>
@@ -943,7 +937,7 @@ function App() {
                         <tr>
                             <td>
                                 <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the " title="" src="https://cdn2.capfriendly.com/images/logos/nhl_shield.svg"/>
-                              <a href="#" className="playerName">Tij Iginla</a></td>
+                              <Link to={' '} className="playerName">Tij Iginla</Link></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -951,7 +945,7 @@ function App() {
                         <tr>
                             <td>
                                 <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the " title="" src="https://cdn2.capfriendly.com/images/logos/nhl_shield.svg"/>
-                              <a href="#" className="playerName">Macklin Celebrini</a></td>
+                              <Link to={' '} className="playerName">Macklin Celebrini</Link></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -959,7 +953,7 @@ function App() {
                         <tr>
                             <td>
                                 <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the " title="" src="https://cdn2.capfriendly.com/images/logos/nhl_shield.svg"/>
-                              <a href="#" className="playerName">Rick DiPietro</a></td>
+                              <Link to={' '} className="playerName">Rick DiPietro</Link></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -967,7 +961,7 @@ function App() {
                         <tr>
                             <td>
                                 <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the " title="" src="https://cdn2.capfriendly.com/images/logos/nhl_shield.svg"/>
-                              <a href="#" className="playerName">Henrik Lundqvist</a></td>
+                              <Link to={' '} className="playerName">Henrik Lundqvist</Link></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -977,16 +971,13 @@ function App() {
                     <button className="btn btn-outline-secondary btn-block" type="button">Browse Inactive</button>
                 </div>
               </div>
-            </div>
-        </div>
     </div>
-
+        
     {/* <!-- RECENT TRADES HERO --> */}
-    <div className="container">
-        <div className="p-5 mb-4 bg-light rounded-3">
+    <div className="p-5 mb-4 bg-light rounded-3">
             <div className="container-fluid">
             <h1 className="display-5 text text-center">Recent Trades</h1>
-            <p className="text text-center"><a href="#" className="playerName">FILTER TRADES</a></p>
+            <p className="text text-center"><Link to={' '} className="playerName">FILTER TRADES</Link></p>
             <table className="table">
                 <thead>
                     <tr>
@@ -1088,7 +1079,6 @@ function App() {
                 </tbody>
             </table>
             </div>
-        </div>
     </div>
 
     <div className="b-example-divider"></div>

@@ -1,38 +1,40 @@
+import { Link } from "react-router-dom";
+// import '../../home/App.css'
 
 function Rangers() {
     return (
-        <>
-        <div>
+    <>
+    <div>
         {/* <!-- HEADER --> */}
         <div className="container">
             <header className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-              <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+              <Link to={'/'} className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                 {/* <!-- <svg className="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg> --> */}
                 <span className="fs-4">CapCheck</span>
-              </a>
+              </Link>
               <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                 <input type="search" className="form-control" placeholder="Search..." aria-label="Search"/>
               </form>
         
               <ul className="nav nav-pills">
-                <li className="nav-item"><a href="#" className="nav-link active" aria-current="page">Home</a></li>
+                <li className="nav-item"><Link to={' '} className="nav-link active" aria-current="page">Home</Link></li>
     
-                <a className="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Teams</a>
+                <Link to={' '} className="nav-link dropdown-toggle"  id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Teams</Link>
                 <ul className="dropdown-menu" aria-labelledby="dropdown01">
-                  <li><a className="dropdown-item" href="#">Action</a></li>
-                  <li><a className="dropdown-item" href="#">Another action</a></li>
-                  <li><a className="dropdown-item" href="#">Something else here</a></li>
+                  <li><Link to={' '} className="dropdown-item" >Action</Link></li>
+                  <li><Link to={' '} className="dropdown-item" >Another action</Link></li>
+                  <li><Link to={' '} className="dropdown-item" >Something else here</Link></li>
                 </ul>
     
-                <a className="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Players</a>
+                <Link to={' '} className="nav-link dropdown-toggle"  id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Players</Link>
                 <ul className="dropdown-menu" aria-labelledby="dropdown01">
-                  <li><a className="dropdown-item" href="#">Action</a></li>
-                  <li><a className="dropdown-item" href="#">Another action</a></li>
-                  <li><a className="dropdown-item" href="#">Something else here</a></li>
+                  <li><Link to={' '} className="dropdown-item" >Action</Link></li>
+                  <li><Link to={' '} className="dropdown-item" >Another action</Link></li>
+                  <li><Link to={' '} className="dropdown-item" >Something else here</Link></li>
                 </ul>
     
-                <li className="nav-item"><a href="#" className="nav-link">FAQs</a></li>
-                <li className="nav-item"><a href="#" className="nav-link">About</a></li>
+                <li className="nav-item"><Link to={' '} className="nav-link">FAQs</Link></li>
+                <li className="nav-item"><Link to={' '} className="nav-link">About</Link></li>
               </ul>
             </header>
         </div>
@@ -54,8 +56,8 @@ function Rangers() {
                     <p className="text noMargin">CONTRACTS: 38/50</p>
                     <p className="text noMargin">RESERVE LIST: 49/90</p>
                     <p className="text">INJURIES: 0</p>
-                    <p className="text noMargin">GENERAL MANAGER: <a href="#" className="playerName">Chris Drury</a></p>
-                    <p className="text">HEAD COACH: <a href="#" className="playerName">Peter Laviolette</a></p>
+                    <p className="text noMargin">GENERAL MANAGER: <Link to={' '} className="playerName">Chris Drury</Link></p>
+                    <p className="text">HEAD COACH: <Link to={' '} className="playerName">Peter Laviolette</Link></p>
                 </div>
 
                 {/* <!-- DRAFT PICKS --> */}
@@ -139,7 +141,7 @@ function Rangers() {
                                   <tr>
                                     <td>
                                         <img className="im_mid" style={{ height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px' }} alt="Logo of the rangers" title="rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                                        <a href="#" className="playerName">Louis Domingue</a>
+                                        <Link to={' '} className="playerName">Louis Domingue</Link>
                                     </td>
                                     <td></td>
                                     <td></td>
@@ -148,7 +150,7 @@ function Rangers() {
                                   <tr>
                                     <td>
                                         <img className="im_mid" style={{ height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px' }} alt="Logo of the rangers" title="rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                                        <a href="#" className="playerName">Adam Sýkora</a>
+                                        <Link to={' '} className="playerName">Adam Sýkora</Link>
                                     </td>
                                     <td></td>
                                     <td></td>
@@ -159,7 +161,7 @@ function Rangers() {
                                   <tr>
                                     <td>
                                         <img className="im_mid" style={{ height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px' }} alt="Logo of the rangers" title="rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                                        <a href="#" className="playerName">Brandon Scanlin</a>
+                                        <Link to={' '} className="playerName">Brandon Scanlin</Link>
                                     </td>
                                     <td></td>
                                     <td></td>
@@ -170,7 +172,7 @@ function Rangers() {
                                   <tr>
                                     <td>
                                         <img className="im_mid" style={{ height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px' }} alt="Logo of the rangers" title="rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                                        <a href="#" className="playerName">Matthew Robertson</a>
+                                        <Link to={' '} className="playerName">Matthew Robertson</Link>
                                     </td>
                                     <td></td>
                                     <td></td>
@@ -181,7 +183,7 @@ function Rangers() {
                                   <tr>
                                     <td>
                                         <img className="im_mid" style={{ height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px' }} alt="Logo of the rangers" title="rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                                        <a href="#" className="playerName">Tyler Pitlick</a>
+                                        <Link to={' '} className="playerName">Tyler Pitlick</Link>
                                     </td>
                                     <td></td>
                                     <td></td>
@@ -202,7 +204,7 @@ function Rangers() {
                                     <tr>
                                       <td>
                                         <img className="im_mid" style={{ height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px' }} alt="Logo of the rangers" title="rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                                        <a href="#" className="playerName">Jimmy Vesey</a>
+                                        <Link to={' '} className="playerName">Jimmy Vesey</Link>
                                       </td>
                                       <td></td>
                                       <td></td>
@@ -211,7 +213,7 @@ function Rangers() {
                                     <tr>
                                       <td>
                                         <img className="im_mid" style={{ height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px' }} alt="Logo of the rangers" title="rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                                        <a href="#" className="playerName">Filip Chytil</a>
+                                        <Link to={' '} className="playerName">Filip Chytil</Link>
                                       </td>
                                       <td></td>
                                       <td></td>
@@ -220,7 +222,7 @@ function Rangers() {
                                     <tr>
                                       <td>
                                         <img className="im_mid" style={{ height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px' }} alt="Logo of the rangers" title="rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                                        <a href="#" className="playerName">Blake Wheeler</a>
+                                        <Link to={' '} className="playerName">Blake Wheeler</Link>
                                       </td>
                                       <td></td>
                                       <td></td>
@@ -229,7 +231,7 @@ function Rangers() {
                                     <tr>
                                       <td>
                                         <img className="im_mid" style={{ height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px' }} alt="Logo of the rangers" title="rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                                        <a href="#" className="playerName">Filip Chytil</a>
+                                        <Link to={' '} className="playerName">Filip Chytil</Link>
                                       </td>
                                       <td></td>
                                       <td></td>
@@ -238,7 +240,7 @@ function Rangers() {
                                     <tr>
                                       <td>
                                         <img className="im_mid" style={{ height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px' }} alt="Logo of the rangers" title="rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                                        <a href="#" className="playerName">Erik Gustafsson</a>
+                                        <Link to={' '} className="playerName">Erik Gustafsson</Link>
                                       </td>
                                       <td></td>
                                       <td></td>
@@ -275,7 +277,7 @@ function Rangers() {
                         <tbody>
                             {/* <!-- PANARIN --> */}
                           <tr className="text-center">
-                            <td className="text-left"><a href="#" className="playerName">Panarin, Artemi</a> "A"</td>
+                            <td className="text-left"><Link to={' '} className="playerName">Panarin, Artemi</Link> "A"</td>
                             <td>NMC</td>
                             <td>LW</td>
                             <td>NHL</td>
@@ -291,7 +293,7 @@ function Rangers() {
                           </tr>
                           {/* <!-- MIKA --> */}
                           <tr className="text-center">
-                            <td className="text-left"><a href="#" className="playerName">Zibanejad, Mika</a> "A"</td>
+                            <td className="text-left"><Link to={' '} className="playerName">Zibanejad, Mika</Link> "A"</td>
                             <td>NMC</td>
                             <td>C</td>
                             <td>NHL</td>
@@ -307,7 +309,7 @@ function Rangers() {
                           </tr>
                           {/* <!-- KRIEDER --> */}
                           <tr className="text-center">
-                            <td className="text-left"><a href="#" className="playerName">Kreider, Chris</a> "A"</td>
+                            <td className="text-left"><Link to={' '} className="playerName">Kreider, Chris</Link> "A"</td>
                             <td className="text-nowrap">M-NTC, NMC</td>
                             <td>LW</td>
                             <td>NHL</td>
@@ -323,7 +325,7 @@ function Rangers() {
                           </tr>
                           {/* <!-- TROCHEK --> */}
                           <tr className="text-center">
-                            <td className="text-left"><a href="#" className="playerName">Trocheck, Vincent</a></td>
+                            <td className="text-left"><Link to={' '} className="playerName">Trocheck, Vincent</Link></td>
                             <td>NMC</td>
                             <td className="text-nowrap">C, RW</td>
                             <td>NHL</td>
@@ -339,7 +341,7 @@ function Rangers() {
                           </tr>
                           {/* <!-- CHYTIL --> */}
                           <tr className="text-center">
-                            <td className="text-left"><a href="#" className="playerName">Chytil, Filip</a></td>
+                            <td className="text-left"><Link to={' '} className="playerName">Chytil, Filip</Link></td>
                             <td></td>
                             <td>C, LW</td>
                             <td>NHL</td>
@@ -355,7 +357,7 @@ function Rangers() {
                           </tr>
                           {/* <!-- GOODROW --> */}
                           <tr className="text-center">
-                            <td className="text-left text-nowrap"><a href="#" className="playerName">Goodrow, Barclay</a>"A"</td>
+                            <td className="text-left text-nowrap"><Link to={' '} className="playerName">Goodrow, Barclay</Link>"A"</td>
                             <td>M-NTC</td>
                             <td className="text-nowrap">C, LW</td>
                             <td>NHL</td>
@@ -371,7 +373,7 @@ function Rangers() {
                           </tr>
                           {/* <!-- LAFRENIERE --> */}
                           <tr className="text-center">
-                            <td className="text-left text-nowrap"><a href="#" className="playerName">Lafrenière, Alexis</a></td>
+                            <td className="text-left text-nowrap"><Link to={' '} className="playerName">Lafrenière, Alexis</Link></td>
                             <td></td>
                             <td className="text-nowrap">LW, RW</td>
                             <td>NHL</td>
@@ -387,7 +389,7 @@ function Rangers() {
                           </tr>
                           {/* <!-- EDSTROM --> */}
                           <tr className="text-center">
-                            <td className="text-left text-nowrap"><a href="#" className="playerName">Edström, Adam</a></td>
+                            <td className="text-left text-nowrap"><Link to={' '} className="playerName">Edström, Adam</Link></td>
                             <td>ELC</td>
                             <td className="text-nowrap">C, LW</td>
                             <td>NHL</td>
@@ -403,7 +405,7 @@ function Rangers() {
                           </tr>
                           {/* <!-- CUYLLE --> */}
                           <tr className="text-center">
-                            <td className="text-left text-nowrap"><a href="#" className="playerName">Cuylle, Will</a></td>
+                            <td className="text-left text-nowrap"><Link to={' '} className="playerName">Cuylle, Will</Link></td>
                             <td>ELC</td>
                             <td className="text-nowrap">LW</td>
                             <td>NHL</td>
@@ -419,7 +421,7 @@ function Rangers() {
                           </tr>
                           {/* <!-- REMPE --> */}
                           <tr className="text-center">
-                            <td className="text-left text-nowrap"><a href="#" className="playerName">Rempe, Matt</a></td>
+                            <td className="text-left text-nowrap"><Link to={' '} className="playerName">Rempe, Matt</Link></td>
                             <td>ELC</td>
                             <td className="text-nowrap">C, RW</td>
                             <td>NHL</td>
@@ -435,7 +437,7 @@ function Rangers() {
                           </tr>
                           {/* <!-- VESEY --> */}
                           <tr className="text-center">
-                            <td className="text-left text-nowrap"><a href="#" className="playerName">Cuylle, Will</a></td>
+                            <td className="text-left text-nowrap"><Link to={' '} className="playerName">Cuylle, Will</Link></td>
                             <td></td>
                             <td className="text-nowrap">RW, LW</td>
                             <td>NHL</td>
@@ -451,7 +453,7 @@ function Rangers() {
                           </tr>
                           {/* <!-- BRODZINSKI --> */}
                           <tr className="text-center">
-                            <td className="text-left text-nowrap"><a href="#" className="playerName">Brodzinski, Jonny</a></td>
+                            <td className="text-left text-nowrap"><Link to={' '} className="playerName">Brodzinski, Jonny</Link></td>
                             <td></td>
                             <td className="text-nowrap">C</td>
                             <td>NHL</td>
@@ -467,7 +469,7 @@ function Rangers() {
                           </tr>
                           {/* <!-- KAKKO --> */}
                           <tr className="text-center">
-                            <td className="text-left text-nowrap"><a href="#" className="playerName">Kakko, Kaapo</a></td>
+                            <td className="text-left text-nowrap"><Link to={' '} className="playerName">Kakko, Kaapo</Link></td>
                             <td></td>
                             <td className="text-nowrap">RW</td>
                             <td>NHL</td>
@@ -483,7 +485,7 @@ function Rangers() {
                           </tr>
                           {/* <!-- ROSLOVIC --> */}
                           <tr className="text-center">
-                            <td className="text-left text-nowrap"><a href="#" className="playerName">Roslovic, Jack</a></td>
+                            <td className="text-left text-nowrap"><Link to={' '} className="playerName">Roslovic, Jack</Link></td>
                             <td></td>
                             <td className="text-nowrap">C, RW</td>
                             <td>NHL</td>
@@ -499,7 +501,7 @@ function Rangers() {
                           </tr>
                           {/* <!-- WENNBERG --> */}
                           <tr className="text-center">
-                            <td className="text-left text-nowrap"><a href="#" className="playerName">Wennberg, Alexander</a></td>
+                            <td className="text-left text-nowrap"><Link to={' '} className="playerName">Wennberg, Alexander</Link></td>
                             <td></td>
                             <td className="text-nowrap">C</td>
                             <td>NHL</td>
@@ -515,7 +517,7 @@ function Rangers() {
                           </tr>
                           {/* <!-- WHEELER --> */}
                           <tr className="text-center">
-                            <td className="text-left text-nowrap"><a href="#" className="playerName">Wheeler, Blake</a></td>
+                            <td className="text-left text-nowrap"><Link to={' '} className="playerName">Wheeler, Blake</Link></td>
                             <td></td>
                             <td className="text-nowrap">RW</td>
                             <td>NHL</td>
@@ -572,7 +574,7 @@ function Rangers() {
                         <tbody>
                             {/* <!-- FOX --> */}
                           <tr className="text-center">
-                            <td className="text-left"><a href="#" className="playerName">Fox, Adam</a></td>
+                            <td className="text-left"><Link to={' '} className="playerName">Fox, Adam</Link></td>
                             <td></td>
                             <td>RD</td>
                             <td>NHL</td>
@@ -588,7 +590,7 @@ function Rangers() {
                           </tr>
                           {/* <!-- TROUBA --> */}
                           <tr className="text-center">
-                            <td className="text-left"><a href="#" className="playerName">Trouba, Jacob</a> "C"</td>
+                            <td className="text-left"><Link to={' '} className="playerName">Trouba, Jacob</Link> "C"</td>
                             <td>M-NTC</td>    
                             <td>RD</td>
                             <td>NHL</td>
@@ -604,7 +606,7 @@ function Rangers() {
                           </tr>
                           {/* <!-- MILLER --> */}
                           <tr className="text-center">
-                            <td className="text-left"><a href="#" className="playerName">Miller, K'Andre</a></td>
+                            <td className="text-left"><Link to={' '} className="playerName">Miller, K'Andre</Link></td>
                             <td className="text-nowrap"></td>
                             <td>LD</td>
                             <td>NHL</td>
@@ -620,7 +622,7 @@ function Rangers() {
                           </tr>
                           {/* <!-- JONES --> */}
                           <tr className="text-center">
-                            <td className="text-left"><a href="#" className="playerName">Jones, Zachary</a></td>
+                            <td className="text-left"><Link to={' '} className="playerName">Jones, Zachary</Link></td>
                             <td></td>
                             <td className="text-nowrap">LD</td>
                             <td>NHL</td>
@@ -636,7 +638,7 @@ function Rangers() {
                           </tr>
                           {/* <!-- LINDGREN --> */}
                           <tr className="text-center">
-                            <td className="text-left"><a href="#" className="playerName">Lindgren, Ryan</a></td>
+                            <td className="text-left"><Link to={' '} className="playerName">Lindgren, Ryan</Link></td>
                             <td></td>
                             <td>LD</td>
                             <td>NHL</td>
@@ -652,7 +654,7 @@ function Rangers() {
                           </tr>
                           {/* <!-- SCHNEIDER --> */}
                           <tr className="text-center">
-                            <td className="text-left text-nowrap"><a href="#" className="playerName">Schneider, Braden</a></td>
+                            <td className="text-left text-nowrap"><Link to={' '} className="playerName">Schneider, Braden</Link></td>
                             <td></td>
                             <td className="text-nowrap">RD</td>
                             <td>NHL</td>
@@ -668,7 +670,7 @@ function Rangers() {
                           </tr>
                           {/* <!-- GUSTAFSSON --> */}
                           <tr className="text-center">
-                            <td className="text-left text-nowrap"><a href="#" className="playerName">Gustafsson, Erik</a></td>
+                            <td className="text-left text-nowrap"><Link to={' '} className="playerName">Gustafsson, Erik</Link></td>
                             <td></td>
                             <td className="text-nowrap">LD</td>
                             <td>NHL</td>
@@ -684,7 +686,7 @@ function Rangers() {
                           </tr>
                           {/* <!-- RUHWEDEL --> */}
                           <tr className="text-center">
-                            <td className="text-left text-nowrap"><a href="#" className="playerName">Ruhwedel, Chad</a></td>
+                            <td className="text-left text-nowrap"><Link to={' '} className="playerName">Ruhwedel, Chad</Link></td>
                             <td></td>
                             <td className="text-nowrap">RD</td>
                             <td>NHL</td>
@@ -741,7 +743,7 @@ function Rangers() {
                         <tbody>
                             {/* <!-- IGOR --> */}
                           <tr className="text-center">
-                            <td className="text-left"><a href="#" className="playerName">Shesterkin, Igor</a></td>
+                            <td className="text-left"><Link to={' '} className="playerName">Shesterkin, Igor</Link></td>
                             <td>M-NTC</td>
                             <td>G</td>
                             <td>NHL</td>
@@ -757,7 +759,7 @@ function Rangers() {
                           </tr>
                           {/* <!-- QUICK --> */}
                           <tr className="text-center">
-                            <td className="text-left"><a href="#" className="playerName">Quick, Jonathan</a></td>
+                            <td className="text-left"><Link to={' '} className="playerName">Quick, Jonathan</Link></td>
                             <td>35+ M-NTC</td>    
                             <td>G</td>
                             <td>NHL</td>
@@ -792,8 +794,6 @@ function Rangers() {
                 </div>
             </div>
         </div>
-    
-
     </div>
     </>
     )
