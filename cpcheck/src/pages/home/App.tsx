@@ -9,39 +9,6 @@ function App() {
     <>
       <div>
       <Navbar/>
-      {/* <!-- HEADER --> */}
-    {/* <div className="container">
-        <header className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-          <Link to={' '} className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-            <span className="fs-4">CapCheck</span>
-          </Link>
-          <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-            <input type="search" className="form-control" placeholder="Search..." aria-label="Search"></input>
-          </form>
-    
-          <ul className="nav nav-pills">
-            <li className="nav-item"><Link to={' '} className="nav-link active" aria-current="page">Home</Link></li>
-
-            <Link to={' '}  className="nav-link dropdown-toggle"  id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Teams</Link>
-            <ul className="dropdown-menu" aria-labelledby="dropdown01">
-              <li><Link to={' '}  className="dropdown-item" >Action</Link></li>
-              <li><Link to={' '}  className="dropdown-item" >Another action</Link></li>
-              <li><Link to={' '}  className="dropdown-item" >Something else here</Link></li>
-            </ul>
-
-            <Link to={' '}  className="nav-link dropdown-toggle"  id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Players</Link>
-            <ul className="dropdown-menu" aria-labelledby="dropdown01">
-              <li><Link to={' '}  className="dropdown-item" >Action</Link></li>
-              <li><Link to={' '}  className="dropdown-item" >Another action</Link></li>
-              <li><Link to={' '}  className="dropdown-item" >Something else here</Link></li>
-            </ul>
-
-            <li className="nav-item"><Link to={' '} className="nav-link">FAQs</Link></li>
-            <li className="nav-item"><Link to={' '} className="nav-link">About</Link></li>
-          </ul>
-        </header>
-    </div> */}
-
     {/* <!-- <div className="b-example-divider"></div> --> */}
 
     {/* <!-- SOCIAL HERO --> */}
@@ -767,7 +734,7 @@ function App() {
                     <td className="text-center">$51,421,667</td>
                   </tr>
                 </tbody>
-              </table>
+            </table>
             </div>
     </div>
 
@@ -1080,10 +1047,7 @@ function App() {
                 </tbody>
             </table>
             </div>
-    </div>
-
-    <div className="b-example-divider"></div>
-    
+    </div>   
   </div>
     </>
   )
