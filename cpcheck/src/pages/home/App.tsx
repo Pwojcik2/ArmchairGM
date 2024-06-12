@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import { useState } from 'react'
 import { Link } from "react-router-dom";
 import './App.css'
@@ -81,7 +82,6 @@ const teamsData = [
 ];
 
 function App() {
-
   return (
     <>
       <div>
@@ -324,7 +324,7 @@ function App() {
                   <tr>
                     <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Vegas Golden Knights" src="https://cdn2.capfriendly.com/images/logos/vegas_golden_knights.svg"/>
-                        <Link to={' '} className="teamName full">Vegas Golden Knights</Link>
+                        <Link to={'/teams/goldenknights'} className="teamName full">Vegas Golden Knights</Link>
                         <Link to={' '} className="teamName abbreviated">VGK</Link>
                     </td>
                     <td className="text-center">20/23</td>

@@ -2,12 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './pages/home/App.tsx'
 import Rangers from './pages/teams/rangers/Rangers.tsx'
-import './index.css'
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
 import Flyers from './pages/teams/flyers/Flyers.tsx'
+import GoldenKnight from './pages/teams/goldenknights/GoldenKnight.tsx';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: "teams/flyers",
     element: <Flyers/>
+  },
+  {
+    path: "teams/goldenknights",
+    element: <GoldenKnight/>
   }
 ]);
 
