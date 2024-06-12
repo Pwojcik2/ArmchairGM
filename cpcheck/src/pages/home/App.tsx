@@ -2,6 +2,83 @@ import { useState } from 'react'
 import { Link } from "react-router-dom";
 import './App.css'
 import Navbar from '../../components/Navbar';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+
+function createTeam(
+  name: string,
+  rosterSize: string,
+  contracts: string,
+  retained: string,
+  projCapHit: string,
+  projCapSpace: string,
+  ltirCand: string,
+  ltirCandCapSpace: string,
+  link: string
+) {
+  return {
+    name,
+    rosterSize,
+    contracts,
+    retained,
+    projCapHit,
+    projCapSpace,
+    ltirCand,
+    ltirCandCapSpace,
+    link
+  };
+}
+
+const teamsData = [
+  createTeam(
+    'Philadelphia Flyers',
+    '19/23',
+    '38/50',
+    '1/3',
+    '$87,196,428',
+    '$803,572',
+    '$6,250,000',
+    '$7,053,572',
+    '#'
+  ),
+  createTeam(
+    'Vegas Golden Knights',
+    '20/23',
+    '38/50',
+    '0/3',
+    '$86,802,484',
+    '$1,197,516',
+    '$5,000,000',
+    '$6,197,516',
+    '#'
+  ),
+  createTeam(
+    'Tampa Bay Lightning',
+    '18/23',
+    '33/50',
+    '0/3',
+    '$82,665,000',
+    '$5,335,000',
+    '-',
+    '-',
+    '#'
+  ),
+  createTeam(
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '#'
+  ),
+];
 
 function App() {
 
@@ -175,6 +252,42 @@ function App() {
             <div className="container-fluid">
             <h1 className="display-5 text text-center">2024-25 CAP SPACE</h1>
             <p className="text text-center">&#9650 UPPER LIMIT: 88.0M | &#9660 LOWER LIMIT: 65.0M</p>
+            {/* <TableContainer className="table">
+            <Table aria-label="teams table">
+              <TableHead>
+                <TableRow>
+                  <TableCell scope="col">TEAM</TableCell>
+                  <TableCell scope="col">ROSTER SIZE</TableCell>
+                  <TableCell scope="col">CONTRACTS</TableCell>
+                  <TableCell scope="col">RETAINED</TableCell>
+                  <TableCell scope="col"></TableCell>
+                  <TableCell scope="col" className="text-center">PROJ. CAP HIT</TableCell>
+                  <TableCell scope="col">PROJ. CAP SPACE</TableCell>
+                  <TableCell scope="col">LTIR CAND.</TableCell>
+                  <TableCell scope="col">LTIR CAND. CAP SPACE</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {teamsData.map((row) => (
+                  <TableRow key={row.name} className="text-center" sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                    <TableCell scope="row" className='text-nowrap'>
+                      <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px'}} alt={`Logo of ${row.name}`} src={`https://cdn2.capfriendly.com/images/logos/${row.name.toLowerCase().replace(/\s/g, '_')}.svg`} />
+                      <Link to={row.link} className="teamName full">{row.name}</Link>
+                      <Link to={row.link} className="teamName abbreviated">{row.name}</Link>
+                    </TableCell>
+                    <TableCell>{row.rosterSize}</TableCell>
+                    <TableCell>{row.contracts}</TableCell>
+                    <TableCell>{row.retained}</TableCell>
+                    <TableCell></TableCell>
+                    <TableCell className="text-center">{row.projCapHit}</TableCell>
+                    <TableCell className="text-center">{row.projCapSpace}</TableCell>
+                    <TableCell className="text-center">{row.ltirCand}</TableCell>
+                    <TableCell className="text-center">{row.ltirCandCapSpace}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer> */}
             <table className="table">
                 <thead>
                     <tr>
@@ -194,7 +307,7 @@ function App() {
                   <tr>
                     <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Philadelphia Flyers" src="https://cdn2.capfriendly.com/images/logos/philadelphia_flyers.svg"/>
-                        <Link to={' '} className="teamName full">Philadelphia Flyers</Link>
+                        <Link to={'/teams/flyers'} className="teamName full">Philadelphia Flyers</Link>
                         <Link to={' '} className="teamName abbreviated">PHI</Link>
                     </td>
                     <td className="text-center">19/23</td>

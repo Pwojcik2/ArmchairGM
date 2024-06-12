@@ -8,7 +8,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { rangersImg, rangersDraftImg, rangersDraftImgTraded, minnesotaDraft, vancouverDraft } from "../../../assets/Images";
+import { flyersImg, flyersDraftImg, flyersDraftImgTraded, floridaDraft, avalancheDraft, jacketsDraft, anaheimDraft, kingsDraft, knightsDraft, hurricaneDraft, bluesDraft } from "../../../assets/Images";
 
 function createInjuries(
   name: string,
@@ -61,60 +61,57 @@ function createPlayer(
 }
 
 const forwardData = [
-  createPlayer('Panarin, Artemi "A"', 'NMC', 'LW', 'NHL', 'Signed', 32, '13.2', '$11,642,857', '$11,642,857', 'RFA', '', '', '', '#'),
-  createPlayer('Zibanejad, Mika "A"', 'NMC', 'C', 'NHL', 'Trade', 31, '9.7', '$8,500,000', '$8,500,000', '$8,500,000', '$8,500,000', '$8,500,000', '$8,500,000', '#'),
-  createPlayer('Kreider, Chris "A"', 'M-NTC, NMC', 'LW', 'NHL', 'Draft', 32, '7.4', '$6,500,000', '$6,500,000', '$6,500,000', 'UFA', '', '',  '#'),
-  createPlayer('Trocheck, Vincent', 'NMC', 'C, RW', 'NHL', 'Signed', 30, '6.4', '$5,625,000', '$5,625,000', '$5,625,000', '$5,625,000', '$5,625,000', 'UFA',  '#'),
-  createPlayer('Chytil, Filip', '', 'C, LW', 'NHL', 'Draft', 24, '5.0', '$4,437,500', '$4,437,500', '$4,437,500', 'UFA', '', '',  '#'),
-  createPlayer('Goodrow, Barclay "A"', 'M-NTC', 'C, LW', 'NHL', 'Trade', 31, '4.1', '$3,641,667', '$3,641,667', '$3,641,667', 'UFA', '', '',  '#'),
-  createPlayer('Lafrenière, Alexis', '', 'LW, RW', 'NHL', 'Draft', 22, '2.6', '$2,325,000', 'RFA', '', '', '', '', '#'),
-  createPlayer('Edström, Adam', 'ELC', 'C, LW', 'NHL', 'Draft', 23, '1.0', '$846,667', 'RFA', '', '', '', '', '#'),
-  createPlayer('Cuylle, Will', 'ELC', 'LW', 'NHL', 'Draft', 22, '0.9', '$828,333', 'RFA', '', '', '', '', '#'),
-  createPlayer('Rempe, Matt', 'ELC', 'C, RW', 'NHL', 'Draft', 21, '0.9', '$820,000', 'RFA', '', '', '', '', '#'),
-  createPlayer('Cuylle, Will', '', 'RW, LW', 'NHL', 'Signed', 31, '0.9', '$800,000', 'UFA', '', '', '', '', '#'),
-  createPlayer('Brodzinski, Jonny', '', 'C', 'NHL', 'Signed', 30, '0.9', '$787,500', '$787,500', 'UFA', '', '', '', '#'),
-  createPlayer('Kakko, Kaapo', '', 'RW', 'NHL', 'Draft', 23, '', 'RFA', '', '', '', '','', '#'),
-  createPlayer('Roslovic, Jack', '', 'C, RW', 'NHL', 'Trade', 27, '', 'UFA', '', '', '', '','', '#'),
-  createPlayer('Wennberg, Alexander', '', 'C', 'NHL', 'Trade', 29, '', 'UFA', '', '', '', '','', '#'),
-  createPlayer('Wheeler, Blake', '', 'RW', 'NHL', 'Signed', 37, '', 'UFA', '', '', '', '','', '#'),
-  createPlayer('TOTAL', '', '', '', '', 27.9, '53.1', '$46,754,524', '$41,134,524', '$28,704,167', '$14,125,000', '$14,125,000', '$8,500,000', '#')
+    createPlayer('Couturier, Sean "C"', 'NMC', 'C', 'NHL', 'Draft', 31, '8.8', '$7,750,000', '$7,750,000', '$7,750,000', '$7,750,000', '$7,750,000', '$7,750,000', '#'),
+    createPlayer('Tippett, Owen', '', 'RW, LW', 'NHL', 'Trade', 25, '7.0', '$6,200,000', '$6,200,000', '$6,200,000', '$6,200,000', '$6,200,000', '$6,200,000', '#'),
+    createPlayer('Atkinson, Cam', 'M-NTC', 'RW, LW', 'NHL', 'Trade', 35, '6.7', '$5,875,000', 'UFA', '', '', '', '', '#'),
+    createPlayer('Konecny, Travis "A"', '', 'RW, LW', 'NHL', 'Draft', 27, '6.3', '$5,500,000', 'UFA', '', '', '', '', '#'),
+    createPlayer('Farabee, Joel', '', 'LW, RW', 'NHL', 'Draft', 24, '5.7', '$5,000,000', '$5,000,000', '$5,000,000', '$5,000,000', 'UFA', '', '#'),
+    createPlayer('Johansen, Ryan', 'RS', 'C, RW', 'NHL', 'Trade', 31, '4.5', '$4,000,000', 'UFA', '', '', '', '', '#'),
+    createPlayer('Laughton, Scott "A"', '', 'C, LW', 'NHL', 'Draft', 30, '3.4', '$3,000,000', '$3,000,000', 'UFA', '', '', '', '#'),
+    createPlayer('Cates, Noah', '', 'C, LW', 'NHL', 'Draft', 25, '3.0', '$2,625,000', 'RFA', '', '', '', '',  '#'),
+    createPlayer('Hathaway, Garnet', '', 'RW, LW', 'NHL', 'Signed', 32, '2.7', '$2,375,000', 'UFA', '', '', '', '',  '#'),
+    createPlayer('Frost, Morgan', '', 'C', 'NHL', 'Draft', 25, '2.4', '$2,100,000', 'RFA', '', '', '', '',  '#'),
+    createPlayer('Poehling, Ryan', '', 'C, LW', 'NHL', 'Signed', 25, '2.2', '$1,900,000', '$1,900,000', 'UFA', '', '', '', '#'),
+    createPlayer('Deslauriers, Nicolas', '', 'LW, RW', 'NHL', 'Signed', 33, '2.0', '$1,750,000', '$1,750,000', 'UFA', '', '', '',  '#'),
+    createPlayer('Foerster, Tyson', 'ELC', 'RW', 'NHL', 'Draft', 22, '1.0', '$863,333', 'RFA', '', '', '', '',  '#'),
+    createPlayer('Gurianov, Denis', '', 'RW, LW', 'NHL', 'Trade', 27, '', 'UFA', '', '', '', '', '',  '#'),
+    createPlayer('TOTAL', '', '', '', '', 28.0, '55.6', '$48,938,333', '$25,600,000', '$18,950,000', '$18,950,000', '$13,950,000', '$13,950,000',  '#')
 ];
-
+  
 const defensemenData = [
-  createPlayer('Fox, Adam', '', 'RD', 'NHL', 'Trade', 26, '10.8', '$9,500,000', '$9,500,000', '$9,500,000', '$9,500,000', '$9,500,000', 'UFA',  '#'),
-  createPlayer('Trouba, Jacob "C"', 'M-NTC', 'RD', 'NHL', 'Trade', 30, '9.1', '$8,000,000', '$8,000,000', 'UFA', '', '', '',  '#'),
-  createPlayer('Miller, K\'Andre', '', 'LD', 'NHL', 'Draft', 24, '4.4', '$3,872,000', 'RFA', '', '', '', '',  '#'),
-  createPlayer('Jones, Zachary', '', 'LD', 'NHL', 'Draft', 23, '0.9', '$812,500', 'RFA', '', '', '', '',  '#'),
-  createPlayer('Lindgren, Ryan', '', 'LD', 'NHL', 'Trade', 26, '', 'RFA', '', '', '', '', '', '#'),
-  createPlayer('Schneider, Braden', '', 'RD', 'NHL', 'Draft', 22, '', 'RFA', '', '', '', '', '', '#'),
-  createPlayer('Gustafsson, Erik', '', 'LD', 'NHL', 'Signed', 32, '', 'UFA', '', '', '', '', '', '#'),
-  createPlayer('Ruhwedel, Chad', '', 'RD', 'NHL', 'Trade', 34, '', 'UFA', '', '', '', '', '', '#'),
-  createPlayer('TOTAL', '', '', '', '', 27.1, '25.2', '$22,184,500', '$17,500,000', '$9,500,000', '$9,500,000', '$9,500,000', '',  '#')
+    createPlayer('Sanheim, Travis', 'NTC', 'LD/RD', 'NHL', 'Draft', 28, '7.1', '$6,250,000', '$6,250,000', '$6,250,000', '$6,250,000', '$6,250,000', '$6,250,000', '#'),
+    createPlayer('Seeler, Nick', 'NTC', 'LD/RD', 'NHL', 'Signed', 31, '3.1', '$2,700,000', '$2,700,000', '$2,700,000', '$2,700,000', 'UFA', '','#'),
+    createPlayer('Drysdale, Jamie', '', 'RD', 'NHL', 'Trade', 22, '2.6', '$2,300,000', '$2,300,000', 'RFA', '', '', '','#'),
+    createPlayer('York, Cam', '', 'LD/RD', 'NHL', 'Draft', 23, '1.8', '$1,600,000', 'RFA', '', '', '', '','#'),
+    createPlayer('Zamula, Yegor', '', 'LD/RD', 'NHL', 'Signed', 24, '', 'RFA', '', '', '', '', '','#'),
+    createPlayer('Johnson, Erik', '', 'RD', 'NHL', 'Trade', 36, '', 'UFA', '', '', '', '', '','#'),
+    createPlayer('Staal, Marc', '', 'LD', 'NHL', 'Signed', 37, '', 'UFA', '', '', '', '', '','#'),
+    createPlayer('TOTAL', '', '', '', '', 28.7, '14.6', '$12,850,000', '$11,250,000', '$8,950,000', '$8,950,000', '$6,250,000', '$6,250,000','#')
 ];
-
+  
 const goaliesData = [
-  createPlayer('Shesterkin, Igor', 'M-NTC', 'G', 'NHL', 'Draft', 28, '6.4', '$5,666,667', 'UFA', '', '', '', '',  '#'),
-  createPlayer('Quick, Jonathan', '35+ M-NTC', 'G', 'NHL', 'Signed', 38, '1.4', '$1,275,000', 'UFA', '', '', '', '',  '#'),
-  createPlayer('TOTAL', '', '', '', '', 33.0, '7.9', '$6,941,667', '', '', '', '', '',  '#')
+    createPlayer('Fedotov, Ivan', '', 'G', 'NHL', 'Draft', 27, '3.7', '$3,275,000', '$3,275,000', 'UFA', '', '', '',  '#'),
+    createPlayer('Ersson, Samuel', '', 'G', 'NHL', 'Draft', 24, '1.6', '$1,450,000', '$1,450,000', 'RFA', '', '', '',  '#'),
+    createPlayer('TOTAL', '', '', '', '', 25.5, '5.4', '$4,725,000', '$4,725,000', '', '', '', '',  '#')
 ];
-
+  
 const injuryData = [
-  createInjuries('Jimmy Vesey', 'Upper Body(Wk to wk) - May 26', '#'),
-  createInjuries('Filip Chytil', 'Cleared - May 22', '#'),
-  createInjuries('Blake Wheeler', 'Cleared - May 16', '#'),
-  createInjuries('Filip Chytil', 'Cleared - May 9', '#'),
-  createInjuries('Erik Gustafsson', 'Cleared - Apr. 3', '#'),
+  createInjuries('Rasmus Ristolainen', 'Arm (3mo) - Apr. 18', '#'),
+  createInjuries('Sean Couturier', 'Cleared - Apr. 9', '#'),
+  createInjuries('Sean Couturier', 'Shoulder (Day to day) - Apr. 3', '#'),
+  createInjuries('Jamie Drysdale', 'Cleared - Apr. 1', '#'),
+  createInjuries('Nick Seeler', 'Cleared - Mar. 30', '#'),
 ];
 
 const recallData = [
-  createRecalls('Louis Domingue', 'Set to Roster - May 25', '#'),
-  createRecalls('Adam Sýkora', 'NHL - May 25', '#'),
-  createRecalls('Brandon Scanlin', 'NHL - May 25', '#'),
-  createRecalls('Matthew Robertson', 'NHL - May 25', '#'),
-  createRecalls('Tyler Pitlick', 'NHL - May 25', '#'),
+  createRecalls('Adam Ginning', 'Minors - Apr. 17', '#'),
+  createRecalls('Olle Lycksell', 'Minors - Apr. 17', '#'),
+  createRecalls('Bobby Brink', 'Minors - Apr. 17', '#'),
+  createRecalls('Ronnie Attard', 'Minors - Apr. 17', '#'),
+  createRecalls('Aleksei Kolosov', 'Minors - Apr. 2', '#'),
 ];
 
-function Rangers() {
+function Flyers() {
     return (
     <>
     <div>
@@ -123,20 +120,20 @@ function Rangers() {
             <div className="container-fluid">
                 {/* <!-- TEAM FINANCES --> */}
                 <div className="text-center">
-                    <h1 className="display-5 text">NEW YORK RANGERS</h1>
-                    <img style={{ height: "80px", width: "80px", marginBottom: "5px" }} alt="Logo of the New York Rangers" src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"/>
-                    <p className="text noMargin lead">PROJECTED CAP HIT : $76,393,191</p>
+                    <h1 className="display-5 text">PHILADELPHIA FLYERS</h1>
+                    <img style={{ height: "80px", width: "80px", marginBottom: "5px" }} alt="Logo of the Philadelphia Flyers" src="https://cdn2.capfriendly.com/images/logos/philadelphia_flyers.svg"></img>
+                    <p className="text noMargin lead">PROJECTED CAP HIT : $87,196,428</p>
                     <p className="text noMargin lead">PROJECTED LTIR USED : $0</p>
-                    <p className="text lead">PROJECTED CAP SPACE : $11,606,809</p>
-                    <p className="text noMargin">CURRENT CAP SPACE : $11,606,809</p>
-                    <p className="text noMargin">DEADLINE CAP SPACE : $51,401,583</p>
-                    <p className="text">TODAY'S CAP HIT : $76,393,191</p>
-                    <p className="text noMargin">ROSTER SIZE: 18/23</p>
+                    <p className="text lead">PROJECTED CAP SPACE : $803,572</p>
+                    <p className="text noMargin">CURRENT CAP SPACE : $803,572</p>
+                    <p className="text noMargin">DEADLINE CAP SPACE : $3,558,676</p>
+                    <p className="text">TODAY'S CAP HIT : $87,196,428</p>
+                    <p className="text noMargin">ROSTER SIZE: 19/23</p>
                     <p className="text noMargin">CONTRACTS: 38/50</p>
-                    <p className="text noMargin">RESERVE LIST: 49/90</p>
-                    <p className="text">INJURIES: 0</p>
-                    <p className="text noMargin">GENERAL MANAGER: <Link to={' '} className="playerName">Chris Drury</Link></p>
-                    <p className="text">HEAD COACH: <Link to={' '} className="playerName">Peter Laviolette</Link></p>
+                    <p className="text noMargin">RESERVE LIST: 53/90</p>
+                    <p className="text">INJURIES: 2</p>
+                    <p className="text noMargin">GENERAL MANAGER: <Link to={' '} className="playerName">Daniel Brière</Link></p>
+                    <p className="text">HEAD COACH: <Link to={' '} className="playerName">John Tortorella</Link></p>
                 </div>
 
                 {/* <!-- DRAFT PICKS --> */}
@@ -157,33 +154,33 @@ function Rangers() {
                         <tbody>
                           <tr className="text-center">
                             <td>2024</td>
-                            <td>{rangersDraftImg}</td>
-                            <td>{rangersDraftImgTraded}</td>
-                            <td>{rangersDraftImgTraded}</td>
-                            <td>{rangersDraftImg}</td>
-                            <td>{rangersDraftImg}</td>
-                            <td>{rangersDraftImg}</td>
-                            <td>{rangersDraftImg}</td>
+                            <td>{flyersDraftImg}{floridaDraft}</td>
+                            <td>{flyersDraftImgTraded}{flyersDraftImg}{jacketsDraft}</td>
+                            <td>{flyersDraftImg}</td>
+                            <td>{flyersDraftImgTraded}</td>
+                            <td>{flyersDraftImgTraded}{kingsDraft}{knightsDraft}</td>
+                            <td>{flyersDraftImg}{bluesDraft}</td>
+                            <td>{flyersDraftImg}</td>
                           </tr>
                           <tr className="text-center">
                             <td>2025</td>
-                            <td>{rangersDraftImg}</td>
-                            <td>{rangersDraftImgTraded}</td>
-                            <td>{rangersDraftImgTraded}</td>
-                            <td>{rangersDraftImgTraded}</td>
-                            <td>{rangersDraftImg} {minnesotaDraft}</td>
-                            <td>{rangersDraftImg}</td>
-                            <td>{rangersDraftImg}</td>
+                            <td>{flyersDraftImg}{avalancheDraft}</td>
+                            <td>{flyersDraftImg}{anaheimDraft}</td>
+                            <td>{flyersDraftImgTraded}</td>
+                            <td>{flyersDraftImgTraded}</td>
+                            <td>{flyersDraftImg}{hurricaneDraft}</td>
+                            <td>{flyersDraftImg}</td>
+                            <td>{flyersDraftImg}</td>
                           </tr>
                           <tr className="text-center">
                             <td>2026</td>
-                            <td>{rangersDraftImg}</td>
-                            <td>{rangersDraftImgTraded}</td>
-                            <td>{rangersDraftImg}</td>
-                            <td>{rangersDraftImgTraded}</td>
-                            <td>{rangersDraftImg}</td>
-                            <td>{rangersDraftImg}</td>
-                            <td>{rangersDraftImg} {vancouverDraft}</td>
+                            <td>{flyersDraftImg}</td>
+                            <td>{flyersDraftImg}</td>
+                            <td>{flyersDraftImg}</td>
+                            <td>{flyersDraftImg}</td>
+                            <td>{flyersDraftImgTraded}</td>
+                            <td>{flyersDraftImg}</td>
+                            <td>{flyersDraftImg}</td>
                           </tr>
                         </tbody>
                     </table>
@@ -204,7 +201,7 @@ function Rangers() {
                                     sx={{'&:last-child td, &:last-child th': null }}
                                   >
                                     <TableCell component="th" scope="row">
-                                    <Link to={row.link}>{rangersImg}{row.playerName}</Link>
+                                    <Link to={row.link}>{flyersImg}{row.playerName}</Link>
                                     </TableCell>
                                     <TableCell align="center">{row.recall}</TableCell>
                                   </TableRow>
@@ -227,7 +224,7 @@ function Rangers() {
                                     sx={{'&:last-child td, &:last-child th': null }}
                                   >
                                     <TableCell component="th" scope="row">
-                                     <Link to={row.link}> {rangersImg}{row.name}</Link>
+                                     <Link to={row.link}> {flyersImg}{row.name}</Link>
                                     </TableCell>
                                     <TableCell align="center">{row.injury}</TableCell>
                                   </TableRow>
@@ -247,7 +244,7 @@ function Rangers() {
                     <Table aria-label="player table">
                       <TableHead>
                         <TableRow className="tableTop">
-                          <TableCell scope="col" className="tableTitle">FORWARDS (12 - $46,754,524)</TableCell>
+                          <TableCell scope="col" className="tableTitle">FORWARDS (13 - $48,938,333)</TableCell>
                           <TableCell scope="col" className="tableTitle text-center">TERMS</TableCell>
                           <TableCell scope="col" className="tableTitle text-center">POS</TableCell>
                           <TableCell scope="col" className="tableTitle text-center">STATUS</TableCell>
@@ -267,7 +264,7 @@ function Rangers() {
                           <TableRow key={row.name} className="text-center" sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                             <TableCell className="text-left">
                             {row.name !== 'TOTAL' ? (
-                              <Link to={row.link} className="playerName">{row.name}</Link>
+                              <Link to={row.link} className="playerName text-nowrap">{row.name}</Link>
                             ) : (
                               row.name
                             )}
@@ -297,7 +294,7 @@ function Rangers() {
                   <Table aria-label="defensemen table">
                     <TableHead>
                       <TableRow className="text-center tableTop">
-                        <TableCell scope="col" className="tableTitle">DEFENSE (4 - $22,184,500)</TableCell>
+                        <TableCell scope="col" className="tableTitle">DEFENSE (4 - $12,850,000)</TableCell>
                         <TableCell scope="col" className="tableTitle text-center">TERMS</TableCell>
                         <TableCell scope="col" className="tableTitle text-center">POS</TableCell>
                         <TableCell scope="col" className="tableTitle text-center">STATUS</TableCell>
@@ -347,7 +344,7 @@ function Rangers() {
                     <Table aria-label="goalies table">
                       <TableHead>
                         <TableRow className="text-center tableTop">
-                        <TableCell scope="col" className="tableTitle">GOALIES (2 - $6,941,667)</TableCell>
+                        <TableCell scope="col" className="tableTitle">GOALIES (2 - $4,725,000)</TableCell>
                         <TableCell scope="col" className="tableTitle text-center">TERMS</TableCell>
                         <TableCell scope="col" className="tableTitle text-center">POS</TableCell>
                         <TableCell scope="col" className="tableTitle text-center">STATUS</TableCell>
@@ -397,4 +394,4 @@ function Rangers() {
     )
 }
 
-export default Rangers
+export default Flyers

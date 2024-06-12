@@ -7,6 +7,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import Flyers from './pages/teams/flyers/Flyers.tsx'
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
     path: "teams/rangers",
     element: <Rangers/>
   },
+  {
+    path: "teams/flyers",
+    element: <Flyers/>
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
