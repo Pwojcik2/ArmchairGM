@@ -32,12 +32,20 @@ var kingsDraft = <img style={{height: '18px', width: '18px',  marginTop: '4px',}
 
 // KNIGHTS
 var knightsDraft = <img style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the Vegas Golden Knights" src="https://cdn2.capfriendly.com/images/logos/vegas_golden_knights.svg"></img>
+var knightsDraftTraded = <img className="pickTraded" style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the Vegas Golden Knights" src="https://cdn2.capfriendly.com/images/logos/vegas_golden_knights.svg"></img>
+var knightsImg = <img style={{ height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px' }} alt="Logo of the goldenknights" title="goldenknights" src="https://cdn2.capfriendly.com/images/logos/vegas_golden_knights.svg"></img>
 
 // HURRICANES
 var hurricaneDraft = <img style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the Carolina Hurricanes" src="https://cdn2.capfriendly.com/images/logos/carolina_hurricanes.svg"></img>
 
 // BLUES
 var bluesDraft = <img style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the St. Louis Blues" src="https://cdn2.capfriendly.com/images/logos/st_louis_blues.svg"></img>
+
+//SHARKS
+var sharksDraft = <img style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the San Jose Sharks" src="https://cdn2.capfriendly.com/images/logos/san_jose_sharks.svg"></img>
+
+//COLOMBUS 
+var colombusDraft = <img style={{height: '18px', width: '18px',  marginTop: '4px',}} alt="Logo of the Columbus Blue Jackets" src="https://cdn2.capfriendly.com/images/logos/columbus_blue_jackets.svg"></img>
 
 export{
     rangersImg,
@@ -55,5 +63,9 @@ export{
     kingsDraft,
     knightsDraft,
     hurricaneDraft,
-    bluesDraft
+    bluesDraft,
+    sharksDraft,
+    knightsDraftTraded,
+    knightsImg,
+    colombusDraft
 }

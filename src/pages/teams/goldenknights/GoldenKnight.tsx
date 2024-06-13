@@ -8,7 +8,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { flyersImg, flyersDraftImg, flyersDraftImgTraded, floridaDraft, avalancheDraft, jacketsDraft, anaheimDraft, kingsDraft, knightsDraft, hurricaneDraft, bluesDraft } from "../../../assets/Images";
+import { flyersImg, flyersDraftImg, flyersDraftImgTraded, floridaDraft, avalancheDraft, jacketsDraft, anaheimDraft, kingsDraft, knightsDraft, hurricaneDraft, bluesDraft, knightsDraftTraded, colombusDraft, sharksDraft, knightsImg } from "../../../assets/Images";
 
 function createInjuries(
   name: string,
@@ -61,54 +61,62 @@ function createPlayer(
 }
 
 const forwardData = [
-    createPlayer('Couturier, Sean "C"', 'NMC', 'C', 'NHL', 'Draft', 31, '8.8', '$7,750,000', '$7,750,000', '$7,750,000', '$7,750,000', '$7,750,000', '$7,750,000', '#'),
-    createPlayer('Tippett, Owen', '', 'RW, LW', 'NHL', 'Trade', 25, '7.0', '$6,200,000', '$6,200,000', '$6,200,000', '$6,200,000', '$6,200,000', '$6,200,000', '#'),
-    createPlayer('Atkinson, Cam', 'M-NTC', 'RW, LW', 'NHL', 'Trade', 35, '6.7', '$5,875,000', 'UFA', '', '', '', '', '#'),
-    createPlayer('Konecny, Travis "A"', '', 'RW, LW', 'NHL', 'Draft', 27, '6.3', '$5,500,000', 'UFA', '', '', '', '', '#'),
-    createPlayer('Farabee, Joel', '', 'LW, RW', 'NHL', 'Draft', 24, '5.7', '$5,000,000', '$5,000,000', '$5,000,000', '$5,000,000', 'UFA', '', '#'),
-    createPlayer('Johansen, Ryan', 'RS', 'C, RW', 'NHL', 'Trade', 31, '4.5', '$4,000,000', 'UFA', '', '', '', '', '#'),
-    createPlayer('Laughton, Scott "A"', '', 'C, LW', 'NHL', 'Draft', 30, '3.4', '$3,000,000', '$3,000,000', 'UFA', '', '', '', '#'),
-    createPlayer('Cates, Noah', '', 'C, LW', 'NHL', 'Draft', 25, '3.0', '$2,625,000', 'RFA', '', '', '', '',  '#'),
-    createPlayer('Hathaway, Garnet', '', 'RW, LW', 'NHL', 'Signed', 32, '2.7', '$2,375,000', 'UFA', '', '', '', '',  '#'),
-    createPlayer('Frost, Morgan', '', 'C', 'NHL', 'Draft', 25, '2.4', '$2,100,000', 'RFA', '', '', '', '',  '#'),
-    createPlayer('Poehling, Ryan', '', 'C, LW', 'NHL', 'Signed', 25, '2.2', '$1,900,000', '$1,900,000', 'UFA', '', '', '', '#'),
-    createPlayer('Deslauriers, Nicolas', '', 'LW, RW', 'NHL', 'Signed', 33, '2.0', '$1,750,000', '$1,750,000', 'UFA', '', '', '',  '#'),
-    createPlayer('Foerster, Tyson', 'ELC', 'RW', 'NHL', 'Draft', 22, '1.0', '$863,333', 'RFA', '', '', '', '',  '#'),
-    createPlayer('Gurianov, Denis', '', 'RW, LW', 'NHL', 'Trade', 27, '', 'UFA', '', '', '', '', '',  '#'),
-    createPlayer('TOTAL', '', '', '', '', 28.0, '55.6', '$48,938,333', '$25,600,000', '$18,950,000', '$18,950,000', '$13,950,000', '$13,950,000',  '#')
+  createPlayer('Eichel, Jack "A"', 'UFA, NMC', 'C', 'NHL', 'Trade', 27, '11.4', '$10,000,000', '$10,000,000', 'UFA', '', '', '', '#'),
+  createPlayer('Stone, Mark "C"', 'UFA, NMC', 'RW', 'NHL', 'Trade', 32, '10.8', '$9,500,000', '$9,500,000', '$9,500,000', 'UFA', '', '', '#'),
+  createPlayer('Hertl, Tomas "A"', 'UFA, RSNMC', 'C', 'NHL', 'Trade', 30, '7.7', '$6,750,000', '$6,750,000', '$6,750,000', '$6,750,000', '$6,750,000', '$6,750,000', '#'),
+  createPlayer('Karlsson, William "A"', 'UFA, M-NTC', 'C', 'NHL', 'Expansion', 31, '6.7', '$5,900,000', '$5,900,000', '$5,900,000', 'UFA', '', '', '#'),
+  createPlayer('Barbashev, Ivan', 'UFA, M-NTC', 'LW, RW', 'NHL', 'Trade', 28, '5.7', '$5,000,000', '$5,000,000', '$5,000,000', '$5,000,000', 'UFA', '', '#'),
+  createPlayer('Roy, Nicolas', 'UFA', 'C, RW', 'NHL', 'Trade', 27, '3.4', '$3,000,000', '$3,000,000', '$3,000,000', 'UFA', '', '', '#'),
+  createPlayer('Howden, Brett', 'UFA', 'C, LW', 'NHL', 'Signed', 26, '2.2', '$1,900,000', 'UFA', '', '', '', '', '#'),
+  createPlayer('Kolesar, Keegan', 'UFA', 'RW', 'NHL', 'Trade', 27, '1.6', '$1,400,000', 'UFA', '', '', '', '', '#'),
+  createPlayer('Brisson, Brendan', 'RFA, ELC Waivers Exempt', 'C, LW, RW', 'NHL', 'Draft', 22, '1.1', '$925,000', 'RFA', '', '', '', '', '#'),
+  createPlayer('Cotter, Paul', 'RFA', 'LW, RW', 'NHL', 'Draft', 24, '0.9', '$775,000', '$775,000', 'RFA', '', '', '', '#'),
+  createPlayer('Røndbjerg, Jonas', 'RFA', 'LW, RW', 'NHL', 'Draft', 25, '0.9', '$766,667', 'RFA', '', '', '', '', '#'),
+  createPlayer('Dorofeyev, Pavel', 'RFA', 'LW, RW', 'NHL', 'Draft', 23, '', 'RFA', '', '', '', '', '', '#'),
+  createPlayer('Amadio, Michael', 'UFA', 'RW, LW', 'NHL', 'Waivers claim', 28, '', 'UFA', '', '', '', '', '', '#'),
+  createPlayer('Carrier, William', 'UFA', 'LW', 'NHL', 'Expansion', 29, '', 'UFA', '', '', '', '', '', '#'),
+  createPlayer('Mantha, Anthony', 'UFA', 'LW, RW', 'NHL', 'Trade', 29, '', 'UFA', '', '', '', '', '', '#'),
+  createPlayer('Marchessault, Jonathan', 'UFA', 'RW, LW', 'NHL', 'Expansion', 33, '', 'UFA', '', '', '', '', '', '#'),
+  createPlayer('Stephenson, Chandler', 'UFA', 'C, LW', 'NHL', 'Trade', 30, '', 'UFA', '', '', '', '', '', '#'),
+  createPlayer('TOTAL', '', '', '', '', 27.7, '52.2', '$45,916,667', '$40,925,000', '$30,150,000', '$11,750,000', '$6,750,000', '$6,750,000', '#')
 ];
+
   
 const defensemenData = [
-    createPlayer('Sanheim, Travis', 'NTC', 'LD/RD', 'NHL', 'Draft', 28, '7.1', '$6,250,000', '$6,250,000', '$6,250,000', '$6,250,000', '$6,250,000', '$6,250,000', '#'),
-    createPlayer('Seeler, Nick', 'NTC', 'LD/RD', 'NHL', 'Signed', 31, '3.1', '$2,700,000', '$2,700,000', '$2,700,000', '$2,700,000', 'UFA', '','#'),
-    createPlayer('Drysdale, Jamie', '', 'RD', 'NHL', 'Trade', 22, '2.6', '$2,300,000', '$2,300,000', 'RFA', '', '', '','#'),
-    createPlayer('York, Cam', '', 'LD/RD', 'NHL', 'Draft', 23, '1.8', '$1,600,000', 'RFA', '', '', '', '','#'),
-    createPlayer('Zamula, Yegor', '', 'LD/RD', 'NHL', 'Signed', 24, '', 'RFA', '', '', '', '', '','#'),
-    createPlayer('Johnson, Erik', '', 'RD', 'NHL', 'Trade', 36, '', 'UFA', '', '', '', '', '','#'),
-    createPlayer('Staal, Marc', '', 'LD', 'NHL', 'Signed', 37, '', 'UFA', '', '', '', '', '','#'),
-    createPlayer('TOTAL', '', '', '', '', 28.7, '14.6', '$12,850,000', '$11,250,000', '$8,950,000', '$8,950,000', '$6,250,000', '$6,250,000','#')
+  createPlayer('Pietrangelo, Alex "A"', 'UFA, NMC', 'RD', 'NHL', 'Signed', 34, '10.0', '$8,800,000', '$8,800,000', '$8,800,000', 'UFA', '', '', '#'),
+  createPlayer('Hanifin, Noah', 'UFA, NTC', 'LD', 'NHL', 'Trade', 27, '8.4', '$7,350,000', '$7,350,000', '$7,350,000', '$7,350,000', '$7,350,000', '$7,350,000', '#'),
+  createPlayer('Theodore, Shea', 'UFA, M-NTC', 'LD/RD', 'NHL', 'Trade', 28, '5.9', '$5,200,000', 'UFA', '', '', '','', '#'),
+  createPlayer('McNabb, Brayden', 'UFA, M-NTC', 'LD', 'NHL', 'Expansion', 33, '3.2', '$2,850,000', 'UFA', '', '', '','', '#'),
+  createPlayer('Whitecloud, Zach', 'UFA', 'RD', 'NHL', 'Signed', 27, '3.1', '$2,750,000', '$2,750,000', '$2,750,000', '$2,750,000', 'UFA', '', '#'),
+  createPlayer('Hague, Nicolas', 'RFA', 'LD', 'NHL', 'Draft', 25, '2.6', '$2,294,150', 'Arbitration EligibleRFA', '', '', '','', '#'),
+  createPlayer('Hutton, Ben', 'UFA', 'LD', 'NHL', 'Signed', 31, '1.1', '$975,000', '$975,000', 'UFA', '', '','', '#'),
+  createPlayer('Martinez, Alec', 'UFA', 'LD', 'NHL', 'Signed', 36, '', 'UFA', '', '', '', '','', '#'),
+  createPlayer('TOTAL', '', '', '', '', 30.1, '34.3', '$30,219,150', '$19,875,000', '$18,900,000', '$10,100,000', '$7,350,000', '$7,350,000', '#')
 ];
+
   
 const goaliesData = [
-    createPlayer('Fedotov, Ivan', '', 'G', 'NHL', 'Draft', 27, '3.7', '$3,275,000', '$3,275,000', 'UFA', '', '', '',  '#'),
-    createPlayer('Ersson, Samuel', '', 'G', 'NHL', 'Draft', 24, '1.6', '$1,450,000', '$1,450,000', 'RFA', '', '', '',  '#'),
-    createPlayer('TOTAL', '', '', '', '', 25.5, '5.4', '$4,725,000', '$4,725,000', '', '', '', '',  '#')
+  createPlayer('Hill, Adin', 'UFA, M-NTC', 'G', 'NHL', 'Trade', 28, '5.6', '$4,900,000', 'UFA', '', '', '', '', '#'),
+  createPlayer('Thompson, Logan', 'UFA', 'G', 'NHL', 'Signed', 27, '0.9', '$766,667', 'UFA', '', '', '', '', '#'),
+  createPlayer('Patera, Jiri', 'UFA', 'G', 'NHL', 'Draft', 25, '', 'UFA', '', '', '', '', '', '#'),
+  createPlayer('TOTAL', '', '', '', '', 26.7, '6.4', '$5,666,667', '', '', '', '', '', '#')
 ];
+
   
 const injuryData = [
-  createInjuries('Rasmus Ristolainen', 'Arm (3mo) - Apr. 18', '#'),
-  createInjuries('Sean Couturier', 'Cleared - Apr. 9', '#'),
-  createInjuries('Sean Couturier', 'Shoulder (Day to day) - Apr. 3', '#'),
-  createInjuries('Jamie Drysdale', 'Cleared - Apr. 1', '#'),
-  createInjuries('Nick Seeler', 'Cleared - Mar. 30', '#'),
+  createInjuries('Nicolas Hague', 'Lower Body (Day to day) - Apr. 24', '#'),
+  createInjuries('William Carrier', 'Cleared - Apr. 22', '#'),
+  createInjuries('Anthony Mantha', 'Cleared - Apr. 22', '#'),
+  createInjuries('Mark Stone', 'Cleared - Apr. 22', '#'),
+  createInjuries('Chandler Stephenson', 'Cleared - Apr. 22', '#'),
 ];
 
 const recallData = [
-  createRecalls('Adam Ginning', 'Minors - Apr. 17', '#'),
-  createRecalls('Olle Lycksell', 'Minors - Apr. 17', '#'),
-  createRecalls('Bobby Brink', 'Minors - Apr. 17', '#'),
-  createRecalls('Ronnie Attard', 'Minors - Apr. 17', '#'),
-  createRecalls('Aleksei Kolosov', 'Minors - Apr. 2', '#'),
+  createRecalls('Jesper Vikman', 'NHL  - Apr. 24', '#'),
+  createRecalls('Christoffer Sedoff', 'NHL  - Apr. 24', '#'),
+  createRecalls('Isaiah Saville', 'NHL  - Apr. 24', '#'),
+  createRecalls('Mason Morelli', 'NHL  - Apr. 24', '#'),
+  createRecalls('Dysin Mayo', 'NHL  - Apr. 24', '#'),
 ];
 
 function GoldenKnight() {
@@ -121,19 +129,19 @@ function GoldenKnight() {
                 {/* <!-- TEAM FINANCES --> */}
                 <div className="text-center">
                     <h1 className="display-5 text">VEGAS GOLDEN KNIGHTS</h1>
-                    <img style={{ height: "80px", width: "80px", marginBottom: "5px" }} alt="Logo of the Philadelphia Flyers" src="https://cdn2.capfriendly.com/images/logos/philadelphia_flyers.svg"></img>
-                    <p className="text noMargin lead">PROJECTED CAP HIT : $87,196,428</p>
+                    <img style={{ height: "80px", width: "80px", marginBottom: "5px" }} alt="Logo of the Vegas Golden Knights" src="https://cdn2.capfriendly.com/images/logos/vegas_golden_knights.svg"></img>
+                    <p className="text noMargin lead">PROJECTED CAP HIT : $86,802,484</p>
                     <p className="text noMargin lead">PROJECTED LTIR USED : $0</p>
-                    <p className="text lead">PROJECTED CAP SPACE : $803,572</p>
-                    <p className="text noMargin">CURRENT CAP SPACE : $803,572</p>
-                    <p className="text noMargin">DEADLINE CAP SPACE : $3,558,676</p>
-                    <p className="text">TODAY'S CAP HIT : $87,196,428</p>
-                    <p className="text noMargin">ROSTER SIZE: 19/23</p>
+                    <p className="text lead">PROJECTED CAP SPACE : $1,197,516</p>
+                    <p className="text noMargin">CURRENT CAP SPACE : $1,197,516</p>
+                    <p className="text noMargin">DEADLINE CAP SPACE : $5,303,285</p>
+                    <p className="text">TODAY'S CAP HIT : $86,802,484</p>
+                    <p className="text noMargin">ROSTER SIZE: 20/23</p>
                     <p className="text noMargin">CONTRACTS: 38/50</p>
-                    <p className="text noMargin">RESERVE LIST: 53/90</p>
-                    <p className="text">INJURIES: 2</p>
-                    <p className="text noMargin">GENERAL MANAGER: <Link to={' '} className="playerName">Daniel Brière</Link></p>
-                    <p className="text">HEAD COACH: <Link to={' '} className="playerName">John Tortorella</Link></p>
+                    <p className="text noMargin">RESERVE LIST: 47/90</p>
+                    <p className="text">INJURIES: 1</p>
+                    <p className="text noMargin">GENERAL MANAGER: <Link to={' '} className="playerName">Kelly McCrimmon</Link></p>
+                    <p className="text">HEAD COACH: <Link to={' '} className="playerName">Bruce Cassidy</Link></p>
                 </div>
 
                 {/* <!-- DRAFT PICKS --> */}
@@ -154,33 +162,33 @@ function GoldenKnight() {
                         <tbody>
                           <tr className="text-center">
                             <td>2024</td>
-                            <td>{flyersDraftImg}{floridaDraft}</td>
-                            <td>{flyersDraftImgTraded}{flyersDraftImg}{jacketsDraft}</td>
-                            <td>{flyersDraftImg}</td>
-                            <td>{flyersDraftImgTraded}</td>
-                            <td>{flyersDraftImgTraded}{kingsDraft}{knightsDraft}</td>
-                            <td>{flyersDraftImg}{bluesDraft}</td>
-                            <td>{flyersDraftImg}</td>
+                            <td>{knightsDraft}</td>
+                            <td>{knightsDraftTraded}</td>
+                            <td>{knightsDraftTraded}</td>
+                            <td>{knightsDraftTraded}</td>
+                            <td>{knightsDraftTraded}</td>
+                            <td>{knightsDraft}</td>
+                            <td>{knightsDraft}{colombusDraft}</td>
                           </tr>
                           <tr className="text-center">
                             <td>2025</td>
-                            <td>{flyersDraftImg}{avalancheDraft}</td>
-                            <td>{flyersDraftImg}{anaheimDraft}</td>
-                            <td>{flyersDraftImgTraded}</td>
-                            <td>{flyersDraftImgTraded}</td>
-                            <td>{flyersDraftImg}{hurricaneDraft}</td>
-                            <td>{flyersDraftImg}</td>
-                            <td>{flyersDraftImg}</td>
+                            <td>{knightsDraftTraded}</td>
+                            <td>{knightsDraft}</td>
+                            <td>{knightsDraft}{sharksDraft}</td>
+                            <td>{knightsDraft}</td>
+                            <td>{knightsDraft}</td>
+                            <td>{knightsDraft}</td>
+                            <td>{knightsDraftTraded}</td>
                           </tr>
                           <tr className="text-center">
                             <td>2026</td>
-                            <td>{flyersDraftImg}</td>
-                            <td>{flyersDraftImg}</td>
-                            <td>{flyersDraftImg}</td>
-                            <td>{flyersDraftImg}</td>
-                            <td>{flyersDraftImgTraded}</td>
-                            <td>{flyersDraftImg}</td>
-                            <td>{flyersDraftImg}</td>
+                            <td>{knightsDraftTraded}</td>
+                            <td>{knightsDraft}</td>
+                            <td>{knightsDraft}</td>
+                            <td>{knightsDraftTraded}</td>
+                            <td>{knightsDraft}</td>
+                            <td>{knightsDraft}</td>
+                            <td>{knightsDraft}</td>
                           </tr>
                         </tbody>
                     </table>
@@ -201,7 +209,7 @@ function GoldenKnight() {
                                     sx={{'&:last-child td, &:last-child th': null }}
                                   >
                                     <TableCell component="th" scope="row">
-                                    <Link to={row.link}>{flyersImg}{row.playerName}</Link>
+                                    <Link to={row.link}>{knightsImg}{row.playerName}</Link>
                                     </TableCell>
                                     <TableCell align="center">{row.recall}</TableCell>
                                   </TableRow>
@@ -224,7 +232,7 @@ function GoldenKnight() {
                                     sx={{'&:last-child td, &:last-child th': null }}
                                   >
                                     <TableCell component="th" scope="row">
-                                     <Link to={row.link}> {flyersImg}{row.name}</Link>
+                                     <Link to={row.link}> {knightsImg}{row.name}</Link>
                                     </TableCell>
                                     <TableCell align="center">{row.injury}</TableCell>
                                   </TableRow>
@@ -244,7 +252,7 @@ function GoldenKnight() {
                     <Table aria-label="player table">
                       <TableHead>
                         <TableRow className="tableTop">
-                          <TableCell scope="col" className="tableTitle">FORWARDS (13 - $48,938,333)</TableCell>
+                          <TableCell scope="col" className="tableTitle">FORWARDS (11 - $45,916,667)</TableCell>
                           <TableCell scope="col" className="tableTitle text-center">TERMS</TableCell>
                           <TableCell scope="col" className="tableTitle text-center">POS</TableCell>
                           <TableCell scope="col" className="tableTitle text-center">STATUS</TableCell>
@@ -294,7 +302,7 @@ function GoldenKnight() {
                   <Table aria-label="defensemen table">
                     <TableHead>
                       <TableRow className="text-center tableTop">
-                        <TableCell scope="col" className="tableTitle">DEFENSE (4 - $12,850,000)</TableCell>
+                        <TableCell scope="col" className="tableTitle">DEFENSE (7 - $30,219,150)</TableCell>
                         <TableCell scope="col" className="tableTitle text-center">TERMS</TableCell>
                         <TableCell scope="col" className="tableTitle text-center">POS</TableCell>
                         <TableCell scope="col" className="tableTitle text-center">STATUS</TableCell>
@@ -344,7 +352,7 @@ function GoldenKnight() {
                     <Table aria-label="goalies table">
                       <TableHead>
                         <TableRow className="text-center tableTop">
-                        <TableCell scope="col" className="tableTitle">GOALIES (2 - $4,725,000)</TableCell>
+                        <TableCell scope="col" className="tableTitle">GOALIES (2 - $5,666,667)</TableCell>
                         <TableCell scope="col" className="tableTitle text-center">TERMS</TableCell>
                         <TableCell scope="col" className="tableTitle text-center">POS</TableCell>
                         <TableCell scope="col" className="tableTitle text-center">STATUS</TableCell>
