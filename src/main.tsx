@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Flyers from './pages/teams/flyers/Flyers.tsx'
 import GoldenKnight from './pages/teams/goldenknights/GoldenKnight.tsx';
+import Lightning from './pages/teams/lightning/Lightning.tsx';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: "teams/goldenknights",
     element: <GoldenKnight/>
+  },
+  {
+    path: "teams/lightning",
+    element: <Lightning/>
   }
 ]);
 
