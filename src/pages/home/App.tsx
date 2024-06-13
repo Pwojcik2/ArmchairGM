@@ -9,6 +9,10 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import { onSnapshot, QuerySnapshot, DocumentData } from 'firebase/firestore';
+import { hotelsCollection } from '../../lib/controller';
+import { NewHotelType } from '../../types/hotel';
+import CapSpace from './CapSpace';
 
 function createTeam(
   name: string,
@@ -82,6 +86,21 @@ const teamsData = [
 ];
 
 function App() {
+
+  const [hotels, setHotels] = useState<NewHotelType[]>([])
+
+  useEffect(() => onSnapshot(hotelsCollection, (snapshot: QuerySnapshot<DocumentData, DocumentData>) => {
+    setHotels(
+      snapshot.docs.map((doc) => {
+        return {
+          id: doc.id,
+          ...doc.data()
+        }
+      })
+    )
+  }), []
+)
+
   return (
     <>
       <div>
@@ -117,6 +136,18 @@ function App() {
             </div>
         </div>
     </div>
+
+    {hotels && hotels.length ? (
+                  <div>
+                    {
+                      hotels?.map((hotel) => (
+                        <CapSpace key={hotel.id} hotel={hotel}/>
+                      ))
+                    }
+                  </div>
+                ) : (
+                  <h1>Error</h1>
+                )}
 
     {/* <!-- SIGNINGS/FREE AGENT HERO --> */}
     <div className="my-5">
@@ -181,7 +212,7 @@ function App() {
                         <td>$775,000</td>
                       </tr>
                     </tbody>
-                  </table>
+                </table>
                 <button className="btn btn-outline-secondary btn-block" type="button">See All</button>
               </div>
             </div>
@@ -308,7 +339,7 @@ function App() {
                     <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Philadelphia Flyers" src="https://cdn2.capfriendly.com/images/logos/philadelphia_flyers.svg"/>
                         <Link to={'/teams/flyers'} className="teamName full">Philadelphia Flyers</Link>
-                        <Link to={' '} className="teamName abbreviated">PHI</Link>
+                        <Link to={'/teams/flyers'} className="teamName abbreviated">PHI</Link>
                     </td>
                     <td className="text-center">19/23</td>
                     <td className="text-center">38/50</td>
@@ -325,7 +356,7 @@ function App() {
                     <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Vegas Golden Knights" src="https://cdn2.capfriendly.com/images/logos/vegas_golden_knights.svg"/>
                         <Link to={'/teams/goldenknights'} className="teamName full">Vegas Golden Knights</Link>
-                        <Link to={' '} className="teamName abbreviated">VGK</Link>
+                        <Link to={'/teams/goldenknights'} className="teamName abbreviated">VGK</Link>
                     </td>
                     <td className="text-center">20/23</td>
                     <td className="text-center">38/50</td>
@@ -341,8 +372,8 @@ function App() {
                   <tr>
                     <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Tampa Bay Lightning" src="https://cdn2.capfriendly.com/images/logos/tampa_bay_lightning.svg"/>
-                        <Link to={' '} className="teamName full">Tampa Bay Lightning</Link>
-                        <Link to={' '} className="teamName abbreviated">TBL</Link>
+                        <Link to={'/teams/lightning'} className="teamName full">Tampa Bay Lightning</Link>
+                        <Link to={'/teams/lightning'} className="teamName abbreviated">TBL</Link>
                     </td>
                     <td className="text-center">18/23</td>
                     <td className="text-center">33/50</td>
@@ -358,8 +389,8 @@ function App() {
                   <tr>
                     <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Minnesota Wild" src="https://cdn2.capfriendly.com/images/logos/minnesota_wild.svg"/>
-                        <Link to={' '} className="teamName full">Minnesota Wild</Link>
-                        <Link to={' '} className="teamName abbreviated">MIN</Link>
+                        <Link to={'/teams/wild'} className="teamName full">Minnesota Wild</Link>
+                        <Link to={'/teams/wild'} className="teamName abbreviated">MIN</Link>
                     </td>
                     <td className="text-center">19/23</td>
                     <td className="text-center">35/50</td>
@@ -375,8 +406,8 @@ function App() {
                   <tr>
                     <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the New York Islanders" src="https://cdn2.capfriendly.com/images/logos/new_york_islanders.svg"/>
-                        <Link to={' '} className="teamName full">New York Islanders</Link>
-                        <Link to={' '} className="teamName abbreviated">NYI</Link>
+                        <Link to={'/teams/islanders'} className="teamName full">New York Islanders</Link>
+                        <Link to={'/teams/islanders'} className="teamName abbreviated">NYI</Link>
                     </td>
                     <td className="text-center">17/23</td>
                     <td className="text-center">35/50</td>
@@ -392,8 +423,8 @@ function App() {
                   <tr>
                     <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Washington Capitals" src="https://cdn2.capfriendly.com/images/logos/washington_capitals.svg"/>
-                        <Link to={' '} className="teamName full">Washington Capitals</Link>
-                        <Link to={' '} className="teamName abbreviated">WSH</Link>
+                        <Link to={'/teams/capitals'} className="teamName full">Washington Capitals</Link>
+                        <Link to={'/teams/capitals'} className="teamName abbreviated">WSH</Link>
                     </td>
                     <td className="text-center">17/23</td>
                     <td className="text-center">35/50</td>
@@ -409,8 +440,8 @@ function App() {
                   <tr>
                     <td scope="row" className='text-nowrap'>
                         <img className="im_mid" style={{height: '15px', width: '15px', marginRight: '5px', marginTop: '-2px',}} alt="Logo of the Montreal Canadiens" src="https://cdn2.capfriendly.com/images/logos/montreal_canadiens.svg"/>
-                        <Link to={' '} className="teamName full">Montreal Canadiens</Link>
-                        <Link to={' '} className="teamName abbreviated">MTL</Link>
+                        <Link to={'/teams/canadiens'} className="teamName full">Montreal Canadiens</Link>
+                        <Link to={'/teams/canadiens'} className="teamName abbreviated">MTL</Link>
                     </td>
                     <td className="text-center">19/23</td>
                     <td className="text-center">41/50</td>
