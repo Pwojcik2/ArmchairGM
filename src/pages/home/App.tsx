@@ -25,67 +25,6 @@ import {
 } from "../../types/interfaceTypes";
 import CapSpace from "./CapSpace";
 
-function createTeam(
-  name: string,
-  rosterSize: string,
-  contracts: string,
-  retained: string,
-  projCapHit: string,
-  projCapSpace: string,
-  ltirCand: string,
-  ltirCandCapSpace: string,
-  link: string
-) {
-  return {
-    name,
-    rosterSize,
-    contracts,
-    retained,
-    projCapHit,
-    projCapSpace,
-    ltirCand,
-    ltirCandCapSpace,
-    link,
-  };
-}
-
-const teamsData = [
-  createTeam(
-    "Philadelphia Flyers",
-    "19/23",
-    "38/50",
-    "1/3",
-    "$87,196,428",
-    "$803,572",
-    "$6,250,000",
-    "$7,053,572",
-    "#"
-  ),
-  createTeam(
-    "Vegas Golden Knights",
-    "20/23",
-    "38/50",
-    "0/3",
-    "$86,802,484",
-    "$1,197,516",
-    "$5,000,000",
-    "$6,197,516",
-    "#"
-  ),
-  createTeam(
-    "Tampa Bay Lightning",
-    "18/23",
-    "33/50",
-    "0/3",
-    "$82,665,000",
-    "$5,335,000",
-    "-",
-    "-",
-    "#"
-  ),
-  createTeam("", "", "", "", "", "", "", "", "#"),
-];
-
 function App() {
   const [rangers, setRangers] = useState<NewRangersType[]>([]);
   const [rangersFinance, setRangersFinance] = useState<
