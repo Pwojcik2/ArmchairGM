@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function TeamFinances(flyers: {
+export default function TeamFinances(props: {
   contracts?: string;
   currentCapSpace?: string;
   deadlineCapSpace?: string;
@@ -19,7 +19,7 @@ export default function TeamFinances(flyers: {
   return (
     <>
       <div className="text-center">
-        <h1 className="display-5 text">{flyers.teamName}</h1>
+        <h1 className="display-5 text">{props.teamName}</h1>
         <img
           style={{
             height: "80px",
@@ -30,35 +30,35 @@ export default function TeamFinances(flyers: {
           src="https://cdn2.capfriendly.com/images/logos/philadelphia_flyers.svg"
         ></img>
         <p className="text noMargin lead">
-          PROJECTED CAP HIT : {flyers.projectedCapHit}
+          PROJECTED CAP HIT : {props.projectedCapHit}
         </p>
         <p className="text noMargin lead">
-          PROJECTED LTIR USED : {flyers.projectedLTIR}
+          PROJECTED LTIR USED : {props.projectedLTIR}
         </p>
         <p className="text lead">
-          PROJECTED CAP SPACE : {flyers.projectedCapSpace}
+          PROJECTED CAP SPACE : {props.projectedCapSpace}
         </p>
         <p className="text noMargin">
-          CURRENT CAP SPACE : {flyers.currentCapSpace}
+          CURRENT CAP SPACE : {props.currentCapSpace}
         </p>
         <p className="text noMargin">
-          DEADLINE CAP SPACE : {flyers.deadlineCapSpace}
+          DEADLINE CAP SPACE : {props.deadlineCapSpace}
         </p>
-        <p className="text">TODAY'S CAP HIT : {flyers.todayCapHit}</p>
-        <p className="text noMargin">ROSTER SIZE: {flyers.rosterSize}</p>
-        <p className="text noMargin">CONTRACTS: {flyers.contracts}</p>
-        <p className="text noMargin">RESERVE LIST: {flyers.reserveList}</p>
-        <p className="text">INJURIES: {flyers.injuries}</p>
+        <p className="text">TODAY'S CAP HIT : {props.todayCapHit}</p>
+        <p className="text noMargin">ROSTER SIZE: {props.rosterSize}</p>
+        <p className="text noMargin">CONTRACTS: {props.contracts}</p>
+        <p className="text noMargin">RESERVE LIST: {props.reserveList}</p>
+        <p className="text">INJURIES: {props.injuries}</p>
         <p className="text noMargin">
           GENERAL MANAGER:
           <Link to={" "} className="playerName">
-            {flyers.generalManager}
+            {props.generalManager}
           </Link>
         </p>
         <p className="text">
           HEAD COACH:
           <Link to={" "} className="playerName">
-            {flyers.headCoach}
+            {props.headCoach}
           </Link>
         </p>
       </div>
