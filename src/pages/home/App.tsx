@@ -16,28 +16,66 @@ import {
   getDocs,
 } from "firebase/firestore";
 import {
+  flyersFinanceCollection,
   rangersCollection,
   rangersFinanceCollection,
 } from "../../lib/controller";
 import {
+  FlyersFinancesType,
   NewRangersFinancesType,
   NewRangersType,
 } from "../../types/interfaceTypes";
 import CapSpace from "./CapSpace";
+import {
+  anaheimImg,
+  avalancheImg,
+  blackhawksImg,
+  bluesImg,
+  bruinsImg,
+  buffaloImg,
+  calgaryImg,
+  capitalsImg,
+  dallasStarsImg,
+  devilsImg,
+  floridaImg,
+  hurricaneImg,
+  islandersImg,
+  jacketsImg,
+  kingsImg,
+  lightningImg,
+  minnesotaImg,
+  montrealImg,
+  nashvillePredImg,
+  nhlImg,
+  oilersImg,
+  ottawaSenatorsImg,
+  penguinsImg,
+  rangersImg,
+  redwWingsImg,
+  seattleImg,
+  sharksImg,
+  torontoImg,
+  utahImg,
+  vancouverImg,
+  winnepegImg,
+} from "../../assets/Images";
 
 function App() {
   const [rangers, setRangers] = useState<NewRangersType[]>([]);
   const [rangersFinance, setRangersFinance] = useState<
     NewRangersFinancesType[]
   >([]);
+  const [flyersFinance, setFlyersFinance] = useState<FlyersFinancesType[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [rangersSnapshot, rangersFinanceSnapshot] = await Promise.all([
-          getDocs(rangersCollection),
-          getDocs(rangersFinanceCollection),
-        ]);
+        const [rangersSnapshot, rangersFinanceSnapshot, flyersFinanceSnapshot] =
+          await Promise.all([
+            getDocs(rangersCollection),
+            getDocs(rangersFinanceCollection),
+            getDocs(flyersFinanceCollection),
+          ]);
 
         setRangers(
           rangersSnapshot.docs.map((doc) => ({
@@ -48,6 +86,13 @@ function App() {
 
         setRangersFinance(
           rangersFinanceSnapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }))
+        );
+
+        setFlyersFinance(
+          flyersFinanceSnapshot.docs.map((doc) => ({
             id: doc.id,
             ...doc.data(),
           }))
@@ -155,19 +200,7 @@ function App() {
                   </thead>
                   <tbody>
                     <tr>
-                      <td scope="row">
-                        <img
-                          style={{
-                            height: "15px",
-                            width: "15px",
-                            marginRight: "5px",
-                            marginTop: "-2px",
-                          }}
-                          alt="Logo of the Rangers"
-                          title="Rangers"
-                          src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"
-                        />
-                      </td>
+                      <td scope="row">{rangersImg}</td>
                       <td>
                         <Link to={" "} className="playerName">
                           Mathias Laferrière
@@ -178,20 +211,7 @@ function App() {
                       <td className="right">$775,000</td>
                     </tr>
                     <tr>
-                      <td scope="row">
-                        <img
-                          className="im_mid"
-                          style={{
-                            height: "15px",
-                            width: "15px",
-                            marginRight: "5px",
-                            marginTop: "-2px",
-                          }}
-                          alt="Logo of the lightning"
-                          title="lightning"
-                          src="https://cdn2.capfriendly.com/images/logos/tampa_bay_lightning.svg"
-                        />
-                      </td>
+                      <td scope="row">{lightningImg}</td>
                       <td>
                         <Link to={" "} className="playerName">
                           Declan Carlile
@@ -298,20 +318,7 @@ function App() {
                   </thead>
                   <tbody>
                     <tr>
-                      <td scope="row">
-                        <img
-                          className="im_mid"
-                          style={{
-                            height: "15px",
-                            width: "15px",
-                            marginRight: "5px",
-                            marginTop: "-2px",
-                          }}
-                          alt="Logo of the lightning"
-                          title="lightning"
-                          src="https://cdn2.capfriendly.com/images/logos/tampa_bay_lightning.svg"
-                        />
-                      </td>
+                      <td scope="row">{lightningImg}</td>
                       <td>
                         <Link to={" "} className="playerName">
                           Steven Stamkos
@@ -502,12 +509,20 @@ function App() {
                         marginTop: "-2px",
                       }}
                       alt="Logo of the Philadelphia Flyers"
-                      src="https://cdn2.capfriendly.com/images/logos/philadelphia_flyers.svg"
+                      src="src\assets\images\philadelphia-flyers.png"
                     />
-                    <Link to={"/teams/flyers"} className="teamName full" state>
+                    <Link
+                      to={"/teams/flyers"}
+                      className="teamName full"
+                      state={{ flyersFinance }}
+                    >
                       Philadelphia Flyers
                     </Link>
-                    <Link to={"/teams/flyers"} className="teamName abbreviated">
+                    <Link
+                      to={"/teams/flyers"}
+                      className="teamName abbreviated"
+                      state={{ flyersFinance }}
+                    >
                       PHI
                     </Link>
                   </td>
@@ -533,7 +548,7 @@ function App() {
                         marginTop: "-2px",
                       }}
                       alt="Logo of the Vegas Golden Knights"
-                      src="https://cdn2.capfriendly.com/images/logos/vegas_golden_knights.svg"
+                      src="src\assets\images\vegas-golden-knight.png"
                     />
                     <Link to={"/teams/goldenknights"} className="teamName full">
                       Vegas Golden Knights
@@ -558,17 +573,7 @@ function App() {
                 {/* <!-- TAMPA --> */}
                 <tr>
                   <td scope="row" className="text-nowrap">
-                    <img
-                      className="im_mid"
-                      style={{
-                        height: "15px",
-                        width: "15px",
-                        marginRight: "5px",
-                        marginTop: "-2px",
-                      }}
-                      alt="Logo of the Tampa Bay Lightning"
-                      src="https://cdn2.capfriendly.com/images/logos/tampa_bay_lightning.svg"
-                    />
+                    {lightningImg}
                     <Link to={"/teams/lightning"} className="teamName full">
                       Tampa Bay Lightning
                     </Link>
@@ -592,17 +597,7 @@ function App() {
                 {/* <!-- MINNESOTA --> */}
                 <tr>
                   <td scope="row" className="text-nowrap">
-                    <img
-                      className="im_mid"
-                      style={{
-                        height: "15px",
-                        width: "15px",
-                        marginRight: "5px",
-                        marginTop: "-2px",
-                      }}
-                      alt="Logo of the Minnesota Wild"
-                      src="https://cdn2.capfriendly.com/images/logos/minnesota_wild.svg"
-                    />
+                    {minnesotaImg}
                     <Link to={"/teams/wild"} className="teamName full">
                       Minnesota Wild
                     </Link>
@@ -623,17 +618,7 @@ function App() {
                 {/* <!-- ISLANDERS --> */}
                 <tr>
                   <td scope="row" className="text-nowrap">
-                    <img
-                      className="im_mid"
-                      style={{
-                        height: "15px",
-                        width: "15px",
-                        marginRight: "5px",
-                        marginTop: "-2px",
-                      }}
-                      alt="Logo of the New York Islanders"
-                      src="https://cdn2.capfriendly.com/images/logos/new_york_islanders.svg"
-                    />
+                    {islandersImg}
                     <Link to={"/teams/islanders"} className="teamName full">
                       New York Islanders
                     </Link>
@@ -657,17 +642,7 @@ function App() {
                 {/* <!-- CAPITALS --> */}
                 <tr>
                   <td scope="row" className="text-nowrap">
-                    <img
-                      className="im_mid"
-                      style={{
-                        height: "15px",
-                        width: "15px",
-                        marginRight: "5px",
-                        marginTop: "-2px",
-                      }}
-                      alt="Logo of the Washington Capitals"
-                      src="https://cdn2.capfriendly.com/images/logos/washington_capitals.svg"
-                    />
+                    {capitalsImg}
                     <Link to={"/teams/capitals"} className="teamName full">
                       Washington Capitals
                     </Link>
@@ -691,17 +666,7 @@ function App() {
                 {/* <!-- MONTREAL --> */}
                 <tr>
                   <td scope="row" className="text-nowrap">
-                    <img
-                      className="im_mid"
-                      style={{
-                        height: "15px",
-                        width: "15px",
-                        marginRight: "5px",
-                        marginTop: "-2px",
-                      }}
-                      alt="Logo of the Montreal Canadiens"
-                      src="https://cdn2.capfriendly.com/images/logos/montreal_canadiens.svg"
-                    />
+                    {montrealImg}
                     <Link to={"/teams/canadiens"} className="teamName full">
                       Montreal Canadiens
                     </Link>
@@ -725,17 +690,7 @@ function App() {
                 {/* <!-- OILERS --> */}
                 <tr>
                   <td scope="row" className="text-nowrap">
-                    <img
-                      className="im_mid"
-                      style={{
-                        height: "15px",
-                        width: "15px",
-                        marginRight: "5px",
-                        marginTop: "-2px",
-                      }}
-                      alt="Logo of the Edmonton Oilers"
-                      src="https://cdn2.capfriendly.com/images/logos/edmonton_oilers.svg"
-                    />
+                    {oilersImg}
                     <Link to={" "} className="teamName full">
                       Edmonton Oilers
                     </Link>
@@ -765,7 +720,7 @@ function App() {
                         marginTop: "-2px",
                       }}
                       alt="Logo of the New York Rangers"
-                      src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"
+                      src="src\assets\images\new_york_rangers.png"
                     />
                     <Link
                       to={"/teams/rangers"}
@@ -795,17 +750,7 @@ function App() {
                 {/* <!-- SENATORS --> */}
                 <tr>
                   <td scope="row" className="text-nowrap">
-                    <img
-                      className="im_mid"
-                      style={{
-                        height: "15px",
-                        width: "15px",
-                        marginRight: "5px",
-                        marginTop: "-2px",
-                      }}
-                      alt="Logo of the Ottawa Senators"
-                      src="https://cdn2.capfriendly.com/images/logos/ottawa_senators_21.svg"
-                    />
+                    {ottawaSenatorsImg}
                     <Link to={" "} className="teamName full">
                       Ottawa Senators
                     </Link>
@@ -826,17 +771,7 @@ function App() {
                 {/* <!-- PENGUINS --> */}
                 <tr>
                   <td scope="row" className="text-nowrap">
-                    <img
-                      className="im_mid"
-                      style={{
-                        height: "15px",
-                        width: "15px",
-                        marginRight: "5px",
-                        marginTop: "-2px",
-                      }}
-                      alt="Logo of the Pittsburgh Penguins"
-                      src="https://cdn2.capfriendly.com/images/logos/pittsburgh_penguins.svg"
-                    />
+                    {penguinsImg}
                     <Link to={" "} className="teamName full">
                       Pittsburgh Penguins
                     </Link>
@@ -857,17 +792,7 @@ function App() {
                 {/* <!-- JETS --> */}
                 <tr>
                   <td scope="row" className="text-nowrap">
-                    <img
-                      className="im_mid"
-                      style={{
-                        height: "15px",
-                        width: "15px",
-                        marginRight: "5px",
-                        marginTop: "-2px",
-                      }}
-                      alt="Logo of the Winnipeg Jets"
-                      src="https://cdn2.capfriendly.com/images/logos/winnipeg_jets.svg"
-                    />
+                    {winnepegImg}
                     <Link to={" "} className="teamName full">
                       Winnipeg Jets
                     </Link>
@@ -888,17 +813,7 @@ function App() {
                 {/* <!-- BLUES --> */}
                 <tr>
                   <td scope="row" className="text-nowrap">
-                    <img
-                      className="im_mid"
-                      style={{
-                        height: "15px",
-                        width: "15px",
-                        marginRight: "5px",
-                        marginTop: "-2px",
-                      }}
-                      alt="Logo of the St. Louis Blues"
-                      src="https://cdn2.capfriendly.com/images/logos/st_louis_blues.svg"
-                    />
+                    {bluesImg}
                     <Link to={" "} className="teamName full">
                       St. Louis Blues
                     </Link>
@@ -919,17 +834,7 @@ function App() {
                 {/* <!-- AVALANCHE --> */}
                 <tr>
                   <td scope="row" className="text-nowrap">
-                    <img
-                      className="im_mid"
-                      style={{
-                        height: "15px",
-                        width: "15px",
-                        marginRight: "5px",
-                        marginTop: "-2px",
-                      }}
-                      alt="Logo of the Colorado Avalanche"
-                      src="https://cdn2.capfriendly.com/images/logos/colorado_avalanche.svg"
-                    />
+                    {avalancheImg}
                     <Link to={" "} className="teamName full">
                       Colorado Avalanche
                     </Link>
@@ -950,17 +855,7 @@ function App() {
                 {/* <!-- STARS --> */}
                 <tr>
                   <td scope="row" className="text-nowrap">
-                    <img
-                      className="im_mid"
-                      style={{
-                        height: "15px",
-                        width: "15px",
-                        marginRight: "5px",
-                        marginTop: "-2px",
-                      }}
-                      alt="Logo of the Dallas Stars"
-                      src="https://cdn2.capfriendly.com/images/logos/dallas_stars.svg"
-                    />
+                    {dallasStarsImg}
                     <Link to={" "} className="teamName full">
                       Dallas Stars
                     </Link>
@@ -981,17 +876,7 @@ function App() {
                 {/* <!-- MAPLE LEAFS --> */}
                 <tr>
                   <td scope="row" className="text-nowrap">
-                    <img
-                      className="im_mid"
-                      style={{
-                        height: "15px",
-                        width: "15px",
-                        marginRight: "5px",
-                        marginTop: "-2px",
-                      }}
-                      alt="Logo of the Toronto Maple Leafs"
-                      src="https://cdn2.capfriendly.com/images/logos/toronto_maple_leafs.svg"
-                    />
+                    {torontoImg}
                     <Link to={" "} className="teamName full">
                       Toronto Maple Leafs
                     </Link>
@@ -1012,17 +897,7 @@ function App() {
                 {/* <!-- DEVILS --> */}
                 <tr>
                   <td scope="row" className="text-nowrap">
-                    <img
-                      className="im_mid"
-                      style={{
-                        height: "15px",
-                        width: "15px",
-                        marginRight: "5px",
-                        marginTop: "-2px",
-                      }}
-                      alt="Logo of the New Jersey Devils"
-                      src="https://cdn2.capfriendly.com/images/logos/new_jersey_devils.svg"
-                    />
+                    {devilsImg}
                     <Link to={" "} className="teamName full">
                       New Jersey Devils
                     </Link>
@@ -1043,17 +918,7 @@ function App() {
                 {/* <!-- PANTHERS --> */}
                 <tr>
                   <td scope="row" className="text-nowrap">
-                    <img
-                      className="im_mid"
-                      style={{
-                        height: "15px",
-                        width: "15px",
-                        marginRight: "5px",
-                        marginTop: "-2px",
-                      }}
-                      alt="Logo of the Florida Panthers"
-                      src="https://cdn2.capfriendly.com/images/logos/florida_panthers.svg"
-                    />
+                    {floridaImg}
                     <Link to={" "} className="teamName full">
                       Florida Panthers
                     </Link>
@@ -1074,17 +939,7 @@ function App() {
                 {/* <!-- FLAMES --> */}
                 <tr>
                   <td scope="row" className="text-nowrap">
-                    <img
-                      className="im_mid"
-                      style={{
-                        height: "15px",
-                        width: "15px",
-                        marginRight: "5px",
-                        marginTop: "-2px",
-                      }}
-                      alt="Logo of the Calgary Flames"
-                      src="https://cdn2.capfriendly.com/images/logos/calgary_flames.svg"
-                    />
+                    {calgaryImg}
                     <Link to={" "} className="teamName full">
                       Calgary Flames
                     </Link>
@@ -1105,17 +960,7 @@ function App() {
                 {/* <!-- KINGS --> */}
                 <tr>
                   <td scope="row" className="text-nowrap">
-                    <img
-                      className="im_mid"
-                      style={{
-                        height: "15px",
-                        width: "15px",
-                        marginRight: "5px",
-                        marginTop: "-2px",
-                      }}
-                      alt="Logo of the Los Angeles Kings"
-                      src="https://cdn2.capfriendly.com/images/logos/los_angeles_kings.svg"
-                    />
+                    {kingsImg}
                     <Link to={" "} className="teamName full">
                       Los Angeles Kings
                     </Link>
@@ -1136,17 +981,7 @@ function App() {
                 {/* <!-- BRUINS --> */}
                 <tr>
                   <td scope="row" className="text-nowrap">
-                    <img
-                      className="im_mid"
-                      style={{
-                        height: "15px",
-                        width: "15px",
-                        marginRight: "5px",
-                        marginTop: "-2px",
-                      }}
-                      alt="Logo of the Boston Bruins"
-                      src="https://cdn2.capfriendly.com/images/logos/boston_bruins.svg"
-                    />
+                    {bruinsImg}
                     <Link to={" "} className="teamName full">
                       Boston Bruins
                     </Link>
@@ -1167,17 +1002,7 @@ function App() {
                 {/* <!-- KRAKEN --> */}
                 <tr>
                   <td scope="row" className="text-nowrap">
-                    <img
-                      className="im_mid"
-                      style={{
-                        height: "15px",
-                        width: "15px",
-                        marginRight: "5px",
-                        marginTop: "-2px",
-                      }}
-                      alt="Logo of the Seattle Kraken"
-                      src="https://cdn2.capfriendly.com/images/logos/seattle_kraken.svg"
-                    />
+                    {seattleImg}
                     <Link to={" "} className="teamName full">
                       Seattle Kraken
                     </Link>
@@ -1198,17 +1023,7 @@ function App() {
                 {/* <!-- SABRES --> */}
                 <tr>
                   <td scope="row" className="text-nowrap">
-                    <img
-                      className="im_mid"
-                      style={{
-                        height: "15px",
-                        width: "15px",
-                        marginRight: "5px",
-                        marginTop: "-2px",
-                      }}
-                      alt="Logo of the Buffalo Sabres"
-                      src="https://cdn2.capfriendly.com/images/logos/buffalo_sabres_21.svg"
-                    />
+                    {buffaloImg}
                     <Link to={" "} className="teamName full">
                       Buffalo Sabres
                     </Link>
@@ -1229,17 +1044,7 @@ function App() {
                 {/* <!-- BLUE JACKETS --> */}
                 <tr>
                   <td scope="row" className="text-nowrap">
-                    <img
-                      className="im_mid"
-                      style={{
-                        height: "15px",
-                        width: "15px",
-                        marginRight: "5px",
-                        marginTop: "-2px",
-                      }}
-                      alt="Logo of the Columbus Blue Jackets"
-                      src="https://cdn2.capfriendly.com/images/logos/columbus_blue_jackets.svg"
-                    />
+                    {jacketsImg}
                     <Link to={" "} className="teamName full">
                       Columbus Blue Jackets
                     </Link>
@@ -1260,17 +1065,7 @@ function App() {
                 {/* <!-- CANUCKS --> */}
                 <tr>
                   <td scope="row" className="text-nowrap">
-                    <img
-                      className="im_mid"
-                      style={{
-                        height: "15px",
-                        width: "15px",
-                        marginRight: "5px",
-                        marginTop: "-2px",
-                      }}
-                      alt="Logo of the Vancouver Canucks"
-                      src="https://cdn2.capfriendly.com/images/logos/vancouver_canucks.svg"
-                    />
+                    {vancouverImg}
                     <Link to={" "} className="teamName full">
                       Vancouver Canucks
                     </Link>
@@ -1291,17 +1086,7 @@ function App() {
                 {/* <!-- PREDATORS --> */}
                 <tr>
                   <td scope="row" className="text-nowrap">
-                    <img
-                      className="im_mid"
-                      style={{
-                        height: "15px",
-                        width: "15px",
-                        marginRight: "5px",
-                        marginTop: "-2px",
-                      }}
-                      alt="Logo of the Nashville Predators"
-                      src="https://cdn2.capfriendly.com/images/logos/nashville_predators.svg"
-                    />
+                    {nashvillePredImg}
                     <Link to={" "} className="teamName full">
                       Nashville Predators
                     </Link>
@@ -1322,17 +1107,7 @@ function App() {
                 {/* <!-- HURRICANES --> */}
                 <tr>
                   <td scope="row" className="text-nowrap">
-                    <img
-                      className="im_mid"
-                      style={{
-                        height: "15px",
-                        width: "15px",
-                        marginRight: "5px",
-                        marginTop: "-2px",
-                      }}
-                      alt="Logo of the Carolina Hurricanes"
-                      src="https://cdn2.capfriendly.com/images/logos/carolina_hurricanes.svg"
-                    />
+                    {hurricaneImg}
                     <Link to={" "} className="teamName full">
                       Carolina Hurricanes
                     </Link>
@@ -1353,17 +1128,7 @@ function App() {
                 {/* <!-- RED WINGS --> */}
                 <tr>
                   <td scope="row" className="text-nowrap">
-                    <img
-                      className="im_mid"
-                      style={{
-                        height: "15px",
-                        width: "15px",
-                        marginRight: "5px",
-                        marginTop: "-2px",
-                      }}
-                      alt="Logo of the Detroit Red Wings"
-                      src="https://cdn2.capfriendly.com/images/logos/detroit_red_wings.svg"
-                    />
+                    {redwWingsImg}
                     <Link to={" "} className="teamName full">
                       Detroit Red Wings
                     </Link>
@@ -1384,17 +1149,7 @@ function App() {
                 {/* <!-- DUCKS --> */}
                 <tr>
                   <td scope="row" className="text-nowrap">
-                    <img
-                      className="im_mid"
-                      style={{
-                        height: "15px",
-                        width: "15px",
-                        marginRight: "5px",
-                        marginTop: "-2px",
-                      }}
-                      alt="Logo of the Anaheim Ducks"
-                      src="https://cdn2.capfriendly.com/images/logos/anaheim_ducks.svg"
-                    />
+                    {anaheimImg}
                     <Link to={" "} className="teamName full">
                       Anaheim Ducks
                     </Link>
@@ -1415,17 +1170,7 @@ function App() {
                 {/* <!-- BLACKHAWKS --> */}
                 <tr>
                   <td scope="row" className="text-nowrap">
-                    <img
-                      className="im_mid"
-                      style={{
-                        height: "15px",
-                        width: "15px",
-                        marginRight: "5px",
-                        marginTop: "-2px",
-                      }}
-                      alt="Logo of the Chicago Blackhawks"
-                      src="https://cdn2.capfriendly.com/images/logos/chicago_blackhawks.svg"
-                    />
+                    {blackhawksImg}
                     <Link to={" "} className="teamName full">
                       Chicago Blackhawks
                     </Link>
@@ -1446,17 +1191,7 @@ function App() {
                 {/* <!-- SHARKS --> */}
                 <tr>
                   <td scope="row" className="text-nowrap">
-                    <img
-                      className="im_mid"
-                      style={{
-                        height: "15px",
-                        width: "15px",
-                        marginRight: "5px",
-                        marginTop: "-2px",
-                      }}
-                      alt="Logo of the San Jose Sharks"
-                      src="https://cdn2.capfriendly.com/images/logos/san_jose_sharks.svg"
-                    />
+                    {sharksImg}
                     <Link to={" "} className="teamName full">
                       San Jose Sharks
                     </Link>
@@ -1477,17 +1212,7 @@ function App() {
                 {/* <!-- UTAH --> */}
                 <tr>
                   <td scope="row" className="text-nowrap">
-                    <img
-                      className="im_mid"
-                      style={{
-                        height: "15px",
-                        width: "15px",
-                        marginRight: "5px",
-                        marginTop: "-2px",
-                      }}
-                      alt="Logo of the Utah"
-                      src="https://cdn2.capfriendly.com/images/logos/nhl_shield.svg"
-                    />
+                    {utahImg}
                     <Link to={" "} className="teamName full">
                       Utah
                     </Link>
@@ -1527,18 +1252,7 @@ function App() {
                 <tbody>
                   <tr>
                     <td>
-                      <img
-                        className="im_mid"
-                        style={{
-                          height: "15px",
-                          width: "15px",
-                          marginRight: "5px",
-                          marginTop: "-2px",
-                        }}
-                        alt="Logo of the capitals"
-                        title="capitals"
-                        src="https://cdn2.capfriendly.com/images/logos/washington_capitals.svg"
-                      />
+                      {capitalsImg}
                       <Link to={" "} className="playerName">
                         Ethan Bear
                       </Link>
@@ -1565,18 +1279,7 @@ function App() {
                   </tr>
                   <tr>
                     <td>
-                      <img
-                        className="im_mid"
-                        style={{
-                          height: "15px",
-                          width: "15px",
-                          marginRight: "5px",
-                          marginTop: "-2px",
-                        }}
-                        alt="Logo of the bluejackets"
-                        title="bluejackets"
-                        src="https://cdn2.capfriendly.com/images/logos/columbus_blue_jackets.svg"
-                      />
+                      {jacketsImg}
                       <Link to={" "} className="playerName">
                         Denton Mateychuk
                       </Link>
@@ -1588,18 +1291,7 @@ function App() {
                   </tr>
                   <tr>
                     <td>
-                      <img
-                        className="im_mid"
-                        style={{
-                          height: "15px",
-                          width: "15px",
-                          marginRight: "5px",
-                          marginTop: "-2px",
-                        }}
-                        alt="Logo of the bluejackets"
-                        title="bluejackets"
-                        src="https://cdn2.capfriendly.com/images/logos/columbus_blue_jackets.svg"
-                      />
+                      {jacketsImg}
                       <Link to={" "} className="playerName">
                         Brendan Gaunce
                       </Link>
@@ -1636,7 +1328,7 @@ function App() {
                         }}
                         alt="Logo of the rangers"
                         title="rangers"
-                        src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"
+                        src="src\assets\images\new_york_rangers.png"
                       />
                       <Link to={" "} className="playerName">
                         Louis Domingue
@@ -1659,7 +1351,7 @@ function App() {
                         }}
                         alt="Logo of the rangers"
                         title="rangers"
-                        src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"
+                        src="src\assets\images\new_york_rangers.png"
                       />
                       <Link to={" "} className="playerName">
                         Adam Sýkora
@@ -1712,18 +1404,7 @@ function App() {
                   <tr>
                     <td>
                       <Link to={" "} className="playerName">
-                        <img
-                          className="im_mid"
-                          style={{
-                            height: "15px",
-                            width: "15px",
-                            marginRight: "5px",
-                            marginTop: "-2px",
-                          }}
-                          alt="Logo of the oilers"
-                          title="oilers"
-                          src="https://cdn2.capfriendly.com/images/logos/edmonton_oilers.svg"
-                        />
+                        {oilersImg}
                         Connor McDavid
                       </Link>
                     </td>
@@ -1735,18 +1416,7 @@ function App() {
                   <tr>
                     <td>
                       <Link to={" "} className="playerName">
-                        <img
-                          className="im_mid"
-                          style={{
-                            height: "15px",
-                            width: "15px",
-                            marginRight: "5px",
-                            marginTop: "-2px",
-                          }}
-                          alt="Logo of the hurricanes"
-                          title="hurricanes"
-                          src="https://cdn2.capfriendly.com/images/logos/carolina_hurricanes.svg"
-                        />
+                        {hurricaneImg}
                         Jake Guentzel
                       </Link>
                     </td>
@@ -1758,18 +1428,7 @@ function App() {
                   <tr>
                     <td>
                       <Link to={" "} className="playerName">
-                        <img
-                          className="im_mid"
-                          style={{
-                            height: "15px",
-                            width: "15px",
-                            marginRight: "5px",
-                            marginTop: "-2px",
-                          }}
-                          alt="Logo of the hurricanes"
-                          title="hurricanes"
-                          src="https://cdn2.capfriendly.com/images/logos/carolina_hurricanes.svg"
-                        />
+                        {hurricaneImg}
                         Martin Necas
                       </Link>
                     </td>
@@ -1781,18 +1440,7 @@ function App() {
                   <tr>
                     <td>
                       <Link to={" "} className="playerName">
-                        <img
-                          className="im_mid"
-                          style={{
-                            height: "15px",
-                            width: "15px",
-                            marginRight: "5px",
-                            marginTop: "-2px",
-                          }}
-                          alt="Logo of the canadiens"
-                          title="canadiens"
-                          src="https://cdn2.capfriendly.com/images/logos/montreal_canadiens.svg"
-                        />
+                        {montrealImg}
                         Samuel Montembeault
                       </Link>
                     </td>
@@ -1804,18 +1452,7 @@ function App() {
                   <tr>
                     <td>
                       <Link to={" "} className="playerName">
-                        <img
-                          className="im_mid"
-                          style={{
-                            height: "15px",
-                            width: "15px",
-                            marginRight: "5px",
-                            marginTop: "-2px",
-                          }}
-                          alt="Logo of the panthers"
-                          title="panthers"
-                          src="https://cdn2.capfriendly.com/images/logos/florida_panthers.svg"
-                        />
+                        {floridaImg}
                         Sergei Bobrovsky
                       </Link>
                     </td>
@@ -1850,18 +1487,7 @@ function App() {
                 <tbody>
                   <tr>
                     <td>
-                      <img
-                        className="im_mid"
-                        style={{
-                          height: "15px",
-                          width: "15px",
-                          marginRight: "5px",
-                          marginTop: "-2px",
-                        }}
-                        alt="Logo of the "
-                        title=""
-                        src="https://cdn2.capfriendly.com/images/logos/nhl_shield.svg"
-                      />
+                      {nhlImg}
                       <Link to={" "} className="playerName">
                         Wayne Gretzky
                       </Link>
@@ -1872,18 +1498,7 @@ function App() {
                   </tr>
                   <tr>
                     <td>
-                      <img
-                        className="im_mid"
-                        style={{
-                          height: "15px",
-                          width: "15px",
-                          marginRight: "5px",
-                          marginTop: "-2px",
-                        }}
-                        alt="Logo of the "
-                        title=""
-                        src="https://cdn2.capfriendly.com/images/logos/nhl_shield.svg"
-                      />
+                      {nhlImg}
                       <Link to={" "} className="playerName">
                         Tij Iginla
                       </Link>
@@ -1894,18 +1509,7 @@ function App() {
                   </tr>
                   <tr>
                     <td>
-                      <img
-                        className="im_mid"
-                        style={{
-                          height: "15px",
-                          width: "15px",
-                          marginRight: "5px",
-                          marginTop: "-2px",
-                        }}
-                        alt="Logo of the "
-                        title=""
-                        src="https://cdn2.capfriendly.com/images/logos/nhl_shield.svg"
-                      />
+                      {nhlImg}
                       <Link to={" "} className="playerName">
                         Macklin Celebrini
                       </Link>
@@ -1916,18 +1520,7 @@ function App() {
                   </tr>
                   <tr>
                     <td>
-                      <img
-                        className="im_mid"
-                        style={{
-                          height: "15px",
-                          width: "15px",
-                          marginRight: "5px",
-                          marginTop: "-2px",
-                        }}
-                        alt="Logo of the "
-                        title=""
-                        src="https://cdn2.capfriendly.com/images/logos/nhl_shield.svg"
-                      />
+                      {nhlImg}
                       <Link to={" "} className="playerName">
                         Rick DiPietro
                       </Link>
@@ -1938,18 +1531,7 @@ function App() {
                   </tr>
                   <tr>
                     <td>
-                      <img
-                        className="im_mid"
-                        style={{
-                          height: "15px",
-                          width: "15px",
-                          marginRight: "5px",
-                          marginTop: "-2px",
-                        }}
-                        alt="Logo of the "
-                        title=""
-                        src="https://cdn2.capfriendly.com/images/logos/nhl_shield.svg"
-                      />
+                      {nhlImg}
                       <Link to={" "} className="playerName">
                         Henrik Lundqvist
                       </Link>
@@ -1995,11 +1577,7 @@ function App() {
                   <td className="align-middle">May 24, 2024</td>
                   <td className="text-center">
                     <p>Chicago Blackhawks Acquire:</p>
-                    <img
-                      style={{ height: "35px", width: "35px" }}
-                      alt="Logo of the Chicago Blackhawks"
-                      src="https://cdn2.capfriendly.com/images/logos/chicago_blackhawks.svg"
-                    />
+                    {blackhawksImg}
                     <p>2024 1st round pick (NYI - #18)</p>
                     <p>2024 2nd round pick (NYI - #50)</p>
                   </td>
@@ -2014,12 +1592,7 @@ function App() {
                   </td>
                   <td className="text-center">
                     <p>New York Islanders Acquire:</p>
-                    <img
-                      className="im_mid"
-                      style={{ height: "35px", width: "35px" }}
-                      alt="Logo of the New York Islanders"
-                      src="https://cdn2.capfriendly.com/images/logos/new_york_islanders.svg"
-                    />
+                    {islandersImg}
                     <p>2024 1st round pick (TBL - #20)</p>
                     <p>2024 2nd round pick (LAK - #54)</p>
                   </td>
@@ -2029,12 +1602,7 @@ function App() {
                   <td className="align-middle">May 21, 2024</td>
                   <td className="text-center">
                     <p>Nashville Predators Acquire:</p>
-                    <img
-                      className="im_mid"
-                      style={{ height: "35px", width: "35px" }}
-                      alt="Logo of the Nashville Predators"
-                      src="https://cdn2.capfriendly.com/images/logos/nashville_predators.svg"
-                    />
+                    {nashvillePredImg}
                     <p>2024 7th round pick (TBL - #213)</p>
                     <p>2025 2nd round pick (TBL)</p>
                   </td>
@@ -2049,12 +1617,7 @@ function App() {
                   </td>
                   <td className="text-center">
                     <p>Tampa Bay Lightning Acquire:</p>
-                    <img
-                      className="im_mid"
-                      style={{ height: "35px", width: "35px" }}
-                      alt="Logo of the Tampa Bay Lightning"
-                      src="https://cdn2.capfriendly.com/images/logos/tampa_bay_lightning.svg"
-                    />
+                    {lightningImg}
                     <p>Ryan McDonagh · $6,750,000</p>
                     <p>2024 4th round pick (EDM - #128)</p>
                   </td>
@@ -2064,12 +1627,7 @@ function App() {
                   <td className="align-middle">Mar. 15, 2024</td>
                   <td className="text-center">
                     <p>Ottawa Senators Acquire:</p>
-                    <img
-                      className="im_mid"
-                      style={{ height: "35px", width: "35px" }}
-                      alt="Logo of the Ottawa Senators"
-                      src="https://cdn2.capfriendly.com/images/logos/ottawa_senators_21.svg"
-                    />
+                    {ottawaSenatorsImg}
                     <p>Wyatt Bongiovanni · $0 (AHL/JR)</p>
                   </td>
                   <td className="text-center align-middle">
@@ -2083,12 +1641,7 @@ function App() {
                   </td>
                   <td className="text-center">
                     <p>Winnipeg Jets Acquire:</p>
-                    <img
-                      className="im_mid"
-                      style={{ height: "35px", width: "35px" }}
-                      alt="Logo of the Winnipeg Jets"
-                      src="https://cdn2.capfriendly.com/images/logos/winnipeg_jets.svg"
-                    />
+                    {winnepegImg}
                     <p>Future Considerations</p>
                   </td>
                 </tr>
@@ -2097,12 +1650,7 @@ function App() {
                   <td className="align-middle">Mar. 15, 2024</td>
                   <td className="text-center">
                     <p>Carolina Hurricanes Acquire:</p>
-                    <img
-                      className="im_mid"
-                      style={{ height: "35px", width: "35px" }}
-                      alt="Logo of the Carolina Hurricanes"
-                      src="https://cdn2.capfriendly.com/images/logos/carolina_hurricanes.svg"
-                    />
+                    {hurricaneImg}
                     <p>2024 6th round pick (OTT - #168)</p>
                   </td>
                   <td className="text-center align-middle">
@@ -2116,12 +1664,7 @@ function App() {
                   </td>
                   <td className="text-center">
                     <p>Ottawa Senators Acquire:</p>
-                    <img
-                      className="im_mid"
-                      style={{ height: "35px", width: "35px" }}
-                      alt="Logo of the Ottawa Senators"
-                      src="https://cdn2.capfriendly.com/images/logos/ottawa_senators_21.svg"
-                    />
+                    {ottawaSenatorsImg}
                     <p>Jamieson Rees · $0 (AHL/JR)</p>
                   </td>
                 </tr>
@@ -2130,12 +1673,7 @@ function App() {
                   <td className="align-middle">Mar. 11, 2024</td>
                   <td className="text-center">
                     <p>Montreal Canadiens Acquire:</p>
-                    <img
-                      className="im_mid"
-                      style={{ height: "35px", width: "35px" }}
-                      alt="Logo of the Montreal Canadiens"
-                      src="https://cdn2.capfriendly.com/images/logos/montreal_canadiens.svg"
-                    />
+                    {montrealImg}
                     <p>Arnaud Durandeau · $0 (AHL/JR)</p>
                   </td>
                   <td className="text-center align-middle">
@@ -2149,12 +1687,7 @@ function App() {
                   </td>
                   <td className="text-center">
                     <p>New Jersey Devils Acquire:</p>
-                    <img
-                      className="im_mid"
-                      style={{ height: "35px", width: "35px" }}
-                      alt="Logo of the New Jersey Devils"
-                      src="https://cdn2.capfriendly.com/images/logos/new_jersey_devils.svg"
-                    />
+                    {devilsImg}
                     <p>Nathan Légaré · $0 (AHL/JR)</p>
                   </td>
                 </tr>
