@@ -171,7 +171,7 @@ function App() {
           </div>
         </div>
 
-        {rangers &&
+        {/* {rangers &&
         rangers.length &&
         rangersFinance &&
         rangersFinance.length ? (
@@ -180,7 +180,7 @@ function App() {
           </Link>
         ) : (
           <h1>Error</h1>
-        )}
+        )} */}
 
         {/* <!-- SIGNINGS/FREE AGENT HERO --> */}
         <div className="my-5">
@@ -222,20 +222,7 @@ function App() {
                       <td>$775,000</td>
                     </tr>
                     <tr>
-                      <td scope="row">
-                        <img
-                          className="im_mid"
-                          style={{
-                            height: "15px",
-                            width: "15px",
-                            marginRight: "5px",
-                            marginTop: "-2px",
-                          }}
-                          alt="Logo of the kings"
-                          title="kings"
-                          src="https://cdn2.capfriendly.com/images/logos/los_angeles_kings.svg"
-                        />
-                      </td>
+                      <td scope="row">{kingsImg}</td>
                       <td>
                         <Link to={" "} className="playerName">
                           Akil Thomas
@@ -246,20 +233,7 @@ function App() {
                       <td>$775,000</td>
                     </tr>
                     <tr>
-                      <td scope="row">
-                        <img
-                          className="im_mid"
-                          style={{
-                            height: "15px",
-                            width: "15px",
-                            marginRight: "5px",
-                            marginTop: "-2px",
-                          }}
-                          alt="Logo of the kings"
-                          title="kings"
-                          src="https://cdn2.capfriendly.com/images/logos/los_angeles_kings.svg"
-                        />
-                      </td>
+                      <td scope="row">{kingsImg}</td>
                       <td>
                         <Link to={" "} className="playerName">
                           Andre Lee
@@ -270,20 +244,7 @@ function App() {
                       <td>$775,000</td>
                     </tr>
                     <tr>
-                      <td scope="row">
-                        <img
-                          className="im_mid"
-                          style={{
-                            height: "15px",
-                            width: "15px",
-                            marginRight: "5px",
-                            marginTop: "-2px",
-                          }}
-                          alt="Logo of the canadiens"
-                          title="canadiens"
-                          src="https://cdn2.capfriendly.com/images/logos/montreal_canadiens.svg"
-                        />
-                      </td>
+                      <td scope="row">{montrealImg}</td>
                       <td>
                         <Link to={" "} className="playerName">
                           Connor Hughes
@@ -329,20 +290,7 @@ function App() {
                       <td>$8,500,000</td>
                     </tr>
                     <tr>
-                      <td scope="row">
-                        <img
-                          className="im_mid"
-                          style={{
-                            height: "15px",
-                            width: "15px",
-                            marginRight: "5px",
-                            marginTop: "-2px",
-                          }}
-                          alt="Logo of the panthers"
-                          title="panthers"
-                          src="https://cdn2.capfriendly.com/images/logos/florida_panthers.svg"
-                        />
-                      </td>
+                      <td scope="row">{floridaImg}</td>
                       <td>
                         <Link to={" "} className="playerName">
                           Sam Reinhart
@@ -353,20 +301,7 @@ function App() {
                       <td>$6,500,000</td>
                     </tr>
                     <tr>
-                      <td scope="row">
-                        <img
-                          className="im_mid"
-                          style={{
-                            height: "15px",
-                            width: "15px",
-                            marginRight: "5px",
-                            marginTop: "-2px",
-                          }}
-                          alt="Logo of the mapleleafs"
-                          title="mapleleafs"
-                          src="https://cdn2.capfriendly.com/images/logos/toronto_maple_leafs.svg"
-                        />
-                      </td>
+                      <td scope="row">{torontoImg}</td>
                       <td>
                         <Link to={" "} className="playerName">
                           Matt Murray
@@ -377,20 +312,7 @@ function App() {
                       <td>$6,250,000</td>
                     </tr>
                     <tr>
-                      <td scope="row">
-                        <img
-                          className="im_mid"
-                          style={{
-                            height: "15px",
-                            width: "15px",
-                            marginRight: "5px",
-                            marginTop: "-2px",
-                          }}
-                          alt="Logo of the hurricanes"
-                          title="hurricanes"
-                          src="https://cdn2.capfriendly.com/images/logos/carolina_hurricanes.svg"
-                        />
-                      </td>
+                      <td scope="row">{hurricaneImg}</td>
                       <td>
                         <Link to={" "} className="playerName">
                           Jake Guentzel
@@ -401,20 +323,7 @@ function App() {
                       <td>$6,000,000</td>
                     </tr>
                     <tr>
-                      <td scope="row">
-                        <img
-                          className="im_mid"
-                          style={{
-                            height: "15px",
-                            width: "15px",
-                            marginRight: "5px",
-                            marginTop: "-2px",
-                          }}
-                          alt="Logo of the canucks"
-                          title="canucks"
-                          src="https://cdn2.capfriendly.com/images/logos/vancouver_canucks.svg"
-                        />
-                      </td>
+                      <td scope="row">{vancouverImg}</td>
                       <td>
                         <Link to={" "} className="playerName">
                           Tyler Myers
