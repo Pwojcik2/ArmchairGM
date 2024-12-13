@@ -4,7 +4,7 @@ import { hockeyStick } from "../assets/Images";
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-      {hockeyStick}
+      {/* {hockeyStick} */}
       <Link to={"/"} className="navbar-brand">
         CapCheck
       </Link>
