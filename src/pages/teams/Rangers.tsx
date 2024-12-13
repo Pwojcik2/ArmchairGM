@@ -17,6 +17,7 @@ import {
 } from "../../assets/Images";
 import { NewRangersFinancesType } from "../../types/interfaceTypes";
 import TeamFinances from "../../components/TeamFinances";
+import TeamRecallInuries from "../../components/TeamRecallInjuries";
 
 function createInjuries(name: string, injury: string, link: string) {
   return { name, injury, link };
@@ -640,7 +641,7 @@ function Rangers() {
                     </div>
 
                     {/* <!-- RECALLS & INJURIES --> */}
-                    {/* <div className="container my-5">
+                    <div className="container my-5">
                       <div className="row align-items-md-stretch">
                         <div className="col-lg-6">
                           <div className="h-100 p-5 bg-light border rounded-3">
@@ -718,7 +719,33 @@ function Rangers() {
                           </div>
                         </div>
                       </div>
-                    </div> */}
+                    </div>
+                    <TeamRecallInuries
+                      recallData={[
+                        {
+                          playerName: "Player 1",
+                          recall: "Recalled",
+                          link: "/player1",
+                        },
+                        {
+                          playerName: "Player 2",
+                          recall: "Reassigned",
+                          link: "/player2",
+                        },
+                      ]}
+                      injuryData={[
+                        {
+                          name: "Player 3",
+                          injury: "Knee Injury",
+                          link: "/player3",
+                        },
+                        {
+                          name: "Player 4",
+                          injury: "Shoulder Injury",
+                          link: "/player4",
+                        },
+                      ]}
+                    />
 
                     {/* <!-- FORWARDS CONTRACTS --> */}
                     <div>
