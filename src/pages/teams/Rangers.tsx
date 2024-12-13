@@ -16,6 +16,7 @@ import {
   vancouverDraft,
 } from "../../assets/Images";
 import { NewRangersFinancesType } from "../../types/interfaceTypes";
+import TeamFinances from "../../components/TeamFinances";
 
 function createInjuries(name: string, injury: string, link: string) {
   return { name, injury, link };
@@ -567,58 +568,22 @@ function Rangers() {
                 <div className="p-5 mb-4 mt-5 bg-light rounded-3">
                   <div className="container-fluid">
                     {/* <!-- TEAM FINANCES --> */}
-                    <div className="text-center">
-                      <h1 className="display-5 text">{rangers.teamName}</h1>
-                      <img
-                        style={{
-                          height: "80px",
-                          width: "80px",
-                          marginBottom: "5px",
-                        }}
-                        alt="Logo of the New York Rangers"
-                        src="https://cdn2.capfriendly.com/images/logos/new_york_rangers.svg"
-                      />
-                      <p className="text noMargin lead">
-                        PROJECTED CAP HIT : {rangers.projectedCapHit}
-                      </p>
-                      <p className="text noMargin lead">
-                        PROJECTED LTIR USED :{rangers.projectedLTIR}
-                      </p>
-                      <p className="text lead">
-                        PROJECTED CAP SPACE : {rangers.projectedCapSpace}
-                      </p>
-                      <p className="text noMargin">
-                        CURRENT CAP SPACE : {rangers.currentCapSpace}
-                      </p>
-                      <p className="text noMargin">
-                        DEADLINE CAP SPACE : {rangers.deadlineCapSpace}
-                      </p>
-                      <p className="text">
-                        TODAY'S CAP HIT : {rangers.todayCapHit}
-                      </p>
-                      <p className="text noMargin">
-                        ROSTER SIZE: {rangers.rosterSize}
-                      </p>
-                      <p className="text noMargin">
-                        CONTRACTS: {rangers.contracts}
-                      </p>
-                      <p className="text noMargin">
-                        RESERVE LIST: {rangers.reserveList}
-                      </p>
-                      <p className="text">INJURIES: {rangers.injuries}</p>
-                      <p className="text noMargin">
-                        GENERAL MANAGER:
-                        <Link to={""} className="playerName">
-                          {rangers.generalManager}
-                        </Link>
-                      </p>
-                      <p className="text">
-                        HEAD COACH:
-                        <Link to={""} className="playerName">
-                          {rangers.headCoach}
-                        </Link>
-                      </p>
-                    </div>
+                    <TeamFinances
+                      teamImage=""
+                      teamName={rangers.teamName}
+                      projectedCapHit={rangers.projectedCapHit}
+                      projectedLTIR={rangers.projectedLTIR}
+                      projectedCapSpace={rangers.projectedCapSpace}
+                      currentCapSpace={rangers.currentCapSpace}
+                      deadlineCapSpace={rangers.deadlineCapSpace}
+                      todayCapHit={rangers.todayCapHit}
+                      rosterSize={rangers.rosterSize}
+                      contracts={rangers.contracts}
+                      reserveList={rangers.reserveList}
+                      injuries={rangers.injuries}
+                      generalManager={rangers.generalManager}
+                      headCoach={rangers.headCoach}
+                    />
 
                     {/* <!-- DRAFT PICKS --> */}
                     <div>
@@ -675,7 +640,7 @@ function Rangers() {
                     </div>
 
                     {/* <!-- RECALLS & INJURIES --> */}
-                    <div className="container my-5">
+                    {/* <div className="container my-5">
                       <div className="row align-items-md-stretch">
                         <div className="col-lg-6">
                           <div className="h-100 p-5 bg-light border rounded-3">
@@ -753,7 +718,7 @@ function Rangers() {
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
 
                     {/* <!-- FORWARDS CONTRACTS --> */}
                     <div>
