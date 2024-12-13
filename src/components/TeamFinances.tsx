@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 export default function TeamFinances(props: {
+  teamImage: string | undefined;
   contracts?: string;
   currentCapSpace?: string;
   deadlineCapSpace?: string;
@@ -26,8 +27,8 @@ export default function TeamFinances(props: {
             width: "80px",
             marginBottom: "5px",
           }}
-          alt="Logo of the Philadelphia Flyers"
-          src="https://cdn2.capfriendly.com/images/logos/philadelphia_flyers.svg"
+          alt={`Logo of the ${props.teamName}`}
+          src={props.teamImage}
         ></img>
         <p className="text noMargin lead">
           PROJECTED CAP HIT : {props.projectedCapHit}
