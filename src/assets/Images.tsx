@@ -1002,7 +1002,21 @@ var nhlImg = (
   ></img>
 );
 
+var hockeyStick = (
+  <img
+    style={{
+      height: "15px",
+      width: "15px",
+      marginRight: "5px",
+      marginTop: "-2px",
+    }}
+    alt="Logo of the Stick"
+    src="src\assets\images\hockey_logo.png"
+  ></img>
+);
+
 export {
+  hockeyStick,
   nhlImg,
   nashvillePredDraft,
   nashvillePredImg,
