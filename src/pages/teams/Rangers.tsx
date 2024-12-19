@@ -550,6 +550,18 @@ const recallData = [
   createRecalls("Tyler Pitlick", "NHL - May 25", "#"),
 ];
 
+const formattedInjuryData = injuryData.map(({ name, injury, link }) => ({
+  name,
+  injury,
+  link,
+}));
+
+const formattedRecallData = recallData.map(({ playerName, recall, link }) => ({
+  playerName,
+  recall,
+  link,
+}));
+
 interface IProps {
   rangersFinance?: NewRangersFinancesType[];
 }
@@ -585,7 +597,6 @@ function Rangers() {
                       generalManager={rangers.generalManager}
                       headCoach={rangers.headCoach}
                     />
-
                     {/* <!-- DRAFT PICKS --> */}
                     <div>
                       <table className="table">
@@ -639,115 +650,12 @@ function Rangers() {
                         </tbody>
                       </table>
                     </div>
-
                     {/* <!-- RECALLS & INJURIES --> */}
-                    <div className="container my-5">
-                      <div className="row align-items-md-stretch">
-                        <div className="col-lg-6">
-                          <div className="h-100 p-5 bg-light border rounded-3">
-                            <h2 className="text-center">
-                              Recalls & Reassignments
-                            </h2>
-                            <TableContainer className="table">
-                              <Table aria-label="simple table">
-                                <TableBody>
-                                  {recallData.map((row) => (
-                                    <TableRow
-                                      key={row.playerName}
-                                      sx={{
-                                        "&:last-child td, &:last-child th":
-                                          null,
-                                      }}
-                                    >
-                                      <TableCell component="th" scope="row">
-                                        <Link to={row.link}>
-                                          {rangersImg}
-                                          {row.playerName}
-                                        </Link>
-                                      </TableCell>
-                                      <TableCell align="center">
-                                        {row.recall}
-                                      </TableCell>
-                                    </TableRow>
-                                  ))}
-                                </TableBody>
-                              </Table>
-                            </TableContainer>
-                            <button
-                              className="btn btn-outline-secondary btn-block"
-                              type="button"
-                            >
-                              See All
-                            </button>
-                          </div>
-                        </div>
-                        <div className="col-lg-6">
-                          <div className="h-100 p-5 bg-light border rounded-3">
-                            <h2 className="text-center">Injuries</h2>
-                            <TableContainer className="table">
-                              <Table aria-label="simple table">
-                                <TableBody>
-                                  {injuryData.map((row) => (
-                                    <TableRow
-                                      key={row.name}
-                                      sx={{
-                                        "&:last-child td, &:last-child th":
-                                          null,
-                                      }}
-                                    >
-                                      <TableCell component="th" scope="row">
-                                        <Link to={row.link}>
-                                          {" "}
-                                          {rangersImg}
-                                          {row.name}
-                                        </Link>
-                                      </TableCell>
-                                      <TableCell align="center">
-                                        {row.injury}
-                                      </TableCell>
-                                    </TableRow>
-                                  ))}
-                                </TableBody>
-                              </Table>
-                            </TableContainer>
-                            <button
-                              className="btn btn-outline-secondary btn-block"
-                              type="button"
-                            >
-                              See All
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                     <TeamRecallInuries
-                      recallData={[
-                        {
-                          playerName: "Player 1",
-                          recall: "Recalled",
-                          link: "/player1",
-                        },
-                        {
-                          playerName: "Player 2",
-                          recall: "Reassigned",
-                          link: "/player2",
-                        },
-                      ]}
-                      injuryData={[
-                        {
-                          name: "Player 3",
-                          injury: "Knee Injury",
-                          link: "/player3",
-                        },
-                        {
-                          name: "Player 4",
-                          injury: "Shoulder Injury",
-                          link: "/player4",
-                        },
-                      ]}
+                      recallData={formattedRecallData}
+                      injuryData={formattedInjuryData}
                     />
-
-                    {/* <!-- FORWARDS CONTRACTS --> */}
+                    ;{/* <!-- FORWARDS CONTRACTS --> */}
                     <div>
                       <TableContainer className="table">
                         <Table aria-label="player table">
@@ -940,7 +848,6 @@ function Rangers() {
                         </Table>
                       </TableContainer>
                     </div>
-
                     {/* <!-- DEFENSE CONTRACTS --> */}
                     <div>
                       <TableContainer className="table">
@@ -1134,7 +1041,6 @@ function Rangers() {
                         </Table>
                       </TableContainer>
                     </div>
-
                     {/* <!-- GOALIES CONTRACTS --> */}
                     <div>
                       <TableContainer className="table">
