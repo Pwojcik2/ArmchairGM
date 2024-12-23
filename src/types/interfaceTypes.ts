@@ -37,3 +37,15 @@ export interface FlyersFinancesType {
   todayCapHit?: string;
   id?: string;
 }
+
+interface RecallData {
+  playerName: string;
+  recall: string;
+  link: string;
+}
+
+interface InjuryData {
+  name: string;
+  injury: string;
+  link: string;
+}
