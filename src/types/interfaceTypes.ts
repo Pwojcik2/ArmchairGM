@@ -38,14 +38,31 @@ export interface FlyersFinancesType {
   id?: string;
 }
 
-interface RecallData {
+export interface RecallData {
   playerName: string;
   recall: string;
   link: string;
 }
 
-interface InjuryData {
+export interface InjuryData {
   name: string;
   injury: string;
   link: string;
 }
+
+export type ForwardData = {
+  name: string;
+  terms: string;
+  pos: string;
+  status: string;
+  acquired: string;
+  age: number;
+  cap: string;
+  year2024: string;
+  year2025: string;
+  year2026: string;
+  year2027: string;
+  year2028: string;
+  year2029: string;
+  link: string;
+};
