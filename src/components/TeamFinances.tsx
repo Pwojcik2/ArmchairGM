@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 export default function TeamFinances(props: {
-  teamImage: string | undefined;
+  // teamImage: string | undefined;
   contracts?: string;
   currentCapSpace?: string;
   deadlineCapSpace?: string;
@@ -28,7 +28,7 @@ export default function TeamFinances(props: {
             marginBottom: "5px",
           }}
           alt={`Logo of the ${props.teamName}`}
-          src={props.teamImage}
+          // src={props.teamImage}
         ></img>
         <p className="text noMargin lead">
           PROJECTED CAP HIT : {props.projectedCapHit}

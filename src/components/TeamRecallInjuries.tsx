@@ -6,7 +6,6 @@ import {
   TableCell,
 } from "@mui/material";
 import { Link } from "react-router-dom";
-import { flyersImg } from "../assets/Images";
 
 interface RecallData {
   playerName: string;

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { hockeyStick } from "../assets/Images";
 
 function Navbar() {
   return (

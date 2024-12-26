@@ -10,8 +10,6 @@ import Wild from "./pages/teams/wild.tsx";
 import Islanders from "./pages/teams/Islanders.tsx";
 import Capitals from "./pages/teams/Capitals.tsx";
 import Canadiens from "./pages/teams/Canadiens.tsx";
-import CapSpace from "./pages/home/CapSpace.tsx";
-import Teams from "./pages/teams/Teams.tsx";
 
 const router = createBrowserRouter([
   {

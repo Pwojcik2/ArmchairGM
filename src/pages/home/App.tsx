@@ -25,7 +25,6 @@ import {
   NewRangersFinancesType,
   NewRangersType,
 } from "../../types/interfaceTypes";
-import CapSpace from "./CapSpace";
 import {
   anaheimImg,
   avalancheImg,
