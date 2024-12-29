@@ -6,6 +6,7 @@ export const firestore = getFirestore(app);
 //COLLECTIONS
 export const rangersCollection = collection(firestore, "rangers");
 export const rangersFinanceCollection = collection(firestore, "rangersFinance");
+export const flyersFinanceCollection = collection(firestore, "flyersFinance");
 
 const fetchRangersCollection = async () => {
   try {
