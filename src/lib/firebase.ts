@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAqxGmMA3OpyDx68HXlz2DIqhj6ygH18sg",
+  apiKey: import.meta.env.VITE_GOOGLE_API_KEY,
   authDomain: "cpcheck-afe23.firebaseapp.com",
   projectId: "cpcheck-afe23",
   storageBucket: "cpcheck-afe23.appspot.com",
