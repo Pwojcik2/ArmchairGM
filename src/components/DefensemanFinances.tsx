@@ -8,14 +8,14 @@ import {
   TableBody,
 } from "@mui/material";
 import { Link } from "react-router-dom";
-import { ForwardData } from "../types/interfaceTypes";
+import { DefenseData } from "../types/interfaceTypes";
 
 type DefensemenContractsTableProps = {
-  forwardData: ForwardData[]; // Array of ForwardData objects
+  defenseData: DefenseData[]; // Array of ForwardData objects
 };
 
 const DefensemenContractsTable: React.FC<DefensemenContractsTableProps> = ({
-  forwardData,
+  defenseData,
 }) => {
   return (
     <div>
@@ -24,7 +24,7 @@ const DefensemenContractsTable: React.FC<DefensemenContractsTableProps> = ({
           <TableHead>
             <TableRow className="tableTop">
               <TableCell scope="col" className="tableTitle">
-                FORWARDS (12 - $46,754,524)
+                DEFENSE (4 - $22,184,500)
               </TableCell>
               <TableCell scope="col" className="tableTitle text-center">
                 TERMS
@@ -63,7 +63,7 @@ const DefensemenContractsTable: React.FC<DefensemenContractsTableProps> = ({
             </TableRow>
           </TableHead>
           <TableBody>
-            {forwardData.map((row) => (
+            {defenseData.map((row) => (
               <TableRow
                 key={row.name}
                 className="text-center"
