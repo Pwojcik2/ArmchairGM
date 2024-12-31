@@ -66,3 +66,20 @@ export type ForwardData = {
   year2029: string;
   link: string;
 };
+
+export type DefenseData = {
+  name: string;
+  terms: string;
+  pos: string;
+  status: string;
+  acquired: string;
+  age: number;
+  cap: string;
+  year2024: string;
+  year2025: string;
+  year2026: string;
+  year2027: string;
+  year2028: string;
+  year2029: string;
+  link: string;
+};
