@@ -22,6 +22,7 @@ import TeamRecallInuries from "../../components/TeamRecallInjuries";
 import ForwardFinances from "../../components/ForwardFinances";
 import { ForwardData } from "../../types/interfaceTypes";
 import DefensemenContractsTable from "../../components/DefensemanFinances";
+import GoalieContractsTable from "../../components/GoalieFinanaces";
 
 function createInjuries(name: string, injury: string, link: string) {
   return { name, injury, link };
@@ -669,7 +670,7 @@ function Rangers() {
                     </div>
                     {/* <!-- GOALIES CONTRACTS --> */}
                     <div>
-                      <TableContainer className="table">
+                      {/* <TableContainer className="table">
                         <Table aria-label="goalies table">
                           <TableHead>
                             <TableRow className="text-center tableTop">
@@ -858,7 +859,8 @@ function Rangers() {
                             ))}
                           </TableBody>
                         </Table>
-                      </TableContainer>
+                      </TableContainer> */}
+                      <GoalieContractsTable goalieData={goalieData} />
                     </div>
                   </div>
                 </div>
