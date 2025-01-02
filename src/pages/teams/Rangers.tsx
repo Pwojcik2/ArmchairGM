@@ -17,6 +17,7 @@ import {
   DefenseData,
   GoalieData,
   NewRangersFinancesType,
+  TeamDraftPicksProps,
 } from "../../types/interfaceTypes";
 import TeamFinances from "../../components/TeamFinances";
 import TeamRecallInuries from "../../components/TeamRecallInjuries";
@@ -24,6 +25,7 @@ import ForwardFinances from "../../components/ForwardFinances";
 import { ForwardData } from "../../types/interfaceTypes";
 import DefensemenContractsTable from "../../components/DefensemanFinances";
 import GoalieContractsTable from "../../components/GoalieFinanaces";
+import TeamDraftPicks from "../../components/TeamDraftPicks";
 
 function createInjuries(name: string, injury: string, link: string) {
   return { name, injury, link };
@@ -31,40 +33,6 @@ function createInjuries(name: string, injury: string, link: string) {
 
 function createRecalls(playerName: string, recall: string, link: string) {
   return { playerName, recall, link };
-}
-
-function createPlayer(
-  name: string,
-  terms: string,
-  pos: string,
-  status: string,
-  acquired: string,
-  age: number,
-  cap: string,
-  year2024: string,
-  year2025: string,
-  year2026: string,
-  year2027: string,
-  year2028: string,
-  year2029: string,
-  link: string
-) {
-  return {
-    name,
-    terms,
-    pos,
-    status,
-    acquired,
-    age,
-    cap,
-    year2024,
-    year2025,
-    year2026,
-    year2027,
-    year2028,
-    year2029,
-    link,
-  };
 }
 
 const forwardData: ForwardData[] = [
@@ -556,6 +524,45 @@ const recallData = [
   createRecalls("Tyler Pitlick", "NHL - May 25", "#"),
 ];
 
+const draftData: TeamDraftPicksProps["data"] = [
+  {
+    year: "2024",
+    rounds: [
+      rangersDraftImg,
+      rangersDraftImgTraded,
+      rangersDraftImgTraded,
+      rangersDraftImg,
+      rangersDraftImg,
+      rangersDraftImg,
+      rangersDraftImg,
+    ],
+  },
+  {
+    year: "2025",
+    rounds: [
+      rangersDraftImg,
+      rangersDraftImgTraded,
+      rangersDraftImgTraded,
+      rangersDraftImgTraded,
+      `${rangersDraftImg} ${minnesotaDraft}`,
+      rangersDraftImg,
+      rangersDraftImg,
+    ],
+  },
+  {
+    year: "2026",
+    rounds: [
+      rangersDraftImg,
+      rangersDraftImgTraded,
+      rangersDraftImg,
+      rangersDraftImgTraded,
+      rangersDraftImg,
+      rangersDraftImg,
+      `${rangersDraftImg} ${vancouverDraft}`,
+    ],
+  },
+];
+
 const formattedInjuryData = injuryData.map(({ name, injury, link }) => ({
   name,
   injury,
@@ -603,264 +610,28 @@ function Rangers() {
                       generalManager={rangers.generalManager}
                       headCoach={rangers.headCoach}
                     />
+
                     {/* <!-- DRAFT PICKS --> */}
-                    <div>
-                      <table className="table">
-                        <thead>
-                          <tr className="text-center">
-                            <th scope="col">DRAFT</th>
-                            <th scope="col">ROUND 1</th>
-                            <th scope="col">ROUND 2</th>
-                            <th scope="col">ROUND 3</th>
-                            <th scope="col">ROUND 4</th>
-                            <th scope="col">ROUND 5</th>
-                            <th scope="col">ROUND 6</th>
-                            <th scope="col">ROUND 7</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr className="text-center">
-                            <td>2024</td>
-                            <td>{rangersDraftImg}</td>
-                            <td>{rangersDraftImgTraded}</td>
-                            <td>{rangersDraftImgTraded}</td>
-                            <td>{rangersDraftImg}</td>
-                            <td>{rangersDraftImg}</td>
-                            <td>{rangersDraftImg}</td>
-                            <td>{rangersDraftImg}</td>
-                          </tr>
-                          <tr className="text-center">
-                            <td>2025</td>
-                            <td>{rangersDraftImg}</td>
-                            <td>{rangersDraftImgTraded}</td>
-                            <td>{rangersDraftImgTraded}</td>
-                            <td>{rangersDraftImgTraded}</td>
-                            <td>
-                              {rangersDraftImg} {minnesotaDraft}
-                            </td>
-                            <td>{rangersDraftImg}</td>
-                            <td>{rangersDraftImg}</td>
-                          </tr>
-                          <tr className="text-center">
-                            <td>2026</td>
-                            <td>{rangersDraftImg}</td>
-                            <td>{rangersDraftImgTraded}</td>
-                            <td>{rangersDraftImg}</td>
-                            <td>{rangersDraftImgTraded}</td>
-                            <td>{rangersDraftImg}</td>
-                            <td>{rangersDraftImg}</td>
-                            <td>
-                              {rangersDraftImg} {vancouverDraft}
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
+                    <TeamDraftPicks data={draftData} />
+
                     {/* <!-- RECALLS & INJURIES --> */}
                     <TeamRecallInuries
                       recallData={formattedRecallData}
                       injuryData={formattedInjuryData}
                     />
+
                     {/* <!-- FORWARDS CONTRACTS --> */}
                     <div>
                       <ForwardFinances forwardData={forwardData} />
                     </div>
+
                     {/* <!-- DEFENSE CONTRACTS --> */}
                     <div>
                       <DefensemenContractsTable defenseData={defenseData} />
                     </div>
+
                     {/* <!-- GOALIES CONTRACTS --> */}
                     <div>
-                      {/* <TableContainer className="table">
-                        <Table aria-label="goalies table">
-                          <TableHead>
-                            <TableRow className="text-center tableTop">
-                              <TableCell scope="col" className="tableTitle">
-                                GOALIES (2 - $6,941,667)
-                              </TableCell>
-                              <TableCell
-                                scope="col"
-                                className="tableTitle text-center"
-                              >
-                                TERMS
-                              </TableCell>
-                              <TableCell
-                                scope="col"
-                                className="tableTitle text-center"
-                              >
-                                POS
-                              </TableCell>
-                              <TableCell
-                                scope="col"
-                                className="tableTitle text-center"
-                              >
-                                STATUS
-                              </TableCell>
-                              <TableCell
-                                scope="col"
-                                className="tableTitle text-center"
-                              >
-                                ACQUIRED
-                              </TableCell>
-                              <TableCell
-                                scope="col"
-                                className="tableTitle text-center"
-                              >
-                                AGE
-                              </TableCell>
-                              <TableCell
-                                scope="col"
-                                className="tableTitle text-center"
-                              >
-                                CAP%
-                              </TableCell>
-                              <TableCell
-                                scope="col"
-                                className="tableTitle text-center"
-                              >
-                                2024-25
-                              </TableCell>
-                              <TableCell
-                                scope="col"
-                                className="tableTitle text-center"
-                              >
-                                2025-26
-                              </TableCell>
-                              <TableCell
-                                scope="col"
-                                className="tableTitle text-center"
-                              >
-                                2026-27
-                              </TableCell>
-                              <TableCell
-                                scope="col"
-                                className="tableTitle text-center"
-                              >
-                                2027-28
-                              </TableCell>
-                              <TableCell
-                                scope="col"
-                                className="tableTitle text-center"
-                              >
-                                2028-29
-                              </TableCell>
-                              <TableCell
-                                scope="col"
-                                className="tableTitle text-center"
-                              >
-                                2029-30
-                              </TableCell>
-                            </TableRow>
-                          </TableHead>
-                          <TableBody>
-                            {goaliesData.map((row) => (
-                              <TableRow
-                                key={row.name}
-                                className="text-center"
-                                sx={{
-                                  "&:last-child td, &:last-child th": {
-                                    border: 0,
-                                  },
-                                }}
-                              >
-                                <TableCell className="text-left">
-                                  {row.name !== "TOTAL" ? (
-                                    <Link to={row.link} className="playerName">
-                                      {row.name}
-                                    </Link>
-                                  ) : (
-                                    row.name
-                                  )}
-                                </TableCell>
-                                <TableCell className="text-center text-nowrap">
-                                  {row.terms}
-                                </TableCell>
-                                <TableCell className="text-center text-nowrap">
-                                  {row.pos}
-                                </TableCell>
-                                <TableCell className="text-center text-nowrap">
-                                  {row.status}
-                                </TableCell>
-                                <TableCell className="text-center text-nowrap">
-                                  {row.acquired}
-                                </TableCell>
-                                <TableCell className="text-center text-nowrap">
-                                  {row.age}
-                                </TableCell>
-                                <TableCell className="text-center text-nowrap">
-                                  {row.cap}
-                                </TableCell>
-                                <TableCell
-                                  className={
-                                    row.year2024 === "UFA"
-                                      ? "redUFA text-center"
-                                      : row.year2024 === "RFA"
-                                      ? "blueRFA text-center"
-                                      : ""
-                                  }
-                                >
-                                  {row.year2024}
-                                </TableCell>
-                                <TableCell
-                                  className={
-                                    row.year2025 === "UFA"
-                                      ? "redUFA text-center"
-                                      : row.year2025 === "RFA"
-                                      ? "blueRFA text-center"
-                                      : ""
-                                  }
-                                >
-                                  {row.year2025}
-                                </TableCell>
-                                <TableCell
-                                  className={
-                                    row.year2026 === "UFA"
-                                      ? "redUFA text-center"
-                                      : row.year2026 === "RFA"
-                                      ? "blueRFA text-center"
-                                      : ""
-                                  }
-                                >
-                                  {row.year2026}
-                                </TableCell>
-                                <TableCell
-                                  className={
-                                    row.year2027 === "UFA"
-                                      ? "redUFA text-center"
-                                      : row.year2027 === "RFA"
-                                      ? "blueRFA text-center"
-                                      : ""
-                                  }
-                                >
-                                  {row.year2027}
-                                </TableCell>
-                                <TableCell
-                                  className={
-                                    row.year2028 === "UFA"
-                                      ? "redUFA text-center"
-                                      : row.year2028 === "RFA"
-                                      ? "blueRFA text-center"
-                                      : ""
-                                  }
-                                >
-                                  {row.year2028}
-                                </TableCell>
-                                <TableCell
-                                  className={
-                                    row.year2029 === "UFA"
-                                      ? "redUFA text-center"
-                                      : row.year2029 === "RFA"
-                                      ? "blueRFA text-center"
-                                      : ""
-                                  }
-                                >
-                                  {row.year2029}
-                                </TableCell>
-                              </TableRow>
-                            ))}
-                          </TableBody>
-                        </Table>
-                      </TableContainer> */}
                       <GoalieContractsTable goalieData={goalieData} />
                     </div>
                   </div>
