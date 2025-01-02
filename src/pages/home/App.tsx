@@ -14,7 +14,7 @@ import {
   NewRangersFinancesType,
   NewRangersType,
 } from "../../types/interfaceTypes";
-import {
+import Images, {
   anaheimImg,
   avalancheImg,
   blackhawksImg,
