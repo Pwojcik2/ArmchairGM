@@ -15,6 +15,7 @@ import {
 } from "../../assets/Images";
 import {
   DefenseData,
+  GoalieData,
   NewRangersFinancesType,
 } from "../../types/interfaceTypes";
 import TeamFinances from "../../components/TeamFinances";
@@ -488,55 +489,55 @@ const defenseData: DefenseData[] = [
   },
 ];
 
-const goaliesData = [
-  createPlayer(
-    "Shesterkin, Igor",
-    "M-NTC",
-    "G",
-    "NHL",
-    "Draft",
-    28,
-    "6.4",
-    "$5,666,667",
-    "UFA",
-    "",
-    "",
-    "",
-    "",
-    "#"
-  ),
-  createPlayer(
-    "Quick, Jonathan",
-    "35+ M-NTC",
-    "G",
-    "NHL",
-    "Signed",
-    38,
-    "1.4",
-    "$1,275,000",
-    "UFA",
-    "",
-    "",
-    "",
-    "",
-    "#"
-  ),
-  createPlayer(
-    "TOTAL",
-    "",
-    "",
-    "",
-    "",
-    33.0,
-    "7.9",
-    "$6,941,667",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "#"
-  ),
+const goalieData: GoalieData[] = [
+  {
+    name: "Shesterkin, Igor",
+    terms: "M-NTC",
+    pos: "G",
+    status: "NHL",
+    acquired: "Draft",
+    age: 28,
+    cap: "6.4",
+    year2024: "$5,666,667",
+    year2025: "UFA",
+    year2026: "",
+    year2027: "",
+    year2028: "",
+    year2029: "",
+    link: "#",
+  },
+  {
+    name: "Quick, Jonathan",
+    terms: "35+ M-NTC",
+    pos: "G",
+    status: "NHL",
+    acquired: "Signed",
+    age: 38,
+    cap: "1.4",
+    year2024: "$1,275,000",
+    year2025: "UFA",
+    year2026: "",
+    year2027: "",
+    year2028: "",
+    year2029: "",
+    link: "#",
+  },
+  {
+    name: "TOTAL",
+    terms: "",
+    pos: "",
+    status: "",
+    acquired: "",
+    age: 33.0,
+    cap: "7.9",
+    year2024: "$6,941,667",
+    year2025: "",
+    year2026: "",
+    year2027: "",
+    year2028: "",
+    year2029: "",
+    link: "#",
+  },
 ];
 
 const injuryData = [
