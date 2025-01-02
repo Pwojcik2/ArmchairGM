@@ -100,3 +100,10 @@ export type GoalieData = {
   year2029: string;
   link: string;
 };
+
+export type TeamDraftPicksProps = {
+  data: {
+    year: string;
+    rounds: (string | JSX.Element)[];
+  }[];
+};
