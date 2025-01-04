@@ -8,12 +8,14 @@ import {
 import { Link } from "react-router-dom";
 
 interface RecallData {
+  teamImage: string | undefined;
   playerName: string;
   recall: string;
   link: string;
 }
 
 interface InjuryData {
+  teamImage: string | undefined;
   name: string;
   injury: string;
   link: string;
@@ -43,9 +45,14 @@ export default function TeamRecallInuries(props: {
                       <TableCell component="th" scope="row">
                         <Link to={row.link}>
                           <img
-                            // src={row.image || flyersImg} // Use a fallback image if `row.image` is not provided
+                            src={row.teamImage}
                             alt="Team Logo"
-                            style={{ width: "30px", marginRight: "8px" }}
+                            style={{
+                              height: "15px",
+                              width: "15px",
+                              marginRight: "5px",
+                              marginTop: "-2px",
+                            }}
                           />
                           {row.playerName}
                         </Link>
@@ -82,9 +89,14 @@ export default function TeamRecallInuries(props: {
                       <TableCell component="th" scope="row">
                         <Link to={row.link}>
                           <img
-                            // src={row.image || flyersImg} // Use a fallback image if `row.image` is not provided
+                            src={row.teamImage}
                             alt="Team Logo"
-                            style={{ width: "30px", marginRight: "8px" }}
+                            style={{
+                              height: "15px",
+                              width: "15px",
+                              marginRight: "5px",
+                              marginTop: "-2px",
+                            }}
                           />
                           {row.name}
                         </Link>

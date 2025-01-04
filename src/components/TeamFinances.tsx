@@ -53,13 +53,13 @@ export default function TeamFinances(props: {
         <p className="text noMargin">
           GENERAL MANAGER:
           <Link to={" "} className="playerName">
-            {props.generalManager}
+            &nbsp;{props.generalManager}
           </Link>
         </p>
         <p className="text">
           HEAD COACH:
           <Link to={" "} className="playerName">
-            {props.headCoach}
+            &nbsp;{props.headCoach}
           </Link>
         </p>
       </div>

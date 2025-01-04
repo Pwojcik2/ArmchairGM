@@ -16,12 +16,22 @@ import GoalieContractsTable from "../../components/GoalieFinanaces";
 import TeamDraftPicks from "../../components/TeamDraftPicks";
 import Images from "../../assets/Images";
 
-function createInjuries(name: string, injury: string, link: string) {
-  return { name, injury, link };
+function createInjuries(
+  teamImage: string,
+  name: string,
+  injury: string,
+  link: string
+) {
+  return { teamImage, name, injury, link };
 }
 
-function createRecalls(playerName: string, recall: string, link: string) {
-  return { playerName, recall, link };
+function createRecalls(
+  teamImage: string,
+  playerName: string,
+  recall: string,
+  link: string
+) {
+  return { teamImage, playerName, recall, link };
 }
 
 const forwardData: ForwardData[] = [
@@ -498,19 +508,29 @@ const goalieData: GoalieData[] = [
 ];
 
 const injuryData = [
-  createInjuries("Jimmy Vesey", "Upper Body(Wk to wk) - May 26", "#"),
-  createInjuries("Filip Chytil", "Cleared - May 22", "#"),
-  createInjuries("Blake Wheeler", "Cleared - May 16", "#"),
-  createInjuries("Filip Chytil", "Cleared - May 9", "#"),
-  createInjuries("Erik Gustafsson", "Cleared - Apr. 3", "#"),
+  createInjuries(
+    Images.rangersImg,
+    "Jimmy Vesey",
+    "Upper Body(Wk to wk) - May 26",
+    "#"
+  ),
+  createInjuries(Images.rangersImg, "Filip Chytil", "Cleared - May 22", "#"),
+  createInjuries(Images.rangersImg, "Blake Wheeler", "Cleared - May 16", "#"),
+  createInjuries(Images.rangersImg, "Filip Chytil", "Cleared - May 9", "#"),
+  createInjuries(Images.rangersImg, "Erik Gustafsson", "Cleared - Apr. 3", "#"),
 ];
 
 const recallData = [
-  createRecalls("Louis Domingue", "Set to Roster - May 25", "#"),
-  createRecalls("Adam Sýkora", "NHL - May 25", "#"),
-  createRecalls("Brandon Scanlin", "NHL - May 25", "#"),
-  createRecalls("Matthew Robertson", "NHL - May 25", "#"),
-  createRecalls("Tyler Pitlick", "NHL - May 25", "#"),
+  createRecalls(
+    Images.rangersImg,
+    "Louis Domingue",
+    "Set to Roster - May 25",
+    "#"
+  ),
+  createRecalls(Images.rangersImg, "Adam Sýkora", "NHL - May 25", "#"),
+  createRecalls(Images.rangersImg, "Brandon Scanlin", "NHL - May 25", "#"),
+  createRecalls(Images.rangersImg, "Matthew Robertson", "NHL - May 25", "#"),
+  createRecalls(Images.rangersImg, "Tyler Pitlick", "NHL - May 25", "#"),
 ];
 
 const draftData: TeamDraftPicksProps["data"] = [
@@ -536,7 +556,6 @@ const draftData: TeamDraftPicksProps["data"] = [
       Images.rangersImg,
       Images.rangersImg,
       Images.rangersImg,
-      ,
     ],
   },
   {
@@ -553,17 +572,23 @@ const draftData: TeamDraftPicksProps["data"] = [
   },
 ];
 
-const formattedInjuryData = injuryData.map(({ name, injury, link }) => ({
-  name,
-  injury,
-  link,
-}));
+const formattedInjuryData = injuryData.map(
+  ({ teamImage, name, injury, link }) => ({
+    teamImage,
+    name,
+    injury,
+    link,
+  })
+);
 
-const formattedRecallData = recallData.map(({ playerName, recall, link }) => ({
-  playerName,
-  recall,
-  link,
-}));
+const formattedRecallData = recallData.map(
+  ({ teamImage, playerName, recall, link }) => ({
+    teamImage,
+    playerName,
+    recall,
+    link,
+  })
+);
 
 interface IProps {
   rangersFinance?: NewRangersFinancesType[];
