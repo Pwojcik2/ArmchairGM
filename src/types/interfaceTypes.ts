@@ -104,6 +104,6 @@ export type GoalieData = {
 export type TeamDraftPicksProps = {
   data: {
     year: string;
-    rounds: (string | JSX.Element)[];
+    rounds: string[]; // Array of image paths
   }[];
 };
