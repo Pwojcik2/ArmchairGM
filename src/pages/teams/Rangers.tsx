@@ -1,18 +1,6 @@
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import "../home/App.css";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import {
-  rangersDraftImg,
-  rangersDraftImgTraded,
-  minnesotaDraft,
-  vancouverDraft,
-} from "../../assets/Images";
 import {
   DefenseData,
   GoalieData,
@@ -26,6 +14,7 @@ import { ForwardData } from "../../types/interfaceTypes";
 import DefensemenContractsTable from "../../components/DefensemanFinances";
 import GoalieContractsTable from "../../components/GoalieFinanaces";
 import TeamDraftPicks from "../../components/TeamDraftPicks";
+import Images from "../../assets/Images";
 
 function createInjuries(name: string, injury: string, link: string) {
   return { name, injury, link };
@@ -528,37 +517,38 @@ const draftData: TeamDraftPicksProps["data"] = [
   {
     year: "2024",
     rounds: [
-      rangersDraftImg,
-      rangersDraftImgTraded,
-      rangersDraftImgTraded,
-      rangersDraftImg,
-      rangersDraftImg,
-      rangersDraftImg,
-      rangersDraftImg,
+      Images.rangersImg,
+      Images.rangersImg,
+      Images.rangersImgTraded,
+      Images.rangersImg,
+      Images.rangersImg,
+      Images.rangersImg,
+      Images.rangersImg,
     ],
   },
   {
     year: "2025",
     rounds: [
-      rangersDraftImg,
-      rangersDraftImgTraded,
-      rangersDraftImgTraded,
-      rangersDraftImgTraded,
-      `${rangersDraftImg} ${minnesotaDraft}`,
-      rangersDraftImg,
-      rangersDraftImg,
+      Images.rangersImg,
+      Images.rangersImgTraded,
+      Images.rangersImgTraded,
+      Images.rangersImgTraded,
+      Images.rangersImg,
+      Images.rangersImg,
+      Images.rangersImg,
+      ,
     ],
   },
   {
     year: "2026",
     rounds: [
-      rangersDraftImg,
-      rangersDraftImgTraded,
-      rangersDraftImg,
-      rangersDraftImgTraded,
-      rangersDraftImg,
-      rangersDraftImg,
-      `${rangersDraftImg} ${vancouverDraft}`,
+      Images.rangersImg,
+      Images.rangersImgTraded,
+      Images.rangersImg,
+      Images.rangersImgTraded,
+      Images.rangersImg,
+      Images.rangersImg,
+      Images.rangersImg,
     ],
   },
 ];
@@ -595,7 +585,7 @@ function Rangers() {
                   <div className="container-fluid">
                     {/* <!-- TEAM FINANCES --> */}
                     <TeamFinances
-                      // teamImage=""
+                      teamImage={Images.rangersImg}
                       teamName={rangers.teamName}
                       projectedCapHit={rangers.projectedCapHit}
                       projectedLTIR={rangers.projectedLTIR}
